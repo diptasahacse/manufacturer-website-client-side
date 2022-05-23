@@ -1,4 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const RequestQuoteSection = () => {
     return (
@@ -10,9 +12,13 @@ const RequestQuoteSection = () => {
                         <p className='font-bold text-lg'>Dedicated Customer Teams & An Agile Services</p>
                         <h3 className='font-bold text-5xl text-white'>Serving Impressive List Of Long Term Clients!</h3>
                         <p className='font-bold text-lg mt-7 text-white'>Our worldwide presence ensures timeliness, cost efficiency and compliance adherence required to ensure your timelines are met. Serving with experience and expertise in multiple industries, as one of the World’s leading Corporation!</p>
+
+                        <button className='btn btn-outline mt-12'>Join Now
+                        <span className='ml-3'><FontAwesomeIcon icon={faArrowRight} /></span>
+                        </button>
                     </div>
                     <div>
-                        <div class="card bg-white shadow-xl lg:mt-[-50px] lg:mb-[-50px]">
+                        <div class="card bg-base-200 shadow-xl lg:mt-[-50px] lg:mb-[-50px]">
                             <div class="card-body">
                                 <h2 class="card-title">Request A Quote</h2>
                                 <p className='text-lg text-gray-500'>Complete control over products allows us to ensure our customers receive the best quality prices and service.</p>
@@ -44,7 +50,7 @@ const RequestQuoteSection = () => {
                                         <textarea placeholder='Message' className='border p-4 rounded-lg focus:outline focus:outline-2 focus:outline-primary focus:outline-offset-2' rows="5"></textarea>
                                     </div>
 
-                                    <button class="btn mt-5 btn-primary">Submit</button>
+                                    <button class="btn mt-5 btn-primary">Submit Request</button>
                                 </div>
                             </div>
                         </div>
