@@ -10,8 +10,8 @@ const BusinessSummery = () => {
                 <div className='py-9 px-3 max-w-7xl mx-auto'>
                     <CustomTitle title='Business Summery'></CustomTitle>
 
-                    <div className='grid mt-7 grid-cols-3 gap-36'>
-                        <div className='flex items-center'>
+                    <div className='grid mt-7 grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-36'>
+                        <div className='flex justify-center items-center'>
                             <span className='text-6xl text-secondary '>
                                 <FontAwesomeIcon icon={faUsers} />
                             </span>
@@ -20,7 +20,7 @@ const BusinessSummery = () => {
                                 <p className='text-left text-2xl text-secondary'>Users</p>
                             </div>
                         </div>
-                        <div className='flex items-center'>
+                        <div className='flex justify-center items-center'>
                             <span className='text-6xl text-secondary '>
                                 <FontAwesomeIcon icon={faScrewdriverWrench} />
                             </span>
@@ -29,7 +29,7 @@ const BusinessSummery = () => {
                                 <p className='text-left text-2xl text-secondary'>Tools</p>
                             </div>
                         </div>
-                        <div className='flex items-center'>
+                        <div className='flex justify-center items-center'>
                             <span className='text-6xl text-secondary '>
                                 <FontAwesomeIcon icon={faHeart} />
                             </span>
