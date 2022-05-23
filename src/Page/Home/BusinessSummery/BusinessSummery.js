@@ -7,7 +7,7 @@ const BusinessSummery = () => {
         <div class="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
             <div class="hero-overlay bg-opacity-90"></div>
             <div class="hero-content text-center text-neutral-content">
-                <div className='py-9 px-3 max-w-7xl mx-auto'>
+                <div className='pt-9 pb-20 px-3 max-w-7xl mx-auto'>
                     <CustomTitle title='Business Summery'></CustomTitle>
 
                     <div className='grid mt-7 grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-36'>
