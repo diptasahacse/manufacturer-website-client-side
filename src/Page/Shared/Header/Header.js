@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div className='base-100 border-b-4 border-primary'>
+        <div className='bg-transparent border-b-4 border-primary'>
             <div className='max-w-7xl mx-auto'>
                 <div class="navbar">
                     <div class="navbar-start">
