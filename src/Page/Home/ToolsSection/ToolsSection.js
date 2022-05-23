@@ -5,7 +5,7 @@ import ProductsCard from './ProductsCard/ProductsCard';
 const ToolsSection = () => {
     const [allTools, setAllTools] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://infinite-chamber-43931.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setAllTools(data))
 
