@@ -1,6 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddReview from './Page/Dashboard/AddReview/AddReview';
 import Dashboard from './Page/Dashboard/Dashboard';
+import MyOrders from './Page/Dashboard/MyOrders/MyOrders';
+import MyProfile from './Page/Dashboard/MyProfile/MyProfile';
 import Home from './Page/Home/Home';
 import Purchase from './Page/Purchase/Purchase';
 import ResetPassword from './Page/ResetPassword/ResetPassword';
@@ -9,8 +12,7 @@ import Header from './Page/Shared/Header/Header';
 import RequireAuth from './Page/Shared/RequireAuth/RequireAuth';
 import SignIn from './Page/SignIn/SignIn';
 import SignUp from './Page/SignUp/SignUp';
-import UserProfile from './Page/User/UserProfile/UserProfile';
-import UserProfileSetting from './Page/User/UserProfileSetting/UserProfileSetting';
+
 
 function App() {
   return (
@@ -24,17 +26,9 @@ function App() {
         <Route path='/resetpassword' element={<ResetPassword></ResetPassword>}></Route>
 
 
-        <Route path='/userprofile' element={
-          <RequireAuth>
-            <UserProfile></UserProfile>
-          </RequireAuth>
-        }></Route>
+    
 
-        <Route path='/profilesetting' element={
-          <RequireAuth>
-            <UserProfileSetting></UserProfileSetting>
-          </RequireAuth>
-        }></Route>
+        
 
 
 
@@ -43,7 +37,16 @@ function App() {
           <RequireAuth>
             <Dashboard></Dashboard>
           </RequireAuth>
-        }></Route>
+        }>
+          <Route index element={<MyProfile></MyProfile>}></Route>
+
+          <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
+          <Route path='addreview' element={<AddReview></AddReview>}></Route>
+
+
+
+
+        </Route>
 
         {/* End Dashboard */}
 

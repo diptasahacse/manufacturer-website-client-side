@@ -25,26 +25,22 @@ const Header = () => {
                             </label>
                             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><Link to='/'>Home</Link></li>
+                                <li><Link to='/dashboard'>Dashboard</Link></li>
+                                {/* Start Dropdown */}
                                 {user ?
-                                    <div class="dropdown dropdown-end">
-                                        <label tabindex="20" class="btn btn-ghost btn-circle avatar">
-                                            <div class="w-10 rounded-full">
-                                                <img alt={user?.displayName} src={user?.photoURL ? user?.photoURL : 'https://i.ibb.co/6tx0kNh/user.png'} />
-                                            </div>
-                                        </label>
-                                        <ul tabindex="20" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                            <li>
-                                                <a class="justify-between">
-                                                    Profile
-                                                </a>
-                                            </li>
-                                            <li><a>Settings</a></li>
-                                            <li><button onClick={singOutHandler}>Sign out</button></li>
+                                    <li tabindex="0">
+                                        <a className='text-primary font-bold'>
+                                            {user?.displayName}
+                                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+                                        </a>
+                                        <ul class="p-2 bg-base-100">
+                                            <li><button className='text-red-500' onClick={singOutHandler}>Sign out</button></li>
                                         </ul>
-                                    </div>
+                                    </li>
                                     :
                                     <li><Link to='/signin'>Sign In</Link></li>
                                 }
+                                {/* End Dropdown */}
                             </ul>
                         </div>
                         <Link to='/' className='btn btn-ghost text-primary normal-case text-2xl'>useTools</Link>
@@ -55,38 +51,18 @@ const Header = () => {
                             <li><Link to='/dashboard'>Dashboard</Link></li>
                             {/* Start Dropdown */}
                             {user ?
-                                // <div class="dropdown">
-                                //     <label tabindex="20" class="btn btn-ghost btn-circle avatar">
-                                //         <div class="w-10 rounded-full">
-                                //             <img alt={user?.displayName} src={user?.photoURL ? user?.photoURL : 'https://i.ibb.co/6tx0kNh/user.png'} />
-                                //         </div>
-                                //     </label>
-                                //     <ul tabindex="20" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-36">
-                                //         <li>
-                                //             <a class="justify-between">
-                                //                 Profile
-                                //             </a>
-                                //         </li>
-                                //         <li><a>Settings</a></li>
-                                //         <li><button onClick={singOutHandler}>Sign out</button></li>
-                                //     </ul>
-                                // </div>
-
                                 <li tabindex="0">
                                     <a className='text-primary font-bold'>
                                         {user?.displayName}
                                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
                                     </a>
                                     <ul class="p-2 bg-base-100">
-                                    <li><Link to='/userprofile'>Profile</Link></li>
-                                    <li><Link to='/profilesetting'>Settings</Link></li>
                                         <li><button className='text-red-500' onClick={singOutHandler}>Sign out</button></li>
                                     </ul>
                                 </li>
                                 :
                                 <li><Link to='/signin'>Sign In</Link></li>
                             }
-
                             {/* End Dropdown */}
 
 

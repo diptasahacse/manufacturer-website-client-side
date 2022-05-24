@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
@@ -16,14 +17,25 @@ const SignIn = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate();
-    const location = useLocation()
+    const location = useLocation();
+    const [token] = useToken(user);
+
+
+    useEffect(() => {
+        if (user) {
+            if (token) {
+                navigate(from, { replace: true });
+            }
+        }
+
+    }, [user, token])
+    console.log(token)
+
+
     let from = location.state?.from?.pathname || "/";
 
 
-    if (user) {
-        navigate(from, { replace: true });
 
-    }
 
 
     // Handler

@@ -52,7 +52,7 @@ const SignUp = () => {
     return (
         <div class="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
             <div class="hero-overlay bg-opacity-80"></div>
-            <div class="py-10 px-3 max-w-7xl mx-auto px-3">
+            <div class="py-10 px-3 max-w-7xl mx-auto">
 
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-20'>
                     <div>
