@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './Page/Home/Home';
+import ResetPassword from './Page/ResetPassword/ResetPassword';
 import Footer from './Page/Shared/Footer/Footer';
 import Header from './Page/Shared/Header/Header';
 import SignIn from './Page/SignIn/SignIn';
@@ -15,6 +16,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/register' element={<SignUp></SignUp>}></Route>
         <Route path='/signin' element={<SignIn></SignIn>}></Route>
+        <Route path='/resetpassword' element={<ResetPassword></ResetPassword>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

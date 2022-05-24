@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-const SignIn = () => {
+const ResetPassword = () => {
     // Initializatioon
     const { register, formState: { errors }, handleSubmit } = useForm();
     // Handler
@@ -20,13 +20,12 @@ const SignIn = () => {
                         <div class="card bg-base-100 shadow-xl">
                             <div class="card-body">
                                 <div className=' mb-4'>
-                                    <h2 class="card-title text-3xl text-primary">Sign In & Enter Your Account</h2>
-                                    <p>Sign in and purchase you product.</p>
+                                    <h2 class="card-title text-3xl text-primary">Reset Your Password</h2>
+                                    <p>Enter your email and reset your password.</p>
                                 </div>
-
-
                                 {/* Form */}
                                 <form onSubmit={handleSubmit(onSubmit)}>
+
                                     {/* Email Input */}
                                     <div className="form-control w-full">
                                         <label className="label">
@@ -54,53 +53,16 @@ const SignIn = () => {
                                             {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-600">{errors.email.message}</span>}
                                         </label>
                                     </div>
-
-                                    {/* Password Input */}
-                                    <div className="form-control w-full">
-                                        <label className="label">
-                                            <span className="label-text">Password</span>
-                                        </label>
-                                        <input
-                                            {...register("password",
-                                                {
-                                                    required: {
-                                                        value: true,
-                                                        message: "Password is required"
-                                                    },
-                                                    minLength: {
-                                                        value: 8,
-                                                        message: 'Provide provide at least 8 characters'
-                                                    }
-                                                }
-                                            )}
-                                            type="password"
-                                            placeholder="Your Password"
-                                            className="input input-bordered w-full"
-                                        />
-                                        <label className="label">
-                                            {errors.password?.type === 'required' && <span className="label-text-alt text-red-600">{errors.password.message}</span>}
-                                            {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-600">{errors.password.message}</span>}
-                                        </label>
-                                    </div>
-                                    {/* {
-                                        signUpError && signUpError
-                                    } */}
-
-                                    <div className='mb-2'>
-                                        <Link to='/resetpassword' className='link text-red-500'>Forgot Password..?</Link>
-                                    </div>
-
-                                    <input className='btn btn-primary w-full' type="submit" value='Signin' />
-
-
+                                    <input className='btn btn-primary w-full' type="submit" value='Send Reset Link' />
                                 </form>
-                                <p className='text-center mt-2'><small>New here..? <Link className='text-primary' to='/register'>Register</Link> </small></p>
+
+                                <p className='text-center mt-2'><small>Password reset done..? <Link className='text-primary' to='/signin'>Sign in</Link> </small></p>
                             </div>
                         </div>
                     </div>
                     <div className='flex items-center'>
                         <div>
-                            <h3 className='text-6xl font-bold text-white'>Purchase Authentic Products Directly From Authentic Seller.</h3>
+                            <img src='https://i.ibb.co/mqtX9M5/forget.gif' alt="forget" />
                         </div>
 
                     </div>
@@ -116,4 +78,4 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default ResetPassword;

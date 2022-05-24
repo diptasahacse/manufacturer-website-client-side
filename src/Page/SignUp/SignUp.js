@@ -11,15 +11,17 @@ const SignUp = () => {
 
     };
     return (
-        <div style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
-            <div className='py-10 px-3 max-w-7xl mx-auto px-3'>
+        <div class="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
+            <div class="hero-overlay bg-opacity-80"></div>
+            <div class="py-10 px-3 max-w-7xl mx-auto px-3">
+
                 <div className='grid grid-cols-2 gap-20'>
                     <div>
                         <div class="card bg-base-100 shadow-xl">
                             <div class="card-body">
                                 <div className=' mb-4'>
                                     <h2 class="card-title text-3xl text-primary">Sign Up & Create Your Account</h2>
-                                    <p><Link className='text-primary font-bold' to='/signin'>Sign in</Link>  to purchase your products and use your dashboard its fast and free.</p>
+                                    <p>Signup and be our Customer.</p>
                                 </div>
 
 
@@ -112,10 +114,12 @@ const SignUp = () => {
                                     } */}
                                     <input className='btn btn-primary w-full' type="submit" value='Register' />
                                 </form>
+
+                                <p className='text-center mt-2'><small>Already have an account..? <Link className='text-primary' to='/signin'>Sign in</Link> </small></p>
                             </div>
                         </div>
                     </div>
-                    <div  className='flex items-center'>
+                    <div className='flex items-center'>
                         <div>
                             <h3 className='text-6xl font-bold text-white'>Purchase Authentic Products Directly From Authentic Seller.</h3>
                         </div>
@@ -125,8 +129,9 @@ const SignUp = () => {
                 </div>
 
             </div>
-
         </div>
+
+
     );
 };
 
