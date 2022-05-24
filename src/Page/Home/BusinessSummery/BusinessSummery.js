@@ -8,7 +8,8 @@ const BusinessSummery = () => {
             <div class="hero-overlay bg-opacity-90"></div>
             <div class="hero-content text-center text-neutral-content">
                 <div className='pt-9 pb-20 px-3 max-w-7xl mx-auto'>
-                    <CustomTitle title='Business Summery'></CustomTitle>
+                    
+                    <CustomTitle iconColor='#E6E6E6' titleColor='#E6E6E6' title='Business Summery'></CustomTitle>
 
                     <div className='grid mt-7 grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-36'>
                         <div className='flex justify-center items-center'>

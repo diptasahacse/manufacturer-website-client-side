@@ -27,7 +27,7 @@ const ToolsSection = () => {
         <div className='py-10 bg-accent'>
             <div className='max-w-7xl mx-auto'>
                 <div className='px-3'>
-                    <CustomTitle title='Tools'></CustomTitle>
+                    <CustomTitle iconColor='#FF5F14' titleColor='#333333' title='Tools'></CustomTitle>
 
 
                     <div className='mt-5 grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>

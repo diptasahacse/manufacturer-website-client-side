@@ -6,7 +6,8 @@ const WhyUs = () => {
     return (
         <div className='py-10 pt-24 bg-accent'>
             <div className='px-3 max-w-7xl mx-auto'>
-                <CustomTitle title='Why Us!'></CustomTitle>
+                <CustomTitle iconColor='#FF5F14' titleColor='#333333' title='Why Us!'></CustomTitle>
+
                 <p className='text-center text-gray-500 mt-5'>We continue to pursue that same vision in today's complex, uncertain world, working every day to earn our customers’ trust! During that time, we’ve become expert in freight transportation by air and all its related services. We work closely with all major airlines around the world.</p>
 
 
@@ -55,7 +56,7 @@ const WhyUs = () => {
                             </div>
                         </div>
                     </div>
-                    
+
 
                 </div>
 
