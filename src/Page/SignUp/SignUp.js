@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const SignUp = () => {
     // Initializatioon
@@ -116,7 +117,12 @@ const SignUp = () => {
                                 </form>
 
                                 <p className='text-center mt-2'><small>Already have an account..? <Link className='text-primary' to='/signin'>Sign in</Link> </small></p>
+
+                                <div>
+                                    <SocialLogin></SocialLogin>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                     <div className='flex items-center'>

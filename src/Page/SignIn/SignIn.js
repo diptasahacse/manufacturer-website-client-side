@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const SignIn = () => {
     // Initializatioon
@@ -82,12 +83,10 @@ const SignIn = () => {
                                             {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-600">{errors.password.message}</span>}
                                         </label>
                                     </div>
-                                    {/* {
-                                        signUpError && signUpError
-                                    } */}
+
 
                                     <div className='mb-2'>
-                                        <Link to='/resetpassword' className='link text-red-600'>Forgot Password..?</Link>
+                                        <Link to='/resetpassword' className='link text-sm text-red-600'>Forgot Password..?</Link>
                                     </div>
 
                                     <input className='btn btn-primary w-full' type="submit" value='Signin' />
@@ -95,6 +94,10 @@ const SignIn = () => {
 
                                 </form>
                                 <p className='text-center mt-2'><small>New here..? <Link className='text-primary' to='/register'>Register</Link> </small></p>
+
+                                <div>
+                                    <SocialLogin></SocialLogin>
+                                </div>
                             </div>
                         </div>
                     </div>
