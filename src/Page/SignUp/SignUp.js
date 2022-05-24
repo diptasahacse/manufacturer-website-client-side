@@ -1,10 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 const SignUp = () => {
     // Initialization
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -13,21 +13,40 @@ const SignUp = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const navigate = useNavigate();
+    let signUpError;
 
     // Handler
     const onSubmit = async (data) => {
-        
+
         const displayName = data.name;
-        console.log(displayName)
+        const email = data.email;
+        const password = data.password;
+
+        // Create use
+        await createUserWithEmailAndPassword(email, password);
+        // Set name
+        await updateProfile({ displayName })
+
 
     };
+    if (error || updateError) {
+        signUpError = <p className='text-red-500 mb-4'>{error?.message || updateError?.message}</p>
+
+    }
+    if(user){
+        navigate('/signin')
+
+    }
+    console.log(user)
 
 
-    // if (loading || updating) {
-    //     return <Loading></Loading>
+    if (loading || updating) {
+        return <Loading></Loading>
 
-    // }
+    }
     return (
         <div class="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
             <div class="hero-overlay bg-opacity-80"></div>
@@ -127,6 +146,8 @@ const SignUp = () => {
                                             {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-600">{errors.password.message}</span>}
                                         </label>
                                     </div>
+                                    {/* Error Message */}
+                                    {signUpError && signUpError}
                                     <input className='btn btn-primary w-full' type="submit" value='Register' />
                                 </form>
 
