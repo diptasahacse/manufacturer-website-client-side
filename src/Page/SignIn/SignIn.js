@@ -15,12 +15,12 @@ const SignIn = () => {
             <div class="hero-overlay bg-opacity-80"></div>
             <div class="py-10 px-3 max-w-7xl mx-auto px-3">
 
-                <div className='grid grid-cols-2 gap-20'>
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-20'>
                     <div>
                         <div class="card bg-base-100 shadow-xl">
                             <div class="card-body">
                                 <div className=' mb-4'>
-                                    <h2 class="card-title text-3xl text-primary">Sign In & Enter Your Account</h2>
+                                    <h2 class="card-title text-2xl lg:text-3xl text-primary">Sign In & Enter Your Account</h2>
                                     <p>Sign in and purchase you product.</p>
                                 </div>
 
@@ -87,7 +87,7 @@ const SignIn = () => {
                                     } */}
 
                                     <div className='mb-2'>
-                                        <Link to='/resetpassword' className='link text-red-500'>Forgot Password..?</Link>
+                                        <Link to='/resetpassword' className='link text-red-600'>Forgot Password..?</Link>
                                     </div>
 
                                     <input className='btn btn-primary w-full' type="submit" value='Signin' />
@@ -100,7 +100,7 @@ const SignIn = () => {
                     </div>
                     <div className='flex items-center'>
                         <div>
-                            <h3 className='text-6xl font-bold text-white'>Purchase Authentic Products Directly From Authentic Seller.</h3>
+                            <h3 className='text-2xl lg:text-6xl font-bold text-white'>Purchase Authentic Products Directly From Authentic Seller.</h3>
                         </div>
 
                     </div>

@@ -15,12 +15,12 @@ const ResetPassword = () => {
             <div class="hero-overlay bg-opacity-80"></div>
             <div class="py-10 px-3 max-w-7xl mx-auto px-3">
 
-                <div className='grid grid-cols-2 gap-20'>
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-20'>
                     <div>
                         <div class="card bg-base-100 shadow-xl">
                             <div class="card-body">
                                 <div className=' mb-4'>
-                                    <h2 class="card-title text-3xl text-primary">Reset Your Password</h2>
+                                    <h2 class="card-title text-2xl lg:text-3xl text-primary">Reset Your Password</h2>
                                     <p>Enter your email and reset your password.</p>
                                 </div>
                                 {/* Form */}
