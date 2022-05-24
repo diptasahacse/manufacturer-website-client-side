@@ -17,7 +17,7 @@ const ReviewsSection = () => {
             <div className='px-3 max-w-7xl mx-auto'>
                 <CustomTitle iconColor='#E6E6E6' titleColor='#E6E6E6' title='My All Review'></CustomTitle>
 
-                <div className='mt-10 grid grid-cols-1 lg:grid-cols-3 gap-5'>
+                <div className='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                     {
                         allRating.map(rating => <ReviewCard key={rating.id} ratingInfo={rating}></ReviewCard>)
                     }
