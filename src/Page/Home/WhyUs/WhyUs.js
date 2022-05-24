@@ -12,7 +12,7 @@ const WhyUs = () => {
 
                 <div className='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
                     <div>
-                        <div className='flex border p-5 h-full'>
+                        <div className='flex border p-5 h-full why-us-card'>
                             <span className='mr-3 mt-2 text-primary'>
                                 <FontAwesomeIcon className='text-2xl' icon={faCheck} />
                             </span>
@@ -23,7 +23,7 @@ const WhyUs = () => {
                         </div>
                     </div>
                     <div>
-                        <div className='flex border p-5 h-full'>
+                        <div className='flex border p-5 h-full  why-us-card'>
                             <span className='mr-3 mt-2 text-primary'>
                                 <FontAwesomeIcon className='text-2xl' icon={faCheck} />
                             </span>
@@ -34,7 +34,7 @@ const WhyUs = () => {
                         </div>
                     </div>
                     <div>
-                        <div className='flex border p-5 h-full'>
+                        <div className='flex border p-5 h-full  why-us-card'>
                             <span className='mr-3 mt-2 text-primary'>
                                 <FontAwesomeIcon className='text-2xl' icon={faCheck} />
                             </span>
@@ -45,7 +45,7 @@ const WhyUs = () => {
                         </div>
                     </div>
                     <div>
-                        <div className='flex border p-5 h-full'>
+                        <div className='flex border p-5 h-full  why-us-card'>
                             <span className='mr-3 mt-2 text-primary'>
                                 <FontAwesomeIcon className='text-2xl' icon={faCheck} />
                             </span>
