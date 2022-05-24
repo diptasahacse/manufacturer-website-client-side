@@ -10,11 +10,14 @@ const MyProfile = () => {
     const [userInfo, setUserInfo] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user?.email}`)
+        fetch(`http://localhost:5000/user/${user?.email}`, {
+            method: "GET",
+            headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
+        })
             .then(res => res.json())
             .then(data => setUserInfo(data))
     }, [user])
-    console.log(userInfo, user)
+    // console.log(userInfo, user)
 
 
     if (loading) {
@@ -47,6 +50,7 @@ const MyProfile = () => {
 
                         </div>
                         <p className='text-xl'>Email: {user?.email}</p>
+                        <p className='text-sm'>Last Login: {userInfo?.lastLoginTime}</p>
 
 
 
