@@ -5,11 +5,6 @@ import { Link } from 'react-router-dom';
 const SignUp = () => {
     // Initializatioon
     const { register, formState: { errors }, handleSubmit } = useForm();
-
-
-
-
-
     // Handler
 
     const onSubmit = async (data) => {
