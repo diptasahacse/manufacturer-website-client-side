@@ -8,7 +8,7 @@ const Dashboard = () => {
             <div className='px-3 max-w-7xl mx-auto'>
                 <div class="drawer drawer-mobile">
                     <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-                    <div class="drawer-content flex flex-col">
+                    <div class="drawer-content flex flex-col p-10" style={{ backgroundColor: "#F4F8FB" }}>
                         {/* <!-- Page content here --> */}
                         <Outlet></Outlet>
                         <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
@@ -21,7 +21,7 @@ const Dashboard = () => {
                             <li className='font-bold mb-2 text-accent'> <Link to='/dashboard'>My Profile</Link> </li>
                             <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/myorders'>My Orders</Link> </li>
                             <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/addreview'>Add Review</Link> </li>
-                            
+
                         </ul>
 
                     </div>
