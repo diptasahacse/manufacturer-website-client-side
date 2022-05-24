@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
@@ -16,6 +16,8 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const navigate = useNavigate();
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
     let signUpError;
 
     // Handler
@@ -36,8 +38,8 @@ const SignUp = () => {
         signUpError = <p className='text-red-500 mb-4'>{error?.message || updateError?.message}</p>
 
     }
-    if(user){
-        navigate('/signin')
+    if (user) {
+        navigate(from, { replace: true });
 
     }
     console.log(user)

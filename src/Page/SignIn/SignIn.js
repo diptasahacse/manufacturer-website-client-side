@@ -1,20 +1,41 @@
 import React from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const SignIn = () => {
     // Initialization
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    const navigate = useNavigate();
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
 
 
+    if (user) {
+        navigate(from, { replace: true });
+
+    }
 
 
     // Handler
     const onSubmit = async (data) => {
+        signInWithEmailAndPassword(data.email, data.password)
 
     };
-    
+    if (loading) {
+        return <Loading></Loading>
+
+    }
+
     return (
         <div class="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
             <div class="hero-overlay bg-opacity-80"></div>
