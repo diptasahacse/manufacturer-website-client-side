@@ -16,7 +16,7 @@ const Header = () => {
                                 <li><a>Item 3</a></li>
                             </ul>
                         </div>
-                        <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+                        <Link to='/' className='btn btn-ghost normal-case text-xl'>useTools</Link>
                     </div>
                     <div class="navbar-end hidden lg:flex">
                         <ul class="menu menu-horizontal p-0">
