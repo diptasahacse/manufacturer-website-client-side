@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import { format } from 'date-fns';
-const useToken = (user) => {
+const useToken = (email) => {
     const [token, setToken] = useState('');
     // console.log(user?.user.email)
     useEffect(() => {
-        const email = user?.user.email;
         const lastLoginTime = format(new Date(), 'Pp');
         const currentUser = { email, lastLoginTime };
 
@@ -27,7 +26,7 @@ const useToken = (user) => {
 
         }
 
-    }, [user])
+    }, [email])
 
 
     return [token];

@@ -18,7 +18,7 @@ const SignIn = () => {
     ] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate();
     const location = useLocation();
-    const [token] = useToken(user);
+    const [token] = useToken(user?.user?.email);
 
 
     useEffect(() => {
