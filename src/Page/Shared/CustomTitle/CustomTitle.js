@@ -7,7 +7,7 @@ const CustomTitle = ({ title }) => {
             <span className='mr-2 text-primary text-xl'>
                 <FontAwesomeIcon icon={faWrench} />
             </span>
-            <h3 className='text-4xl text-center font-semibold'>{title}</h3>
+            <h3 className='text-xl lg:text-4xl text-center font-semibold'>{title}</h3>
             <span className='ml-2 text-primary text-xl'>
                 <FontAwesomeIcon icon={faWrench} />
             </span>

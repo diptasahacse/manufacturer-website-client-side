@@ -10,8 +10,8 @@ const RequestQuoteSection = () => {
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
                     <div className='pt-10'>
                         <p className='font-bold text-lg'>Dedicated Customer Teams & An Agile Services</p>
-                        <h3 className='font-bold text-5xl text-white'>Serving Impressive List Of Long Term Clients!</h3>
-                        <p className='font-bold text-lg mt-7 text-white'>Our worldwide presence ensures timeliness, cost efficiency and compliance adherence required to ensure your timelines are met. Serving with experience and expertise in multiple industries, as one of the World’s leading Corporation!</p>
+                        <h3 className='font-bold text-2xl lg:text-5xl text-white'>Serving Impressive List Of Long Term Clients!</h3>
+                        <p className='font-bold lg:text-lg mt-7 text-white'>Our worldwide presence ensures timeliness, cost efficiency and compliance adherence required to ensure your timelines are met. Serving with experience and expertise in multiple industries, as one of the World’s leading Corporation!</p>
 
                         <button className='btn btn-outline mt-12'>Join Now
                         <span className='ml-3'><FontAwesomeIcon icon={faArrowRight} /></span>

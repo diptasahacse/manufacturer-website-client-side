@@ -26,7 +26,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <span class="footer-title">Newsletter</span>
-                    <div class="form-control w-60 lg:w-80">
+                    <div class="form-control w-full lg:w-80">
                         <label class="label">
                             <span class="label-text">Enter your email address</span>
                         </label>
