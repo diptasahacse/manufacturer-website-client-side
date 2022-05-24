@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "rating": 5,
+        "des": "They are the best of the best, and expertly trained team members who take the extra step and go the extra mile, all to fulfill our dedicated promise to deliver innovative and dynamic solutions to our customers to fit the needs of a rapidly changing global environment which was perfect for our needs!!",
+        "name": "Dipta Saha",
+        "img": "https://i.ibb.co/VJrn4Bw/aa.jpg"
+    },
+    {
+        "id": 2,
+        "rating": 5,
+        "des": "They are the best of the best, and expertly trained team members who take the extra step and go the extra mile, all to fulfill our dedicated promise to deliver innovative and dynamic solutions to our customers to fit the needs of a rapidly changing global environment which was perfect for our needs!!",
+        "name": "Dipta Saha",
+        "img": "https://i.ibb.co/VJrn4Bw/aa.jpg"
+    },
+    {
+        "id": 3,
+        "rating": 5,
+        "des": "They are the best of the best, and expertly trained team members who take the extra step and go the extra mile, all to fulfill our dedicated promise to deliver innovative and dynamic solutions to our customers to fit the needs of a rapidly changing global environment which was perfect for our needs!!",
+        "name": "Dipta Saha",
+        "img": "https://i.ibb.co/VJrn4Bw/aa.jpg"
+    }
+]

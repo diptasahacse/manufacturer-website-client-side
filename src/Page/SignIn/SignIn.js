@@ -4,13 +4,17 @@ import { Link } from 'react-router-dom';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const SignIn = () => {
-    // Initializatioon
+    // Initialization
     const { register, formState: { errors }, handleSubmit } = useForm();
-    // Handler
 
+
+
+
+    // Handler
     const onSubmit = async (data) => {
 
     };
+    
     return (
         <div class="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
             <div class="hero-overlay bg-opacity-80"></div>

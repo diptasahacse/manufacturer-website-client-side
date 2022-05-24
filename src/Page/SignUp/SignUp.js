@@ -2,15 +2,32 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
-
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 const SignUp = () => {
-    // Initializatioon
+    // Initialization
     const { register, formState: { errors }, handleSubmit } = useForm();
-    // Handler
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
 
+    // Handler
     const onSubmit = async (data) => {
+        
+        const displayName = data.name;
+        console.log(displayName)
 
     };
+
+
+    // if (loading || updating) {
+    //     return <Loading></Loading>
+
+    // }
     return (
         <div class="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
             <div class="hero-overlay bg-opacity-80"></div>
@@ -28,7 +45,7 @@ const SignUp = () => {
 
                                 {/* Form */}
                                 <form onSubmit={handleSubmit(onSubmit)}>
-                                    {/* Email Full Name */}
+                                    {/* Full Name */}
                                     <div className="form-control w-full">
                                         <label className="label">
                                             <span className="label-text">Full Name</span>
@@ -42,7 +59,7 @@ const SignUp = () => {
                                                     },
                                                     minLength: {
                                                         value: 5,
-                                                        message: 'Min length at least 5'
+                                                        message: 'Name should long at least 5'
                                                     }
                                                 }
                                             )}
@@ -69,7 +86,7 @@ const SignUp = () => {
                                                     },
                                                     pattern: {
                                                         value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                                        message: 'Provide valid email'
+                                                        message: 'Please provide a valid email'
                                                     }
                                                 }
                                             )}
@@ -97,7 +114,7 @@ const SignUp = () => {
                                                     },
                                                     minLength: {
                                                         value: 8,
-                                                        message: 'Provide provide at least 8 characters'
+                                                        message: 'Password length should least 8 characters'
                                                     }
                                                 }
                                             )}
@@ -110,9 +127,6 @@ const SignUp = () => {
                                             {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-600">{errors.password.message}</span>}
                                         </label>
                                     </div>
-                                    {/* {
-                                        signUpError && signUpError
-                                    } */}
                                     <input className='btn btn-primary w-full' type="submit" value='Register' />
                                 </form>
 
