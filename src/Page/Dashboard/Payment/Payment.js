@@ -40,7 +40,7 @@ const Payment = () => {
                 <p className='mt-1'>It is time to Pay for <span className='text-primary font-semibold'>{data?.productName}</span> tools.</p>
 
                 <div className='mt-10'>
-                    <h3 className='font-semibold text-primary text-center'>Please check order details</h3>
+                    <h3 className='font-semibold text-primary text-center'>Please check billing details</h3>
 
 
                     <div>

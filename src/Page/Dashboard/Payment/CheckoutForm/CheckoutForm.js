@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { async } from '@firebase/util';
+import { toast } from 'react-toastify';
 import {
     CardElement,
     Elements,
     useStripe,
     useElements,
 } from '@stripe/react-stripe-js';
-import { async } from '@firebase/util';
-import { toast } from 'react-toastify';
 const CheckoutForm = ({ orderInfo }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [clientSecret, setClientSecret] = useState("");
 
-    const { totalPrice } = orderInfo;
+    const { totalPrice, address, customerEmail, customerName, phone, productName, _id } = orderInfo;
+    // console.log(orderInfo)
 
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {
@@ -58,6 +59,59 @@ const CheckoutForm = ({ orderInfo }) => {
         });
         if (error) {
             toast.error(error.message)
+        }
+
+
+        // Confirm Card Payment
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: customerName,
+                        email: customerEmail,
+                        address: address,
+                        phone: phone
+
+                    },
+                },
+            },
+        );
+        if (intentError) {
+            toast.error(intentError.message);
+        }
+        else {
+            console.log(paymentIntent)
+            toast('Your payment is successfully completed.')
+
+
+            const payment = {
+                transactionId: paymentIntent.id,
+                orderId: _id,
+                customerEmail,
+                totalPrice
+            }
+            // Store status in database
+            fetch(`http://localhost:5000/orders/${_id}`, {
+                method: "PATCH",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                    'content-type': "application/json"
+                },
+                body: JSON.stringify(payment)
+
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                })
+
+
+
+
+
+
         }
 
 
