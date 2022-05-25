@@ -32,8 +32,15 @@ const Dashboard = () => {
                         <ul class="menu p-4 pr-0 overflow-y-auto w-60 bg-secondary text-base-content">
                             {/* <!-- Sidebar content here --> */}
                             <li className='font-bold mb-2 text-accent'> <Link to='/dashboard'>My Profile</Link> </li>
-                            <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/myorders'>My Orders</Link> </li>
-                            <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/addreview'>Add Review</Link> </li>
+                            {
+                                isAdmin || <>
+                                    <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/myorders'>My Orders</Link> </li>
+                                    <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/addreview'>Add Review</Link> </li>
+
+                                </>
+                            }
+
+
                             {
                                 isAdmin && <>
                                     <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/manageadmin'>Manage Admin</Link> </li>
