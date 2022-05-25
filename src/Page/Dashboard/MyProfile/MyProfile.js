@@ -31,7 +31,7 @@ const MyProfile = () => {
                 <div className='grid grid-cols-3'>
                     <div className=''>
                         <div className='avatar online'>
-                            <div class="w-40 rounded-full">
+                            <div class="w-40 ring-4 ring-primary rounded-full">
                                 <img src="https://api.lorem.space/image/face?hash=28212" />
                             </div>
                         </div>
