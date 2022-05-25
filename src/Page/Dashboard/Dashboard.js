@@ -18,17 +18,16 @@ const Dashboard = () => {
     return (
 
         <div>
-            <div className='px-3 max-w-7xl mx-auto'>
+            <div className='lg:px-3 max-w-7xl mx-auto'>
                 <div class="drawer drawer-mobile">
-                    <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+                    <input id="my-dashboard-drawer" type="checkbox" class="drawer-toggle" />
                     <div class="drawer-content flex flex-col p-10" style={{ backgroundColor: "#F4F8FB" }}>
                         {/* <!-- Page content here --> */}
                         <Outlet></Outlet>
-                        <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
                     </div>
                     <div class="drawer-side">
-                        <label for="my-drawer-2" class="drawer-overlay"></label>
+                        <label for="my-dashboard-drawer" class="drawer-overlay"></label>
                         <ul class="menu p-4 pr-0 overflow-y-auto w-60 bg-secondary text-base-content">
                             {/* <!-- Sidebar content here --> */}
                             <li className='font-bold mb-2 text-accent'> <Link to='/dashboard'>My Profile</Link> </li>
