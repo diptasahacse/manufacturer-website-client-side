@@ -3,14 +3,16 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Purchase = () => {
     const { productId } = useParams();
     const [productInfo, setProductInfo] = useState({});
     const [orginalProductInfo, setOrginalProductInfo] = useState({});
+    const [user, loading, error] = useAuthState(auth);
 
     const [isLoading, setIsLoading] = useState(false);
-    let quantityErrorMessage;
     useEffect(() => {
         setIsLoading(true)
         fetch(`http://localhost:5000/products/${productId}`, {
@@ -30,37 +32,27 @@ const Purchase = () => {
 
         const { minOrderQuantity, ...rest } = productInfo;
         const newQuantity = event.target.value;
-        // if (Number(newQuantity) < orginalProductInfo.minOrderQuantity) {
-        //     // <span class="label-text-alt text-red-600">Alt label</span>
-        //     quantityErrorMessage = <span class="label-text-alt text-red-600">`You have to purchase at least ${minOrderQuantity} or more`</span>
-        // }
-        // else if (Number(newQuantity) > orginalProductInfo.availableQuantity) {
-        //     quantityErrorMessage = <span class="label-text-alt text-red-600">`You have to purchase at most ${minOrderQuantity} or less`</span>
-        // }
-
         const newProductInfo = { minOrderQuantity: Number(newQuantity), ...rest }
         setProductInfo(newProductInfo)
+    }
 
-
-
-
+    const onPurchaseHandler = (event) => {
+        event.preventDefault();
 
     }
 
 
-    if (isLoading) {
+    if (isLoading || loading) {
 
         return <Loading></Loading>
     }
-    // console.log(productInfo)
-    // console.log(productInfo?.minOrderQuantity)
     return (
         <div className='py-10'>
             <div className='px-5 lg:px-20 max-w-7xl mx-auto'>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
-                    <div className=''>
+                    <div className='overflow-hidden purchase-product-image'>
                         <div class="avatar flex justify-center">
-                            <div class="w-9/12 lg:w-full rounded-xl">
+                            <div class="w-9/12 lg:w-full rounded-xl ">
                                 <img src={productInfo?.img} alt={productInfo?.name} />
                             </div>
                         </div>
@@ -95,7 +87,7 @@ const Purchase = () => {
                                         <span class="label-text text-primary">How much you want..?</span>
 
                                     </label>
-                                    <input onChange={onQuantityChange} type="number" value={productInfo?.minOrderQuantity} class="input input-bordered w-full max-w-xs" />
+                                    <input onChange={onQuantityChange} type="number" value={productInfo?.minOrderQuantity} class="input input-bordered focus:outline-primary w-full max-w-xs" />
                                     <label class="label">
                                         {
                                             productInfo?.minOrderQuantity < orginalProductInfo?.minOrderQuantity && <span class="label-text-alt text-red-600">You have to purchase at least {orginalProductInfo?.minOrderQuantity} or more</span>
@@ -114,46 +106,47 @@ const Purchase = () => {
 
                 <div className='bg-accent mt-7 p-5 rounded-2xl'>
                     <div>
-                        <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-5'>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Name</span>
-                                </label>
-                                <input type="text" placeholder="Name" class="input focus:outline-primary input-bordered" />
+                        <form onSubmit={onPurchaseHandler}>
+                            <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-5'>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Name</span>
+                                    </label>
+                                    <input type="text" value={user?.displayName} disabled class="input focus:outline-primary input-bordered" />
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Email</span>
+                                    </label>
+                                    <input type="email" value={user?.email} disabled class="input focus:outline-primary input-bordered" />
+                                </div>
                             </div>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Email</span>
-                                </label>
-                                <input type="email" placeholder="email" class="input focus:outline-primary input-bordered" />
+                            <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-5'>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Phone</span>
+                                    </label>
+                                    <input type="text" required placeholder="Phone" class="input focus:outline-primary input-bordered" />
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Address</span>
+                                    </label>
+                                    <input type="address" required placeholder="Address" class="input focus:outline-primary input-bordered" />
+                                </div>
                             </div>
-                        </div>
-                        <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-5'>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Phone</span>
-                                </label>
-                                <input type="text" placeholder="Phone" class="input focus:outline-primary input-bordered" />
+                            <div className='mt-5 text-right'>
+                                {
+                                    (productInfo?.minOrderQuantity >= orginalProductInfo?.minOrderQuantity && productInfo?.minOrderQuantity <= orginalProductInfo?.availableQuantity) && <button type='submit' className="btn btn-primary">Purchase Now <span className='ml-2'><FontAwesomeIcon icon={faCartShopping} /></span></button>
+                                }
                             </div>
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text">Address</span>
-                                </label>
-                                <input type="address" placeholder="Address" class="input focus:outline-primary input-bordered" />
-                            </div>
-                        </div>
-                        
-                        
-
-
-                        <div className='mt-5 text-right'>
-                            {
-                                (productInfo?.minOrderQuantity >= orginalProductInfo?.minOrderQuantity && productInfo?.minOrderQuantity <= orginalProductInfo?.availableQuantity) && <button className="btn btn-primary">Purchase Now <span className='ml-2'><FontAwesomeIcon icon={faCartShopping} /></span></button>
-                            }
-                        </div>
+                        </form>
                     </div>
 
                 </div>
+
+
+
 
             </div>
 

@@ -32,3 +32,15 @@ code {
   color: white;
 
 }
+
+/* Purchase Product Image */
+.purchase-product-image{
+  cursor: pointer;
+  
+}
+.purchase-product-image:hover img{
+  transform: scale(1.2);
+  filter: blur(2px);
+  transition: .5s;
+
+}
