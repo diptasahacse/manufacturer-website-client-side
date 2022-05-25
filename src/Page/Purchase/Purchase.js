@@ -1,16 +1,19 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
 const Purchase = () => {
     const { productId } = useParams();
     const [productInfo, setProductInfo] = useState({});
     const [orginalProductInfo, setOrginalProductInfo] = useState({});
     const [user, loading, error] = useAuthState(auth);
+    const addressRef = useRef('')
+    const phoneRef = useRef('')
 
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
@@ -38,6 +41,33 @@ const Purchase = () => {
 
     const onPurchaseHandler = (event) => {
         event.preventDefault();
+        const orders = {
+            customerName: user?.displayName,
+            customerEmail: user?.email,
+            address: addressRef.current.value,
+            phone: phoneRef.current.value,
+            productId: orginalProductInfo?._id,
+            quantity: productInfo?.minOrderQuantity,
+            totalPrice: productInfo?.minOrderQuantity * productInfo?.price
+
+        }
+        fetch('http://localhost:5000/orders', {
+            method: "POST",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                'content-type': "application/json"
+            },
+            body: JSON.stringify(orders)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                if(data?.acknowledged){
+                    toast("Your Order is successfully added.. please pay for this product in My Orders Page")
+
+                }
+            })
+        console.log(orders)
 
     }
 
@@ -106,6 +136,9 @@ const Purchase = () => {
 
                 <div className='bg-accent mt-7 p-5 rounded-2xl'>
                     <div>
+                        <div>
+                            <h3 className='text-primary text-2xl font-bold'>Purchase</h3>
+                        </div>
                         <form onSubmit={onPurchaseHandler}>
                             <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-5'>
                                 <div class="form-control">
@@ -126,13 +159,13 @@ const Purchase = () => {
                                     <label class="label">
                                         <span class="label-text">Phone</span>
                                     </label>
-                                    <input type="text" required placeholder="Phone" class="input focus:outline-primary input-bordered" />
+                                    <input type="tel" ref={phoneRef} required placeholder="Phone" class="input focus:outline-primary input-bordered" />
                                 </div>
                                 <div class="form-control">
                                     <label class="label">
                                         <span class="label-text">Address</span>
                                     </label>
-                                    <input type="address" required placeholder="Address" class="input focus:outline-primary input-bordered" />
+                                    <input type="text" ref={addressRef} required placeholder="Address" class="input focus:outline-primary input-bordered" />
                                 </div>
                             </div>
                             <div className='mt-5 text-right'>
