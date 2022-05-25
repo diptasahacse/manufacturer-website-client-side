@@ -17,6 +17,7 @@ import SignUp from './Page/SignUp/SignUp';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NotFound from './Page/NotFound/NotFound';
+import Payment from './Page/Dashboard/Payment/Payment';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
 
           <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
           <Route path='addreview' element={<AddReview></AddReview>}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
 
 
 
