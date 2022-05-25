@@ -1,33 +1,53 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import MyOrderTableRow from './MyOrderTableRow/MyOrderTableRow';
+import OrderDeleteModal from './OrderDeleteModal/OrderDeleteModal';
 
 const MyOrders = () => {
-    const [myOrders, setMyOrders] = useState([]);
-    const [user, loading, error] = useAuthState(auth);
+    // const [myOrders, setMyOrders] = useState([]);
+    const [selectedOrders, setSelectedOrders] = useState({});
+    const [user, loading] = useAuthState(auth);
 
-    useEffect(() => {
+
+    const { isLoading, error, data, refetch } = useQuery('myOrders', () =>
         fetch(`http://localhost:5000/orders/${user?.email}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
-        })
-            .then(res => res.json())
-            .then(data => {
-                setMyOrders(data)
-            })
 
-    }, [user?.email])
+        }).then(res =>
+            res.json()
+        )
+    )
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/orders/${user?.email}`, {
+    //         method: "GET",
+    //         headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setMyOrders(data)
+    //         })
+
+    // }, [user?.email])
+
+    const deleteOrderHandler = (id) => {
+        const selected = data.find(order => order._id === id);
+        setSelectedOrders(selected)
+        refetch()
+
+    }
 
 
 
-    if (loading) {
+    if (loading || isLoading) {
         return <Loading></Loading>
     }
 
 
-    console.log(myOrders)
+    // console.log(myOrders)
     return (
         <div className='p-7 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
             <h3 className='text-3xl font-semibold text-primary'>My Orders</h3>
@@ -50,11 +70,12 @@ const MyOrders = () => {
                         </thead>
                         <tbody>
                             {
-                                myOrders.map((order, index) => <MyOrderTableRow index={index} order={order} key={order._id}></MyOrderTableRow>)
+                                data.map((order, index) => <MyOrderTableRow deleteOrderHandler={deleteOrderHandler} index={index} order={order} key={order._id}></MyOrderTableRow>)
                             }
 
 
                         </tbody>
+                        <OrderDeleteModal selectedOrders={selectedOrders}></OrderDeleteModal>
 
                     </table>
                 </div>
