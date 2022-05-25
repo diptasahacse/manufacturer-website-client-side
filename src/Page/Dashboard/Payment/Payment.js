@@ -3,7 +3,15 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
-
+import { loadStripe } from '@stripe/stripe-js';
+import {
+    CardElement,
+    Elements,
+    useStripe,
+    useElements,
+} from '@stripe/react-stripe-js';
+import CheckoutForm from './CheckoutForm/CheckoutForm';
+const stripePromise = loadStripe('pk_test_51L2GtBH4xRKtT9akcROYTxJculEA4djz5Nkl8BsEcEl1pZ7xpj59v4upPW1FucmR6WMBa5htyMeJI3gBZTLSnXNz005mbyDun0');
 const Payment = () => {
     const [user, loading, error] = useAuthState(auth);
     const { id } = useParams();
@@ -84,7 +92,7 @@ const Payment = () => {
                                         <td>{orderInfo?.address}</td>
                                     </tr>
                                 </tbody>
-                                
+
                             </table>
                         </div>
                     </div>
@@ -92,9 +100,12 @@ const Payment = () => {
                 </div>
 
             </div>
-            
+
             <div className='p-7 mt-5 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
 
+                <Elements stripe={stripePromise}>
+                    <CheckoutForm />
+                </Elements>
             </div>
         </div>
     );
