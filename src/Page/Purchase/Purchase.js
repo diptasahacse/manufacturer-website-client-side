@@ -90,32 +90,69 @@ const Purchase = () => {
 
                             </div>
                             <div className='mt-10'>
-                                <div>
-                                    <div class="form-control w-full max-w-xs">
-                                        <label class="label">
-                                            <span class="label-text text-primary">How much you want..?</span>
+                                <div class="form-control w-full max-w-xs">
+                                    <label class="label">
+                                        <span class="label-text text-primary">How much you want..?</span>
 
-                                        </label>
-                                        <input onChange={onQuantityChange} type="number" value={productInfo?.minOrderQuantity} class="input input-bordered w-full max-w-xs" />
-                                        <label class="label">
-                                            {
-                                                productInfo?.minOrderQuantity < orginalProductInfo?.minOrderQuantity && <span class="label-text-alt text-red-600">You have to purchase at least {orginalProductInfo?.minOrderQuantity} or more</span>
-                                            }
-                                            {
-                                                productInfo?.minOrderQuantity > orginalProductInfo?.availableQuantity && <span class="label-text-alt text-red-600">You have to purchase at most {orginalProductInfo?.availableQuantity} or less</span>
-                                            }
-                                        </label>
-                                    </div>
-                                    <div>
+                                    </label>
+                                    <input onChange={onQuantityChange} type="number" value={productInfo?.minOrderQuantity} class="input input-bordered w-full max-w-xs" />
+                                    <label class="label">
                                         {
-                                            (productInfo?.minOrderQuantity >= orginalProductInfo?.minOrderQuantity && productInfo?.minOrderQuantity <= orginalProductInfo?.availableQuantity) && <button className="btn btn-primary">Purchase Now <span className='ml-2'><FontAwesomeIcon icon={faCartShopping} /></span></button>
+                                            productInfo?.minOrderQuantity < orginalProductInfo?.minOrderQuantity && <span class="label-text-alt text-red-600">You have to purchase at least {orginalProductInfo?.minOrderQuantity} or more</span>
                                         }
-                                    </div>
+                                        {
+                                            productInfo?.minOrderQuantity > orginalProductInfo?.availableQuantity && <span class="label-text-alt text-red-600">You have to purchase at most {orginalProductInfo?.availableQuantity} or less</span>
+                                        }
+                                    </label>
                                 </div>
 
                             </div>
+
                         </div>
                     </div>
+                </div>
+
+                <div className='bg-accent mt-7 p-5 rounded-2xl'>
+                    <div>
+                        <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-5'>
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Name</span>
+                                </label>
+                                <input type="text" placeholder="Name" class="input focus:outline-primary input-bordered" />
+                            </div>
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Email</span>
+                                </label>
+                                <input type="email" placeholder="email" class="input focus:outline-primary input-bordered" />
+                            </div>
+                        </div>
+                        <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-5'>
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Phone</span>
+                                </label>
+                                <input type="text" placeholder="Phone" class="input focus:outline-primary input-bordered" />
+                            </div>
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Address</span>
+                                </label>
+                                <input type="address" placeholder="Address" class="input focus:outline-primary input-bordered" />
+                            </div>
+                        </div>
+                        
+                        
+
+
+                        <div className='mt-5 text-right'>
+                            {
+                                (productInfo?.minOrderQuantity >= orginalProductInfo?.minOrderQuantity && productInfo?.minOrderQuantity <= orginalProductInfo?.availableQuantity) && <button className="btn btn-primary">Purchase Now <span className='ml-2'><FontAwesomeIcon icon={faCartShopping} /></span></button>
+                            }
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
