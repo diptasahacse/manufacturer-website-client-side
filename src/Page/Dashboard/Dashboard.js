@@ -1,7 +1,20 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
+import auth from '../../firebase.init';
+import useAdmin from '../../hooks/useAdmin';
+import Loading from '../Shared/Loading/Loading';
 
 const Dashboard = () => {
+    const [user, loading, error] = useAuthState(auth);
+    const [isAdmin, adminLoading] = useAdmin(user?.email);
+
+    console.log(isAdmin)
+
+    if (loading || adminLoading) {
+        return <Loading></Loading>
+    }
+
     return (
 
         <div>
@@ -21,6 +34,11 @@ const Dashboard = () => {
                             <li className='font-bold mb-2 text-accent'> <Link to='/dashboard'>My Profile</Link> </li>
                             <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/myorders'>My Orders</Link> </li>
                             <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/addreview'>Add Review</Link> </li>
+                            {
+                                isAdmin && <>
+                                    <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/manageadmin'>Manage Admin</Link> </li>
+                                </>
+                            }
 
                         </ul>
 
