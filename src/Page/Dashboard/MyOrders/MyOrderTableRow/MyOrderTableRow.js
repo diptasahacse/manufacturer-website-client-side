@@ -13,7 +13,7 @@ const MyOrderTableRow = ({ order, index }) => {
             <td>{address}</td>
             <td>{phone}</td>
             <td>{order.paymentStatus? <div class="badge badge-success text-white">paid</div> : <Link className='btn btn-xs btn-info' to={`/dashboard/payment/${_id}`}>Pay</Link> }</td>
-            <td><button class="btn btn-error btn-xs text-white">Cancel</button></td>
+            <td>{order.paymentStatus || <button class="btn btn-error btn-xs text-white">Cancel</button>}</td>
         </tr>
     );
 };
