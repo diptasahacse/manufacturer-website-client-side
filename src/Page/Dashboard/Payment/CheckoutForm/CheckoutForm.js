@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     CardElement,
     Elements,
@@ -7,10 +7,32 @@ import {
 } from '@stripe/react-stripe-js';
 import { async } from '@firebase/util';
 import { toast } from 'react-toastify';
-const CheckoutForm = () => {
+const CheckoutForm = ({ orderInfo }) => {
     const stripe = useStripe();
     const elements = useElements();
-    const [cardError, setCardError] = useState('')
+    const [clientSecret, setClientSecret] = useState("");
+
+    const { totalPrice } = orderInfo;
+
+    useEffect(() => {
+        fetch('http://localhost:5000/create-payment-intent', {
+            method: "POST",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                'content-type': "application/json"
+            },
+            body: JSON.stringify({ price: totalPrice })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data?.clientSecret) {
+                    setClientSecret(data?.clientSecret)
+
+                }
+            })
+
+    }, [totalPrice])
+
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -34,18 +56,15 @@ const CheckoutForm = () => {
             type: 'card',
             card,
         });
-        if(error){
+        if (error) {
             toast.error(error.message)
-            setCardError(error.message)
         }
-        else{
-            setCardError("")
-        }
-        
+
+
 
 
     }
-    console.log(cardError)
+
 
     return (
         <form onSubmit={handleSubmit}>
@@ -65,7 +84,7 @@ const CheckoutForm = () => {
                     },
                 }}
             />
-            <button type="submit" disabled={!stripe}>
+            <button className='btn btn-primary btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret}>
                 Pay
             </button>
         </form>

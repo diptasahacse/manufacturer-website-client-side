@@ -11,39 +11,24 @@ import {
     useElements,
 } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm/CheckoutForm';
+import { useQuery } from 'react-query';
 const stripePromise = loadStripe('pk_test_51L2GtBH4xRKtT9akcROYTxJculEA4djz5Nkl8BsEcEl1pZ7xpj59v4upPW1FucmR6WMBa5htyMeJI3gBZTLSnXNz005mbyDun0');
 const Payment = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const { id } = useParams();
-    const [orderInfo, setOrderInfo] = useState({});
-
-
-
-    useEffect(() => {
+    const { isLoading, error, data } = useQuery('repoData', () =>
         fetch(`http://localhost:5000/order/${id}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
-        })
-            .then(res => res.json())
-            .then(data => {
-                setOrderInfo(data)
-            })
+        }).then(res =>
+            res.json()
+        )
+    )
 
-
-    }, [id])
-
-    if (loading) {
+    if (loading || isLoading) {
         return <Loading></Loading>
 
     }
-
-
-
-
-
-
-
-
 
 
     return (
@@ -52,7 +37,7 @@ const Payment = () => {
             <div className='p-7 mt-5 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
                 <h3 className='text-xl font-semibold'>Hi <span className='text-primary'>{user?.displayName}</span>,</h3>
 
-                <p className='mt-1'>It is time to Pay for <span className='text-primary font-semibold'>{orderInfo?.productName}</span> tools.</p>
+                <p className='mt-1'>It is time to Pay for <span className='text-primary font-semibold'>{data?.productName}</span> tools.</p>
 
                 <div className='mt-10'>
                     <h3 className='font-semibold text-primary text-center'>Please check order details</h3>
@@ -65,31 +50,31 @@ const Payment = () => {
                                 <tbody>
                                     <tr>
                                         <th>Name</th>
-                                        <td>{orderInfo?.customerName}</td>
+                                        <td>{data?.customerName}</td>
                                     </tr>
                                     <tr>
                                         <th>Email</th>
-                                        <td>{orderInfo?.customerEmail}</td>
+                                        <td>{data?.customerEmail}</td>
                                     </tr>
                                     <tr>
                                         <th>Product Name</th>
-                                        <td>{orderInfo?.productName}</td>
+                                        <td>{data?.productName}</td>
                                     </tr>
                                     <tr>
                                         <th>Product Quantity</th>
-                                        <td>{orderInfo?.quantity}</td>
+                                        <td>{data?.quantity}</td>
                                     </tr>
                                     <tr>
                                         <th>Total Price</th>
-                                        <td>${orderInfo?.totalPrice}</td>
+                                        <td>${data?.totalPrice}</td>
                                     </tr>
                                     <tr>
                                         <th>Phone</th>
-                                        <td>{orderInfo?.phone}</td>
+                                        <td>{data?.phone}</td>
                                     </tr>
                                     <tr>
                                         <th>Address</th>
-                                        <td>{orderInfo?.address}</td>
+                                        <td>{data?.address}</td>
                                     </tr>
                                 </tbody>
 
@@ -104,7 +89,7 @@ const Payment = () => {
             <div className='p-7 mt-5 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
 
                 <Elements stripe={stripePromise}>
-                    <CheckoutForm />
+                    <CheckoutForm orderInfo={data} />
                 </Elements>
             </div>
         </div>

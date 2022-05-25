@@ -20,7 +20,7 @@ const SignIn = () => {
     const location = useLocation();
     const [token] = useToken(user?.user?.email);
 
-    console.log(token)
+    // console.log(token)
 
     useEffect(() => {
         if (user) {

@@ -9,7 +9,7 @@ const Dashboard = () => {
     const [user, loading, error] = useAuthState(auth);
     const [isAdmin, adminLoading] = useAdmin(user?.email);
 
-    console.log(isAdmin)
+    // console.log(isAdmin)
 
     if (loading || adminLoading) {
         return <Loading></Loading>
