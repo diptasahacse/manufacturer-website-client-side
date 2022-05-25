@@ -47,6 +47,7 @@ const Purchase = () => {
             address: addressRef.current.value,
             phone: phoneRef.current.value,
             productId: orginalProductInfo?._id,
+            productName: orginalProductInfo?.name,
             quantity: productInfo?.minOrderQuantity,
             totalPrice: productInfo?.minOrderQuantity * productInfo?.price
 
