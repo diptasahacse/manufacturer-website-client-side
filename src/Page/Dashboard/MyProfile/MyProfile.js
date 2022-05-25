@@ -4,6 +4,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
+import { toast } from 'react-toastify';
+import { signOut } from 'firebase/auth';
 const MyProfile = () => {
     const [user, loading, error] = useAuthState(auth);
 
@@ -15,7 +17,17 @@ const MyProfile = () => {
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })
             .then(res => res.json())
-            .then(data => setUserInfo(data))
+            .then(data => {
+                if (data?.message == 'Forbidden access') {
+                    toast.error('Yor Session is Expired.. Please Login Again');
+                    signOut(auth)
+
+
+                }
+                else {
+                    setUserInfo(data)
+                }
+            })
     }, [user])
     // console.log(userInfo, user)
 

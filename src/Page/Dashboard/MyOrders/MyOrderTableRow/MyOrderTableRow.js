@@ -9,7 +9,7 @@ const MyOrderTableRow = ({ order, index }) => {
             <td>{customerEmail}</td>
             <td>{productName}</td>
             <td>{quantity}</td>
-            <td>{totalPrice}</td>
+            <td>${totalPrice}</td>
             <td>{address}</td>
             <td>{phone}</td>
             <td>{order.paymentStatus? <div class="badge badge-success text-white">paid</div> : <Link className='btn btn-xs btn-info' to=''>Pay</Link> }</td>
