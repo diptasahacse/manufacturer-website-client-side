@@ -1,11 +1,12 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import Loading from '../../Shared/Loading/Loading';
 import UserRow from './UserRow/UserRow';
 
 const ManageAdmin = () => {
 
 
-    const { isLoading, error, data } = useQuery('alluser', () =>
+    const { isLoading, error, data, refetch } = useQuery('alluser', () =>
         fetch('http://localhost:5000/user', {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
@@ -13,7 +14,10 @@ const ManageAdmin = () => {
             res.json()
         )
     )
-    console.log(data)
+    // console.log(data)
+    if (isLoading) {
+        return <Loading></Loading>
+    }
     return (
         <div className='p-7 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
             <h3 className='text-3xl font-semibold text-primary'>All Users</h3>
@@ -32,7 +36,7 @@ const ManageAdmin = () => {
                         <tbody>
 
                             {
-                                data.map((singleUser, index) => <UserRow key={singleUser._id} index={index} singleUser={singleUser}></UserRow>)
+                                data.map((singleUser, index) => <UserRow key={singleUser._id} refetch={refetch} index={index} singleUser={singleUser}></UserRow>)
 
                             }
 
