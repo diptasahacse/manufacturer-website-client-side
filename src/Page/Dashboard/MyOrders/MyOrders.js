@@ -75,7 +75,7 @@ const MyOrders = () => {
 
 
                         </tbody>
-                        <OrderDeleteModal selectedOrders={selectedOrders}></OrderDeleteModal>
+                        {Object.keys(selectedOrders).length > 0 && <OrderDeleteModal refetch={refetch} setSelectedOrders={setSelectedOrders} selectedOrders={selectedOrders}></OrderDeleteModal>}
 
                     </table>
                 </div>

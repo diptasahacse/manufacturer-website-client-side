@@ -1,9 +1,25 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
-const OrderDeleteModal = ({ selectedOrders }) => {
+const OrderDeleteModal = ({ selectedOrders, setSelectedOrders, refetch }) => {
     const { _id, productName } = selectedOrders;
     const cancleOrderHandler = () => {
-        console.log(_id)
+        fetch(`http://localhost:5000/orders/${_id}`, {
+            method: "DELETE",
+            headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    setSelectedOrders({})
+                    toast("You have successfully deleted");
+                    refetch()
+
+
+                }
+
+
+            })
 
     }
 
