@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const OrderDeleteModal = ({ selectedOrders, setSelectedOrders, refetch }) => {
     const { _id, productName } = selectedOrders;
     const cancleOrderHandler = () => {
-        fetch(`https://infinite-chamber-43931.herokuapp.com/orders/${_id}`, {
+        fetch(`http://localhost:5000/orders/${_id}`, {
             method: "DELETE",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })

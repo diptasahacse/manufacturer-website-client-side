@@ -16,12 +16,13 @@ const SignIn = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
     const navigate = useNavigate();
     const location = useLocation();
     const [token] = useToken(user?.user?.email);
 
     // console.log(token)
-
+    let from = location.state?.from?.pathname || "/";
     useEffect(() => {
         if (user) {
             if (token) {
@@ -29,11 +30,14 @@ const SignIn = () => {
             }
         }
 
-    }, [user, token])
+    }, [user, token, from, navigate])
     console.log(token)
 
+    if (loading) {
+        return <Loading></Loading>
 
-    let from = location.state?.from?.pathname || "/";
+    }
+    
 
 
 
@@ -44,10 +48,7 @@ const SignIn = () => {
         signInWithEmailAndPassword(data.email, data.password)
 
     };
-    if (loading) {
-        return <Loading></Loading>
 
-    }
 
     return (
         <div class="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>

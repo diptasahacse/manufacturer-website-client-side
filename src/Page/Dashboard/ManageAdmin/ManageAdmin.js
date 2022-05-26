@@ -7,7 +7,7 @@ const ManageAdmin = () => {
 
 
     const { isLoading, error, data, refetch } = useQuery('alluser', () =>
-        fetch('https://infinite-chamber-43931.herokuapp.com/user', {
+        fetch('http://localhost:5000/user', {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         }).then(res =>

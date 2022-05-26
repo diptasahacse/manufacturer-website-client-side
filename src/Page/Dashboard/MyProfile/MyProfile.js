@@ -11,11 +11,12 @@ const MyProfile = () => {
     const [user, loading, error] = useAuthState(auth);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
+    const [shouldUpdate, setShouldUpdate] = useState(0)
     const [userInfo, setUserInfo] = useState({})
-    const imageStorageKey = '7f72d87979e17c6504f5811b2f68d7d4';
+    const imageStorageKey = '109d0f5e631e791da81874122264ddf5';
 
     useEffect(() => {
-        fetch(`https://infinite-chamber-43931.herokuapp.com/user/${user?.email}`, {
+        fetch(`http://localhost:5000/user/${user?.email}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })
@@ -31,18 +32,56 @@ const MyProfile = () => {
                     setUserInfo(data)
                 }
             })
-    }, [user])
+    }, [user, shouldUpdate])
+    // console.log(userInfo)
     // console.log(userInfo)
 
     // OnSubmit For Image Upload
     const onProfilePictureSubmitHandler = (data) => {
-        console.log(data.profileImage[0]);
 
-        // const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
-        // fetch(url,{
-        //     method: "POST"
-        // })
-        // event.preventDefault()
+
+
+        const img = data.profileImage[0];
+        const formData = new FormData();
+        // console.log(img)
+
+        formData.append('image', img)
+        // console.log(img);
+
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        fetch(url, {
+            method: "POST",
+            body: formData
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.success) {
+                    const img = result.data.url;
+
+                    const imgData = { img }
+
+                    fetch(`http://localhost:5000/user/picture/${userInfo._id}`, {
+                        method: "PUT",
+                        headers: {
+                            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(imgData)
+
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data?.acknowledged) {
+                                toast('Successfully Uploaded')
+                                setShouldUpdate(shouldUpdate + 1)
+
+                            }
+                        })
+
+
+                }
+            })
+
 
     }
     // OnSubmit For Education Status upload

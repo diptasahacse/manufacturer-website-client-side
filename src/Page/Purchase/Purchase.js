@@ -18,7 +18,7 @@ const Purchase = () => {
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         setIsLoading(true)
-        fetch(`https://infinite-chamber-43931.herokuapp.com/products/${productId}`, {
+        fetch(`http://localhost:5000/products/${productId}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })
@@ -52,7 +52,7 @@ const Purchase = () => {
             totalPrice: productInfo?.minOrderQuantity * productInfo?.price
 
         }
-        fetch('https://infinite-chamber-43931.herokuapp.com/orders', {
+        fetch('http://localhost:5000/orders', {
             method: "POST",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,

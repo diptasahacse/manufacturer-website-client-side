@@ -16,7 +16,7 @@ const AddReview = () => {
     const [selectedShowOrder, setSelectedShowOrder] = useState({})
 
     const { isLoading, data, refetch } = useQuery(['myOrdersForReview'], () =>
-        fetch(`https://infinite-chamber-43931.herokuapp.com/orders/${user?.email}`, {
+        fetch(`http://localhost:5000/orders/${user?.email}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 
