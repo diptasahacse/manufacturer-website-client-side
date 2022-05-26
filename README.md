@@ -1,70 +1,34 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Site Link [useTools](https://manufacturer-website-11d73.web.app/).
 
-## Available Scripts
+## All Features
+> This website is all about whole sell (Tools) business website like alibaba. The main concept of this website is, Customer can buy product from minimum quantity to available quantity. To buy any product, Customer have to register in this website then they can buy. In Home page Customer can see some product in tools section. every product contain name, image, short description, min order quantity, available quantity, price and a button named Buy now. when user click on the buy button then this product will show in purchase route or page ( if the customer logged in otherwise it will redirect to login page ) with all product details. In Purchase page user can change quantity (increase/decrease). The Initial value of quantity is the minimum order quantity. user can not able to reduce the quantity below the minimum order quantity and also user can not able to set quantity which is higher than the available quantity. In purchase page user also see delivery info field like phone, address. user have to filled that info to purchase the order. there have a button name Purchase now. if user click on that button, user see a successful message 'You order is successfully added, Please pay for this product from my order page. when user logged in he will see a dashboard. In Dashboard, user can see his profile section, My Order section,Add Review Section. In My Order section, User can see pay or cancel button with his every order. user can pay for his particular order from this page. user can only pay this order with Stripe payment system. In Add review page, user can see or add this review, user profile section user can see his info. One the other hand, This website have admin section, normal user can not see admin info as well as admin can not see customers info. admin can manage, add product. also can handle ann orders.' 
 
-In the project directory, you can run:
+* Home Page : Home Page designed with some section like, Banner Section, Tools section (where user can see all products), My Review Section (where logged in user can see his all review), Business summery section (where a visitor can see the current status of the website),  Request a quote section (visitor can communicate with the website owner.), why us section (where present some honesty text)
+* Dashboard: Dashboard is design with both user and admin. user can access some page as well as admin can access some page.
+* Purchase: This page is a dynamic route for purchase any order. user can confirm order from there.
+* Login Page : User can Login
+* Register Page : user can register.
+* Forget Password Page : user can forget his password.
+* Dashboard>Profile : user can see his/her info and update his profile picture, city, phone etc.
+* Dashboard>My Orders : Customer can see his/her all order which ha paid or non paid. customer can cancel or pay any order according to to status.
+* Dashboard>Manage All Orders : admin can manage all orders.
+* Dashboard>Products : admin can add any products.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## All Tools and Technology I Have used in this project
+* React 18
+* React Router
+* React Query
+* React form hook
+* React Firebase Hooks
+* Tailwind css
+* Daisy UI
+* Firebase
+* React Toastify
+* JWT
+* Date fns
+* Stripe ( Payment System )
