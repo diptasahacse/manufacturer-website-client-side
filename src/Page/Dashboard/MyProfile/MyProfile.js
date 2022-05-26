@@ -6,10 +6,13 @@ import Loading from '../../Shared/Loading/Loading';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { toast } from 'react-toastify';
 import { signOut } from 'firebase/auth';
+import { useForm } from 'react-hook-form';
 const MyProfile = () => {
     const [user, loading, error] = useAuthState(auth);
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const [userInfo, setUserInfo] = useState({})
+    const imageStorageKey = '7f72d87979e17c6504f5811b2f68d7d4';
 
     useEffect(() => {
         fetch(`http://localhost:5000/user/${user?.email}`, {
@@ -30,6 +33,32 @@ const MyProfile = () => {
             })
     }, [user])
     console.log(userInfo)
+
+    // OnSubmit For Image Upload
+    const onProfilePictureSubmitHandler = (event) => {
+        // event.preventDefault()
+
+    }
+    // OnSubmit For Education Status upload
+    const onEducationStatusSubmitHandler = (event) => {
+        // event.preventDefault()
+
+    }
+    // OnSubmit For City Upload
+    const onCitySubmitHandler = (event) => {
+        // event.preventDefault()
+
+    }
+    // OnSubmit For Phone Upload
+    const onPhoneSubmitHandler = (event) => {
+        // event.preventDefault()
+
+    }
+    // OnSubmit For Phone Upload
+    const onLinkedInSubmitHandler = (event) => {
+        // event.preventDefault()
+
+    }
 
 
     if (loading) {
@@ -70,14 +99,145 @@ const MyProfile = () => {
 
 
                 </div>
-                {/* <p>Name: {user?.displayName}</p>
-                <p>Email: {user?.email}</p>
-                <p>Role: {userInfo?.role ? userInfo.role : "Customer"}</p>
-                <p>Last Login: {userInfo?.lastLoginTime}</p> */}
+
 
             </div>
+
+
             <div className='p-7 mt-5 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
                 <h3 className='text-xl font-semibold text-primary'>Update Your Info</h3>
+                {/* Profile Picture */}
+                <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
+                    <h3>Upload Your Profile Picture</h3>
+                    <form onSubmit={handleSubmit(onProfilePictureSubmitHandler)}>
+                        <div className="form-control w-3/6">
+                            <input
+                                {...register("profileImage",
+                                    {
+                                        required: {
+                                            value: true,
+                                            message: "Image is required"
+                                        }
+                                    }
+                                )}
+                                type="file"
+                                className="input input-bordered"
+                            />
+                            <label className="label">
+                                {errors.profileImage?.type === 'required' && <span className="label-text-alt text-red-600">{errors.profileImage.message}</span>}
+
+                            </label>
+                        </div>
+                        <input className='btn btn-primary btn-sm' type="submit" value='Upload' />
+                    </form>
+
+                </div>
+                {/* Education */}
+                <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
+                    <h3>Upload Your Profile Picture</h3>
+                    <form onSubmit={handleSubmit(onEducationStatusSubmitHandler)}>
+                        <div className="form-control w-3/6">
+                            <input
+                                {...register("profileImage",
+                                    {
+                                        required: {
+                                            value: true,
+                                            message: "Image is required"
+                                        }
+                                    }
+                                )}
+                                type="file"
+                                className="input input-bordered"
+                            />
+                            <label className="label">
+                                {errors.profileImage?.type === 'required' && <span className="label-text-alt text-red-600">{errors.profileImage.message}</span>}
+
+                            </label>
+                        </div>
+                        <input className='btn btn-primary btn-sm' type="submit" value='Upload' />
+                    </form>
+
+                </div>
+                {/* Location */}
+                <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
+                    <h3>Upload Your Profile Picture</h3>
+                    <form onSubmit={handleSubmit(onCitySubmitHandler)}>
+                        <div className="form-control w-3/6">
+                            <input
+                                {...register("profileImage",
+                                    {
+                                        required: {
+                                            value: true,
+                                            message: "Image is required"
+                                        }
+                                    }
+                                )}
+                                type="file"
+                                className="input input-bordered"
+                            />
+                            <label className="label">
+                                {errors.profileImage?.type === 'required' && <span className="label-text-alt text-red-600">{errors.profileImage.message}</span>}
+
+                            </label>
+                        </div>
+                        <input className='btn btn-primary btn-sm' type="submit" value='Upload' />
+                    </form>
+
+                </div>
+                {/* Phone */}
+                <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
+                    <h3>Upload Your Profile Picture</h3>
+                    <form onSubmit={handleSubmit(onPhoneSubmitHandler)}>
+                        <div className="form-control w-3/6">
+                            <input
+                                {...register("profileImage",
+                                    {
+                                        required: {
+                                            value: true,
+                                            message: "Image is required"
+                                        }
+                                    }
+                                )}
+                                type="file"
+                                className="input input-bordered"
+                            />
+                            <label className="label">
+                                {errors.profileImage?.type === 'required' && <span className="label-text-alt text-red-600">{errors.profileImage.message}</span>}
+
+                            </label>
+                        </div>
+                        <input className='btn btn-primary btn-sm' type="submit" value='Upload' />
+                    </form>
+
+                </div>
+                {/* Phone */}
+                <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
+                    <h3>Upload Your Profile Picture</h3>
+                    <form onSubmit={handleSubmit(onCitySubmitHandler)}>
+                        <div className="form-control w-3/6">
+                            <input
+                                {...register("profileImage",
+                                    {
+                                        required: {
+                                            value: true,
+                                            message: "Image is required"
+                                        }
+                                    }
+                                )}
+                                type="file"
+                                className="input input-bordered"
+                            />
+                            <label className="label">
+                                {errors.profileImage?.type === 'required' && <span className="label-text-alt text-red-600">{errors.profileImage.message}</span>}
+
+                            </label>
+                        </div>
+                        <input className='btn btn-primary btn-sm' type="submit" value='Upload' />
+                    </form>
+
+                </div>
+
+
 
             </div>
 
