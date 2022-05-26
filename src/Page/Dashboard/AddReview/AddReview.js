@@ -8,7 +8,7 @@ import AddReviewTableRow from './AddReviewTableRow/AddReviewTableRow';
 
 const AddReview = () => {
     const [user, loading, error] = useAuthState(auth);
-    
+
 
 
     const [selectedOrder, setSelectedOrder] = useState({})
@@ -26,7 +26,7 @@ const AddReview = () => {
     if (loading || isLoading) {
         return <Loading></Loading>
     }
-    
+
 
     const addReviewHandlerListener = (id) => {
         const selected = data.find(order => order._id === id);
@@ -45,33 +45,42 @@ const AddReview = () => {
 
 
                 <div className='mt-1'>
-                    <p className='text-xs text-right mb-1'>These are all your paid orders. which you did not give review yet.</p>
-                    <div class="overflow-x-auto">
-                        <table class="table w-full">
+                    {
+                        allPaidOrderWithNoReview.length > 0 ? <>
+                            <div>
+                                <p className='text-xs text-right mb-1'>These are all your paid orders. which you did not give review yet.</p>
+                                <div class="overflow-x-auto">
+                                    <table class="table w-full">
 
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Product Name</th>
-                                    <th>Transaction Id</th>
-                                    <th>Add Review</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Name</th>
+                                                <th>Product Name</th>
+                                                <th>Transaction Id</th>
+                                                <th>Add Review</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                                {
-                                    allPaidOrderWithNoReview.map((order, index) => <AddReviewTableRow addReviewHandlerListener={addReviewHandlerListener} index={index} key={order._id} order={order}></AddReviewTableRow>)
-                                }
+                                            {
+                                                allPaidOrderWithNoReview.map((order, index) => <AddReviewTableRow addReviewHandlerListener={addReviewHandlerListener} index={index} key={order._id} order={order}></AddReviewTableRow>)
+                                            }
 
-                            </tbody>
+                                        </tbody>
 
 
-                        </table>
-                        {
-                            Object.keys(selectedOrder).length > 0 && <AddReviewModal refetch={refetch} setSelectedOrder={setSelectedOrder} selectedOrder={selectedOrder}></AddReviewModal>
-                        }
-                    </div>
+                                    </table>
+                                </div>
+                            </div>
+                        </>
+                        :
+                        <p className='text-center mt-5'>You don't have any paid orders which you did not give review yet.</p>
+                    }
+
+                    {
+                        Object.keys(selectedOrder).length > 0 && <AddReviewModal refetch={refetch} setSelectedOrder={setSelectedOrder} selectedOrder={selectedOrder}></AddReviewModal>
+                    }
                 </div>
 
             </div>
