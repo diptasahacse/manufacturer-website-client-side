@@ -28,7 +28,7 @@ const AddReview = () => {
     const addReviewHandlerListener = (id) => {
         const selected = data.find(order => order._id === id);
         setSelectedOrder(selected)
-        // console.log(id)
+        refetch()
 
     }
 
