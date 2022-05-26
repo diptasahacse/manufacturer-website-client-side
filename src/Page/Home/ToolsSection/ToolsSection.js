@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import CustomTitle from '../../Shared/CustomTitle/CustomTitle';
 import Loading from '../../Shared/Loading/Loading';
 import ProductsCard from './ProductsCard/ProductsCard';
 
 const ToolsSection = () => {
-    const [allTools, setAllTools] = useState([])
-    const [isLoading, setIsLoading] = useState(false);
-    useEffect(() => {
-        setIsLoading(true)
-        fetch('https://infinite-chamber-43931.herokuapp.com/products')
-            .then(res => res.json())
-            .then(data => {
 
-                setAllTools(data)
-                setIsLoading(false)
-            })
 
-    }, [])
-    if(isLoading){
+
+    const { isLoading, error, data } = useQuery('allTools', () =>
+        fetch('https://infinite-chamber-43931.herokuapp.com/products').then(res =>
+            res.json()
+        )
+    )
+
+
+
+
+
+    if (isLoading) {
         return <Loading></Loading>
 
     }
@@ -32,7 +33,7 @@ const ToolsSection = () => {
 
                     <div className='mt-5 grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                         {
-                            allTools.map(tool => <ProductsCard key={tool._id} tool={tool}></ProductsCard>)
+                            data.map(tool => <ProductsCard key={tool._id} tool={tool}></ProductsCard>)
                         }
 
 
