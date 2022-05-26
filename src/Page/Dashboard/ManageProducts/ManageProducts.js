@@ -55,7 +55,7 @@ const ManageProducts = () => {
                     </table>
                     <div>
                         {
-                            Object.keys(selectedProduct).length > 0 && <ProductDeleteModal setSelectedProduct={setSelectedProduct} selectedProduct={selectedProduct}></ProductDeleteModal>
+                            Object.keys(selectedProduct).length > 0 && <ProductDeleteModal refetch={refetch} setSelectedProduct={setSelectedProduct} selectedProduct={selectedProduct}></ProductDeleteModal>
                         }
                     </div>
                 </div>

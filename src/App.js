@@ -21,6 +21,8 @@ import Payment from './Page/Dashboard/Payment/Payment';
 import AddProduct from './Page/Dashboard/AddProduct/AddProduct';
 import ManageAllOrders from './Page/Dashboard/ManageAllOrders/ManageAllOrders';
 import ManageProducts from './Page/Dashboard/ManageProducts/ManageProducts';
+import Portfolio from './Page/Portfolio/Portfolio';
+import Blog from './Page/Blog/Blog';
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/register' element={<SignUp></SignUp>}></Route>
+        <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/signin' element={<SignIn></SignIn>}></Route>
         <Route path='/resetpassword' element={<ResetPassword></ResetPassword>}></Route>
 
