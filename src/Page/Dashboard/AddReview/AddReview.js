@@ -5,6 +5,7 @@ import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import AddReviewModal from './AddReviewModal/AddReviewModal';
 import AddReviewTableRow from './AddReviewTableRow/AddReviewTableRow';
+import ShowReviewModal from './ShowReviewModal/ShowReviewModal';
 
 const AddReview = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -12,6 +13,7 @@ const AddReview = () => {
 
 
     const [selectedOrder, setSelectedOrder] = useState({})
+    const [selectedShowOrder, setSelectedShowOrder] = useState({})
 
     const { isLoading, data, refetch } = useQuery(['myOrdersForReview'], () =>
         fetch(`http://localhost:5000/orders/${user?.email}`, {
@@ -34,8 +36,15 @@ const AddReview = () => {
         refetch()
 
     }
+    const showReviewHandlerListener = (id) => {
+        const selected = data.find(order => order._id === id);
+        setSelectedShowOrder(selected)
 
-    const allPaidOrderWithNoReview = data.filter(order => order?.paymentStatus && !order?.review)
+
+    }
+
+    const allPaidOrders = data.filter(order => order?.paymentStatus)
+
 
 
     return (
@@ -46,9 +55,9 @@ const AddReview = () => {
 
                 <div className='mt-1'>
                     {
-                        allPaidOrderWithNoReview.length > 0 ? <>
+                        allPaidOrders.length > 0 ? <>
                             <div>
-                                <p className='text-xs text-right mb-1'>These are all your paid orders. which you did not give review yet.</p>
+                                <p className='text-xs text-right mb-1'>These are all your paid orders.</p>
                                 <div class="overflow-x-auto">
                                     <table class="table w-full">
 
@@ -58,13 +67,13 @@ const AddReview = () => {
                                                 <th>Name</th>
                                                 <th>Product Name</th>
                                                 <th>Transaction Id</th>
-                                                <th>Add Review</th>
+                                                <th>Review</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
                                             {
-                                                allPaidOrderWithNoReview.map((order, index) => <AddReviewTableRow addReviewHandlerListener={addReviewHandlerListener} index={index} key={order._id} order={order}></AddReviewTableRow>)
+                                                allPaidOrders.map((order, index) => <AddReviewTableRow showReviewHandlerListener={showReviewHandlerListener} addReviewHandlerListener={addReviewHandlerListener} index={index} key={order._id} order={order}></AddReviewTableRow>)
                                             }
 
                                         </tbody>
@@ -74,16 +83,23 @@ const AddReview = () => {
                                 </div>
                             </div>
                         </>
-                        :
-                        <p className='text-center mt-5'>You don't have any paid orders which you did not give review yet.</p>
+                            :
+                            <p className='text-center mt-5'>You don't have any paid orders. Please first pay your order then come here to write review.</p>
                     }
 
-                    {
-                        Object.keys(selectedOrder).length > 0 && <AddReviewModal refetch={refetch} setSelectedOrder={setSelectedOrder} selectedOrder={selectedOrder}></AddReviewModal>
-                    }
+                    <div>
+                        {
+                            Object.keys(selectedOrder).length > 0 && <AddReviewModal refetch={refetch} setSelectedOrder={setSelectedOrder} selectedOrder={selectedOrder}></AddReviewModal>
+                        }
+                        {
+                            Object.keys(selectedShowOrder).length > 0 && <ShowReviewModal  selectedShowOrder={selectedShowOrder}></ShowReviewModal>
+                        }
+                    </div>
                 </div>
 
             </div>
+
+
         </>
     );
 };
