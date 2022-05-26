@@ -29,7 +29,7 @@ const MyProfile = () => {
                 }
             })
     }, [user])
-    // console.log(userInfo, user)
+    console.log(userInfo)
 
 
     if (loading) {
@@ -44,7 +44,7 @@ const MyProfile = () => {
                     <div className=''>
                         <div className='avatar online'>
                             <div class="w-40 ring-4 ring-primary rounded-full">
-                                <img src="https://api.lorem.space/image/face?hash=28212" />
+                                <img src={userInfo.img ? userInfo.img : 'https://i.ibb.co/6tx0kNh/user.png'} alt='' />
                             </div>
                         </div>
 
@@ -74,6 +74,10 @@ const MyProfile = () => {
                 <p>Email: {user?.email}</p>
                 <p>Role: {userInfo?.role ? userInfo.role : "Customer"}</p>
                 <p>Last Login: {userInfo?.lastLoginTime}</p> */}
+
+            </div>
+            <div className='p-7 mt-5 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
+                <h3 className='text-xl font-semibold text-primary'>Update Your Info</h3>
 
             </div>
 
