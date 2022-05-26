@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
-const AddReviewModal = ({ selectedOrder }) => {
+const AddReviewModal = ({ selectedOrder, setSelectedOrder,refetch }) => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const { _id } = selectedOrder;
 
     const [star, setStar] = useState(0)
 
@@ -12,10 +14,28 @@ const AddReviewModal = ({ selectedOrder }) => {
     }
 
     const onSubmit = (data) => {
-        console.log(data)
+
+        fetch(`http://localhost:5000/review/${_id}`, {
+            method: "PATCH",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                'content-type': "application/json"
+            },
+            body: JSON.stringify({ review: data })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data?.acknowledged) {
+                    toast("Thanks for you valuable review.");
+                    setSelectedOrder({})
+                    refetch()
+
+                }
+            })
 
 
     };
+
     return (
         <div>
             <input type="checkbox" id="add-review-modal" class="modal-toggle" />

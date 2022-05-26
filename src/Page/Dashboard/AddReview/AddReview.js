@@ -5,8 +5,11 @@ import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import AddReviewModal from './AddReviewModal/AddReviewModal';
 import AddReviewTableRow from './AddReviewTableRow/AddReviewTableRow';
+
 const AddReview = () => {
     const [user, loading, error] = useAuthState(auth);
+    
+
 
     const [selectedOrder, setSelectedOrder] = useState({})
 
@@ -23,7 +26,7 @@ const AddReview = () => {
     if (loading || isLoading) {
         return <Loading></Loading>
     }
-
+    
 
     const addReviewHandlerListener = (id) => {
         const selected = data.find(order => order._id === id);
@@ -66,7 +69,7 @@ const AddReview = () => {
 
                         </table>
                         {
-                            Object.keys(selectedOrder).length > 0 && <AddReviewModal setSelectedOrder={setSelectedOrder} selectedOrder={selectedOrder}></AddReviewModal>
+                            Object.keys(selectedOrder).length > 0 && <AddReviewModal refetch={refetch} setSelectedOrder={setSelectedOrder} selectedOrder={selectedOrder}></AddReviewModal>
                         }
                     </div>
                 </div>
