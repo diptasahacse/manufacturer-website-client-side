@@ -53,32 +53,42 @@ const MyOrders = () => {
             <h3 className='text-3xl font-semibold text-primary'>My Orders</h3>
 
             <div className='mt-5'>
-                <div class="overflow-x-auto">
-                    <table class="table table-compact w-full">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Email</th>
-                                <th>Product Name</th>
-                                <th>Quantity</th>
-                                <th>Total Price</th>
-                                <th>Address</th>
-                                <th>Phone</th>
-                                <th>Payment Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                data.map((order, index) => <MyOrderTableRow deleteOrderHandler={deleteOrderHandler} index={index} order={order} key={order._id}></MyOrderTableRow>)
-                            }
+                {
+                    data.length > 0 ? <>
+                        <div class="overflow-x-auto">
+                            <table class="table table-compact w-full">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Email</th>
+                                        <th>Product Name</th>
+                                        <th>Quantity</th>
+                                        <th>Total Price</th>
+                                        <th>Address</th>
+                                        <th>Phone</th>
+                                        <th>Payment Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        data.map((order, index) => <MyOrderTableRow deleteOrderHandler={deleteOrderHandler} index={index} order={order} key={order._id}></MyOrderTableRow>)
+                                    }
 
 
-                        </tbody>
-                        {Object.keys(selectedOrders).length > 0 && <OrderDeleteModal refetch={refetch} setSelectedOrders={setSelectedOrders} selectedOrders={selectedOrders}></OrderDeleteModal>}
+                                </tbody>
+                                {Object.keys(selectedOrders).length > 0 && <OrderDeleteModal refetch={refetch} setSelectedOrders={setSelectedOrders} selectedOrders={selectedOrders}></OrderDeleteModal>}
 
-                    </table>
-                </div>
+                            </table>
+                        </div>
+                    </>
+                        :
+                        <div>
+                            <p className='text-center'>No orders available at this moment</p>
+
+                        </div>
+                }
+
 
             </div>
             {/* <tr>
