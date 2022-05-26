@@ -43,6 +43,9 @@ const Dashboard = () => {
                             {
                                 isAdmin && <>
                                     <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/manageadmin'>Manage Admin</Link> </li>
+                                    <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/addproduct'>Add Product</Link> </li>
+                                    <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/manageallorders'>Manage Orders</Link> </li>
+                                    <li className='font-bold mb-2 text-accent'> <Link to='/dashboard/manageproducts'>Manage Products</Link> </li>
                                 </>
                             }
 

@@ -18,6 +18,9 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NotFound from './Page/NotFound/NotFound';
 import Payment from './Page/Dashboard/Payment/Payment';
+import AddProduct from './Page/Dashboard/AddProduct/AddProduct';
+import ManageAllOrders from './Page/Dashboard/ManageAllOrders/ManageAllOrders';
+import ManageProducts from './Page/Dashboard/ManageProducts/ManageProducts';
 
 function App() {
   return (
@@ -54,6 +57,23 @@ function App() {
           <Route path='manageadmin' element={
             <RequireAdmin>
               <ManageAdmin></ManageAdmin>
+            </RequireAdmin>
+          }></Route>
+
+          <Route path='addproduct' element={
+            <RequireAdmin>
+              <AddProduct></AddProduct>
+            </RequireAdmin>
+          }></Route>
+
+          <Route path='manageallorders' element={
+            <RequireAdmin>
+              <ManageAllOrders></ManageAllOrders>
+            </RequireAdmin>
+          }></Route>
+          <Route path='manageproducts' element={
+            <RequireAdmin>
+              <ManageProducts></ManageProducts>
             </RequireAdmin>
           }></Route>
 
