@@ -35,7 +35,7 @@ const MyProfile = () => {
             })
     }, [user, shouldUpdate])
     // console.log(userInfo)
-    // console.log(userInfo)
+    console.log(userInfo)
 
 
     const onInfoSubmitHandler = (data) => {
@@ -134,6 +134,17 @@ const MyProfile = () => {
                         </div>
                         <p className='text-xl'>Email: {user?.email}</p>
                         <p className='text-sm'>Last Login: {userInfo?.lastLoginTime}</p>
+
+
+
+                        <div className='mt-4'>
+                            <p>Education: {userInfo?.education ? userInfo?.education : "Not Uploaded yet"}</p>
+                            <p>From: {userInfo?.city ? userInfo?.city : "Not Uploaded yet"}</p>
+                            <p>Phone: {userInfo?.phone ? userInfo?.phone : "Not Uploaded yet"}</p>
+                            <p>LinkedIn: {userInfo?.linkedin ? userInfo?.linkedin : "Not Uploaded yet"}</p>
+
+
+                        </div>
 
 
 
