@@ -13,7 +13,7 @@ const MyOrders = () => {
 
 
     const { isLoading, error, data, refetch } = useQuery('myOrders', () =>
-        fetch(`http://localhost:5000/orders/${user?.email}`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/orders/${user?.email}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 
@@ -22,7 +22,7 @@ const MyOrders = () => {
         )
     )
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/orders/${user?.email}`, {
+    //     fetch(`https://infinite-chamber-43931.herokuapp.com/orders/${user?.email}`, {
     //         method: "GET",
     //         headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
     //     })

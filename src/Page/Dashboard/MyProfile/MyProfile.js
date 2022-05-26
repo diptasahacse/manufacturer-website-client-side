@@ -15,7 +15,7 @@ const MyProfile = () => {
     const imageStorageKey = '7f72d87979e17c6504f5811b2f68d7d4';
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user?.email}`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/user/${user?.email}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })

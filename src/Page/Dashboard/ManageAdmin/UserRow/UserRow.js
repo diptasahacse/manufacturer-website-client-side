@@ -11,10 +11,10 @@ const UserRow = ({ index, singleUser, refetch }) => {
 
     const createAdminHandler = (email) => {
         // console.log(email)
-        // http://localhost:5000/admin/createAdmin/:email
-        // http://localhost:5000/admin/createAdmin/:email
+        // https://infinite-chamber-43931.herokuapp.com/admin/createAdmin/:email
+        // https://infinite-chamber-43931.herokuapp.com/admin/createAdmin/:email
 
-        fetch(`http://localhost:5000/admin/createadmin/${email}`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/admin/createadmin/${email}`, {
             method: "PUT",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 
@@ -38,7 +38,7 @@ const UserRow = ({ index, singleUser, refetch }) => {
 
     }
     const removeAdminHandler = (email) => {
-        fetch(`http://localhost:5000/admin/removeadmin/${email}`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/admin/removeadmin/${email}`, {
             method: "PUT",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 

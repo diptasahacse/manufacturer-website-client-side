@@ -16,7 +16,7 @@ const CheckoutForm = ({ orderInfo }) => {
     // console.log(orderInfo)
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://infinite-chamber-43931.herokuapp.com/create-payment-intent', {
             method: "POST",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -93,7 +93,7 @@ const CheckoutForm = ({ orderInfo }) => {
                 totalPrice
             }
             // Store status in database
-            fetch(`http://localhost:5000/orders/${_id}`, {
+            fetch(`https://infinite-chamber-43931.herokuapp.com/orders/${_id}`, {
                 method: "PATCH",
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`,

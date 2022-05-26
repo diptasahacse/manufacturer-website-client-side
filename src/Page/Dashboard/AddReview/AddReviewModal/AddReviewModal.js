@@ -15,7 +15,7 @@ const AddReviewModal = ({ selectedOrder, setSelectedOrder,refetch }) => {
 
     const onSubmit = (data) => {
 
-        fetch(`http://localhost:5000/review/${_id}`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/review/${_id}`, {
             method: "PATCH",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
