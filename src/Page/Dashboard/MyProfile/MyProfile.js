@@ -32,10 +32,16 @@ const MyProfile = () => {
                 }
             })
     }, [user])
-    console.log(userInfo)
+    // console.log(userInfo)
 
     // OnSubmit For Image Upload
-    const onProfilePictureSubmitHandler = (event) => {
+    const onProfilePictureSubmitHandler = (data) => {
+        console.log(data.profileImage[0]);
+
+        // const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        // fetch(url,{
+        //     method: "POST"
+        // })
         // event.preventDefault()
 
     }
@@ -133,7 +139,7 @@ const MyProfile = () => {
 
                 </div>
                 {/* Education */}
-                <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
+                {/* <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
                     <h3>Upload Your Profile Picture</h3>
                     <form onSubmit={handleSubmit(onEducationStatusSubmitHandler)}>
                         <div className="form-control w-3/6">
@@ -157,9 +163,9 @@ const MyProfile = () => {
                         <input className='btn btn-primary btn-sm' type="submit" value='Upload' />
                     </form>
 
-                </div>
+                </div> */}
                 {/* Location */}
-                <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
+                {/* <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
                     <h3>Upload Your Profile Picture</h3>
                     <form onSubmit={handleSubmit(onCitySubmitHandler)}>
                         <div className="form-control w-3/6">
@@ -183,9 +189,9 @@ const MyProfile = () => {
                         <input className='btn btn-primary btn-sm' type="submit" value='Upload' />
                     </form>
 
-                </div>
+                </div> */}
                 {/* Phone */}
-                <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
+                {/* <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
                     <h3>Upload Your Profile Picture</h3>
                     <form onSubmit={handleSubmit(onPhoneSubmitHandler)}>
                         <div className="form-control w-3/6">
@@ -209,9 +215,9 @@ const MyProfile = () => {
                         <input className='btn btn-primary btn-sm' type="submit" value='Upload' />
                     </form>
 
-                </div>
+                </div> */}
                 {/* Phone */}
-                <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
+                {/* <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
                     <h3>Upload Your Profile Picture</h3>
                     <form onSubmit={handleSubmit(onCitySubmitHandler)}>
                         <div className="form-control w-3/6">
@@ -235,7 +241,7 @@ const MyProfile = () => {
                         <input className='btn btn-primary btn-sm' type="submit" value='Upload' />
                     </form>
 
-                </div>
+                </div> */}
 
 
 
