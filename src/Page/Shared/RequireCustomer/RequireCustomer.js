@@ -6,7 +6,7 @@ import auth from '../../../firebase.init';
 import useAdmin from '../../../hooks/useAdmin';
 import Loading from '../Loading/Loading';
 
-const RequireAdmin = ({ children }) => {
+const RequireCustomer = ({ children }) => {
     const [user, loading] = useAuthState(auth);
 
     let location = useLocation()
@@ -17,7 +17,7 @@ const RequireAdmin = ({ children }) => {
         return <Loading></Loading>
     }
 
-    if (!isAdmin || !user) {
+    if (isAdmin || !user) {
         localStorage.removeItem('accessToken')
         signOut(auth)
         return <Navigate to="/signin" state={{ from: location }} replace />;
@@ -26,4 +26,4 @@ const RequireAdmin = ({ children }) => {
     return children;
 };
 
-export default RequireAdmin;
+export default RequireCustomer;
