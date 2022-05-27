@@ -5,7 +5,6 @@ import Loading from '../../../Shared/Loading/Loading';
 
 const ManageAllOrderShippedModal = ({ refetch, setSelectedOrderForShipped, selectedOrderForShipped }) => {
     const { _id, quantity, productName, productId } = selectedOrderForShipped;
-    const [productInfo, setProductInfo] = useState({})
     const { isLoading, data } = useQuery(['singleProductForShippedModal'], () =>
         fetch(`http://localhost:5000/products/${productId}`, {
             method: "GET",
@@ -21,8 +20,6 @@ const ManageAllOrderShippedModal = ({ refetch, setSelectedOrderForShipped, selec
     }
     const shippedHandleListener = () => {
         const updateAvailableQuantity = data?.availableQuantity - quantity;
-
-
         fetch(`http://localhost:5000/orders/payment/${_id}`, {
             method: "PUT",
             headers: {

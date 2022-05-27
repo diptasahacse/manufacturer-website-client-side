@@ -14,7 +14,7 @@ const ProductTableRow = ({ product, index, productDeleteHandler }) => {
 
             </td>
             <td>
-                <label onClick={() => productDeleteHandler(product._id)} for="product-delete-modal" class="btn btn-error btn-sm">Delete</label>
+                <label onClick={() => productDeleteHandler(product._id)} for="product-delete-modal" class="btn btn-sm bg-red-600 border-0 text-white">Delete</label>
             </td>
         </tr>
     );
