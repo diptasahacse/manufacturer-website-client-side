@@ -10,7 +10,7 @@ const ManageAllOrderTableRow = ({ index, order, cancelOrderHandler, shippedOrder
             <td>{order?.transactionId}</td>
             <td>
                 {
-                    order?.paymentStatus ? <div class="badge badge-info">{order?.paymentStatus}</div> : <div class="badge badge-error">unpaid</div>
+                    order?.paymentStatus ? <div class="badge bg-green-700 text-white border-0">{order?.paymentStatus}</div> : <div class="badge badge-error">unpaid</div>
                 }
             </td>
             <td>

@@ -37,10 +37,12 @@ const ManageAllOrderShippedModal = ({ refetch, setSelectedOrderForShipped, selec
             .then(data => {
                 if (data?.orderResult?.acknowledged) {
                     toast('Successfully Shipped');
+                    setSelectedOrderForShipped({})
                     refetch()
 
                 }
                 else {
+                    setSelectedOrderForShipped({})
                     toast.error('Something went wrong');
 
                 }
