@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading/Loading';
+import ManageAllOrderDeleteModal from './ManageAllOrderDeleteModal/ManageAllOrderDeleteModal';
 import ManageAllOrderTableRow from './ManageAllOrderTableRow/ManageAllOrderTableRow';
 
 const ManageAllOrders = () => {
+    const [selectedOrder, setSelectedOrder] = useState({})
     const { isLoading, data, refetch } = useQuery(['allOrders'], () =>
         fetch(`http://localhost:5000/orders`, {
             method: "GET",
@@ -13,6 +15,11 @@ const ManageAllOrders = () => {
             res.json()
         )
     )
+    const cancelOrderHandler = (id) =>{
+        const select = data.find(order => order._id === id);
+        setSelectedOrder(select)
+
+    }
 
     if (isLoading) {
         return <Loading></Loading>
@@ -40,11 +47,16 @@ const ManageAllOrders = () => {
                         <tbody>
 
                             {
-                                data.map((order,index) => <ManageAllOrderTableRow index={index} key={order._id} order={order}></ManageAllOrderTableRow>)
+                                data.map((order,index) => <ManageAllOrderTableRow cancelOrderHandler={cancelOrderHandler} index={index} key={order._id} order={order}></ManageAllOrderTableRow>)
                             }
 
                         </tbody>
                     </table>
+                    <div>
+                        {
+                            Object.keys(selectedOrder).length > 0 && <ManageAllOrderDeleteModal refetch={refetch} setSelectedOrder={setSelectedOrder} selectedOrder={selectedOrder}></ManageAllOrderDeleteModal>
+                        }
+                    </div>
                 </div>
             </div>
 
