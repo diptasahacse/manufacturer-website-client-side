@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading/Loading';
 import ManageAllOrderDeleteModal from './ManageAllOrderDeleteModal/ManageAllOrderDeleteModal';
+import ManageAllOrderShippedModal from './ManageAllOrderShippedModal/ManageAllOrderShippedModal';
 import ManageAllOrderTableRow from './ManageAllOrderTableRow/ManageAllOrderTableRow';
 
 const ManageAllOrders = () => {
     const [selectedOrder, setSelectedOrder] = useState({})
+    const [selectedOrderForShipped, setSelectedOrderForShipped] = useState({})
     const { isLoading, data, refetch } = useQuery(['allOrders'], () =>
         fetch(`http://localhost:5000/orders`, {
             method: "GET",
@@ -18,6 +20,11 @@ const ManageAllOrders = () => {
     const cancelOrderHandler = (id) =>{
         const select = data.find(order => order._id === id);
         setSelectedOrder(select)
+
+    }
+    const shippedOrderHandler = (id) =>{
+        const select = data.find(order => order._id === id);
+        setSelectedOrderForShipped(select)
 
     }
 
@@ -47,7 +54,7 @@ const ManageAllOrders = () => {
                         <tbody>
 
                             {
-                                data.map((order,index) => <ManageAllOrderTableRow cancelOrderHandler={cancelOrderHandler} index={index} key={order._id} order={order}></ManageAllOrderTableRow>)
+                                data.map((order,index) => <ManageAllOrderTableRow shippedOrderHandler={shippedOrderHandler} cancelOrderHandler={cancelOrderHandler} index={index} key={order._id} order={order}></ManageAllOrderTableRow>)
                             }
 
                         </tbody>
@@ -55,6 +62,9 @@ const ManageAllOrders = () => {
                     <div>
                         {
                             Object.keys(selectedOrder).length > 0 && <ManageAllOrderDeleteModal refetch={refetch} setSelectedOrder={setSelectedOrder} selectedOrder={selectedOrder}></ManageAllOrderDeleteModal>
+                        }
+                        {
+                            Object.keys(selectedOrderForShipped).length > 0 && <ManageAllOrderShippedModal refetch={refetch} setSelectedOrderForShipped={setSelectedOrderForShipped} selectedOrderForShipped={selectedOrderForShipped}></ManageAllOrderShippedModal>
                         }
                     </div>
                 </div>

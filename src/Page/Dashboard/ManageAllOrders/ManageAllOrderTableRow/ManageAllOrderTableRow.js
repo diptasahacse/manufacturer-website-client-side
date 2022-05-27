@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ManageAllOrderTableRow = ({ index, order, cancelOrderHandler }) => {
+const ManageAllOrderTableRow = ({ index, order, cancelOrderHandler,shippedOrderHandler }) => {
     return (
         <tr>
             <th>{index + 1}</th>
@@ -15,7 +15,7 @@ const ManageAllOrderTableRow = ({ index, order, cancelOrderHandler }) => {
             </td>
             <td>
                 {
-                    order?.paymentStatus ? <button className='btn btn-success btn-xs'>Shipped</button> : <label onClick={()=>cancelOrderHandler(order?._id)} for="manage-all-orders-delete-modal" class="btn btn-xs btn-error">Cancel</label>
+                    order?.paymentStatus ? <label onClick={()=>shippedOrderHandler(order?._id)} for="manage-all-orders-shipped-modal" class="btn btn-xs btn-success">Shipped</label> : <label onClick={()=>cancelOrderHandler(order?._id)} for="manage-all-orders-delete-modal" class="btn btn-xs btn-error">Cancel</label>
 
                     
                 }
