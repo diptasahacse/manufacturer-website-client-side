@@ -23,6 +23,7 @@ import ManageAllOrders from './Page/Dashboard/ManageAllOrders/ManageAllOrders';
 import ManageProducts from './Page/Dashboard/ManageProducts/ManageProducts';
 import Portfolio from './Page/Portfolio/Portfolio';
 import Blog from './Page/Blog/Blog';
+import RequireCustomer from './Page/Shared/RequireCustomer/RequireCustomer';
 
 function App() {
   return (
@@ -52,9 +53,21 @@ function App() {
         }>
           <Route index element={<MyProfile></MyProfile>}></Route>
 
-          <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
-          <Route path='addreview' element={<AddReview></AddReview>}></Route>
-          <Route path='payment/:id' element={<Payment></Payment>}></Route>
+          <Route path='myorders' element={
+            <RequireCustomer>
+              <MyOrders></MyOrders>
+            </RequireCustomer>
+          }></Route>
+          <Route path='addreview' element={
+            <RequireCustomer>
+              <AddReview></AddReview>
+            </RequireCustomer>
+          }></Route>
+          <Route path='payment/:id' element={
+            <RequireCustomer>
+              <Payment></Payment>
+            </RequireCustomer>
+          }></Route>
 
 
 
