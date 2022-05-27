@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading/Loading';
+import ManageAllOrderTableRow from './ManageAllOrderTableRow/ManageAllOrderTableRow';
 
 const ManageAllOrders = () => {
     const { isLoading, data, refetch } = useQuery(['allOrders'], () =>
@@ -27,20 +28,20 @@ const ManageAllOrders = () => {
 
                         <thead>
                             <tr>
-                                <th></th>
-                                <th>Name</th>
-                                <th>Job</th>
-                                <th>Favorite Color</th>
+                                <th>#</th>
+                                <th>Product Name</th>
+                                <th>Customer Name</th>
+                                <th>Amount</th>
+                                <th>Transaction ID</th>
+                                <th>Payment Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <tr>
-                                <th>1</th>
-                                <td>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td>Blue</td>
-                            </tr>
+                            {
+                                data.map((order,index) => <ManageAllOrderTableRow index={index} key={order._id} order={order}></ManageAllOrderTableRow>)
+                            }
 
                         </tbody>
                     </table>
