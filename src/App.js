@@ -106,9 +106,9 @@ function App() {
 
 
         <Route path='/purchase/:productId' element={
-          <RequireAuth>
+          <RequireCustomer>
             <Purchase></Purchase>
-          </RequireAuth>
+          </RequireCustomer>
         }></Route>
 
 
