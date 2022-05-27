@@ -15,7 +15,7 @@ const Portfolio = () => {
                             <div className='ml-3'>
                                 <div class="avatar">
                                     <div class="w-24 rounded-full">
-                                        <img src="https://api.lorem.space/image/face?hash=92310" />
+                                        <img src="https://i.ibb.co/VJrn4Bw/aa.jpg" alt='' />
                                     </div>
                                 </div>
                             </div>

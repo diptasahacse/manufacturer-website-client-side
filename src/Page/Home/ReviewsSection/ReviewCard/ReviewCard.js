@@ -2,8 +2,73 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { faQuoteLeft, faStar } from '@fortawesome/free-solid-svg-icons';
 
-const ReviewCard = ({ ratingInfo }) => {
-    const { rating, des, name, img } = ratingInfo;
+const ReviewCard = ({ ratingInfo, customerName }) => {
+    const { star, feedback } = ratingInfo;
+    let starRating;
+
+
+
+    if (Number(star) === 5) {
+        starRating = <div>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+        </div>
+
+    }
+    else if (Number(star) === 4) {
+        starRating = <div>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span><FontAwesomeIcon icon={faStar} /></span>
+        </div>
+
+    }
+    else if (Number(star) === 3) {
+        starRating = <div>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+        </div>
+
+    }
+    else if (Number(star) === 2) {
+        starRating = <div>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+        </div>
+
+    }
+    else if (Number(star) === 1) {
+        starRating = <div>
+            <span className='text-primary'><FontAwesomeIcon icon={faStar} /></span>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+        </div>
+
+
+    }
+    else {
+        starRating = <div>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+            <span ><FontAwesomeIcon icon={faStar} /></span>
+        </div>
+
+    }
 
 
     return (
@@ -11,26 +76,24 @@ const ReviewCard = ({ ratingInfo }) => {
             <div class="card bg-base-100 shadow-xl">
                 <div class="card-body">
                     <span className='text-6xl text-primary'> <FontAwesomeIcon icon={faQuoteLeft} /></span>
-                    <p>{des}</p>
+                    <p>{feedback}</p>
 
 
                     <div>
-                        
-                        <span className='text-xl text-primary'> <FontAwesomeIcon icon={faStar} /></span>
-                        <span className='text-xl text-primary'> <FontAwesomeIcon icon={faStar} /></span>
-                        <span className='text-xl text-primary'> <FontAwesomeIcon icon={faStar} /></span>
-                        <span className='text-xl text-primary'> <FontAwesomeIcon icon={faStar} /></span>
-                        <span className='text-xl text-primary'> <FontAwesomeIcon icon={faStar} /></span>
+
+                        :{
+                            starRating
+                        }
 
                     </div>
                     <div className='flex items-center mt-5'>
                         <div class="avatar">
                             <div class="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src={img} alt='' />
+                                <img src='https://i.ibb.co/6tx0kNh/user.png' alt='' />
                             </div>
                         </div>
                         <div>
-                            <h4 className='ml-3 font-bold'>{name}</h4>
+                            <h4 className='ml-3 font-bold'>{customerName}</h4>
                         </div>
                     </div>
                 </div>

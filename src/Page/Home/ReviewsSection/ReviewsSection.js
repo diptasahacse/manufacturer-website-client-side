@@ -1,16 +1,33 @@
 import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import CustomTitle from '../../Shared/CustomTitle/CustomTitle';
+import Loading from '../../Shared/Loading/Loading';
 import ReviewCard from './ReviewCard/ReviewCard';
 
 const ReviewsSection = () => {
-    const [allRating, setAllRating] = useState([])
+    const [allOrder, setAllOrder] = useState([])
 
-    useEffect(() => {
-        fetch('review.json')
-            .then(res => res.json())
-            .then(data => setAllRating(data))
-    }, [])
-    // console.log(allRating)
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/orders')
+    //         .then(res => res.json())
+    //         .then(data => setAllOrder(data))
+    // }, [])
+
+
+    const { isLoading, data, refetch } = useQuery(['allOrdersForReview'], () =>
+        fetch(`http://localhost:5000/orders`, {
+            method: "GET"
+        }).then(res =>
+            res.json()
+        )
+    )
+
+    if(isLoading){
+        return <Loading></Loading>
+    }
+
+    const orderWithReview = data.filter(order => order?.review)
+    
 
     return (
         <div className='py-10 bg-primary'>
@@ -19,7 +36,7 @@ const ReviewsSection = () => {
 
                 <div className='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                     {
-                        allRating.map(rating => <ReviewCard key={rating.id} ratingInfo={rating}></ReviewCard>)
+                        orderWithReview.map(rating => <ReviewCard key={rating._id} customerName={rating.customerName} ratingInfo={rating?.review}></ReviewCard>)
                     }
 
                 </div>
