@@ -3,9 +3,11 @@ import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading/Loading';
 import ProductDeleteModal from './ProductDeleteModal/ProductDeleteModal';
 import ProductTableRow from './ProductTableRow/ProductTableRow';
+import ProductUpdateModal from './ProductUpdateModal/ProductUpdateModal';
 
 const ManageProducts = () => {
     const [selectedProduct, setSelectedProduct] = useState({})
+    const [selectedProductForUpdate, setSelectedProductForUpdate] = useState({})
 
     const { isLoading, data, refetch } = useQuery(['allProducts'], () =>
         fetch(`http://localhost:5000/products`, {
@@ -27,6 +29,14 @@ const ManageProducts = () => {
 
 
     }
+    const productUpdateHandler = (id) => {
+
+        const product = data.find(pro => pro._id === id);
+        setSelectedProductForUpdate(product)
+        refetch()
+
+
+    }
 
     return (
         <div className='p-7 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
@@ -43,12 +53,13 @@ const ManageProducts = () => {
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Action</th>
+                                <th>Update</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             {
-                                data.map((product, index) => <ProductTableRow productDeleteHandler={productDeleteHandler} key={product._id} index={index} product={product}></ProductTableRow>)
+                                data.map((product, index) => <ProductTableRow productUpdateHandler={productUpdateHandler} productDeleteHandler={productDeleteHandler} key={product._id} index={index} product={product}></ProductTableRow>)
                             }
 
                         </tbody>
@@ -56,6 +67,9 @@ const ManageProducts = () => {
                     <div>
                         {
                             Object.keys(selectedProduct).length > 0 && <ProductDeleteModal refetch={refetch} setSelectedProduct={setSelectedProduct} selectedProduct={selectedProduct}></ProductDeleteModal>
+                        }
+                        {
+                            Object.keys(selectedProductForUpdate).length > 0 && <ProductUpdateModal refetch={refetch} setSelectedProductForUpdate={setSelectedProductForUpdate} selectedProductForUpdate={selectedProductForUpdate}></ProductUpdateModal>
                         }
                     </div>
                 </div>
