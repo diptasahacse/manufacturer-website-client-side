@@ -58,7 +58,7 @@ const AddReview = () => {
                     {
                         allPaidOrders.length > 0 ? <>
                             <div>
-                                <p className='text-xs text-right mb-1'>These are all your Pending and Shipped orders.</p>
+                                <p className='text-xs text-right mb-1'>These are all your Pending and Shipped orders. (Please wait for add review till your order is not shipped)</p>
                                 <div class="overflow-x-auto">
                                     <table class="table w-full">
 
