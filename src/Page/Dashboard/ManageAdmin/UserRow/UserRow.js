@@ -73,8 +73,8 @@ const UserRow = ({ index, singleUser, refetch }) => {
         <tr>
             <th>{index + 1}</th>
             <td className={user.email === email && 'text-primary font-bold'}>{user.email === email ? email + " (You)" : email}  </td>
-            <td><button onClick={() => { createAdminHandler(email) }} disabled={singleUser?.role} class="btn btn-xs btn-success">Make Admin</button></td>
-            <td><button onClick={() => { removeAdminHandler(email) }} disabled={user.email === email || !singleUser?.role} className='btn btn-xs btn-error'>Remove Admin</button></td>
+            <td><button onClick={() => { createAdminHandler(email) }} disabled={singleUser?.role} class="btn btn-xs bg-green-600 border-0 text-white">Make Admin</button></td>
+            <td><button onClick={() => { removeAdminHandler(email) }} disabled={user.email === email || !singleUser?.role} className='btn btn-xs bg-red-600 border-0 text-white'>Remove Admin</button></td>
         </tr>
     );
 };
