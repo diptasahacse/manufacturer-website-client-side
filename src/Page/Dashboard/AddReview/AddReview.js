@@ -45,6 +45,7 @@ const AddReview = () => {
 
     const allPaidOrders = data.filter(order => order?.paymentStatus)
 
+    // console.log(allPaidOrders)
 
 
     return (
@@ -57,7 +58,7 @@ const AddReview = () => {
                     {
                         allPaidOrders.length > 0 ? <>
                             <div>
-                                <p className='text-xs text-right mb-1'>These are all your paid orders.</p>
+                                <p className='text-xs text-right mb-1'>These are all your Pending and Shipped orders.</p>
                                 <div class="overflow-x-auto">
                                     <table class="table w-full">
 
