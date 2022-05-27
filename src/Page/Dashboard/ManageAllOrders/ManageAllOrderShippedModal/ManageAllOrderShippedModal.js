@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 
 const ManageAllOrderShippedModal = ({ refetch, setSelectedOrderForShipped, selectedOrderForShipped }) => {
-    const { _id, quantity, productName } = selectedOrderForShipped;
-    const shippedHandleListener = () => {
+    const { _id, quantity, productName, productId } = selectedOrderForShipped;
+    const [productInfo, setProductInfo] = useState({})
+    const { isLoading, data } = useQuery(['singleProductForShippedModal'], () =>
+        fetch(`http://localhost:5000/products/${productId}`, {
+            method: "GET",
+            headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
+
+        }).then(res =>
+            res.json()
+        )
+    )
+    if(isLoading){
 
     }
+    const shippedHandleListener = () => {
+
+
+    }
+
     return (
         <div>
             <input type="checkbox" id="manage-all-orders-shipped-modal" class="modal-toggle" />
