@@ -19,7 +19,7 @@ const RequireCustomer = ({ children }) => {
     }
 
     if (isAdmin || !user) {
-        toast.error("We have noticed you have tried to visit Customer page. Where you don't have access")
+        toast.error("We have noticed you have tried to visit Customer page. Where you don't have access. If i'm wrong then first visit Home page. then come here.")
         localStorage.removeItem('accessToken')
         signOut(auth)
         return <Navigate to="/signin" state={{ from: location }} replace />;
