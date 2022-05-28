@@ -1,15 +1,30 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
+import Loading from '../Shared/Loading/Loading';
 const ResetPassword = () => {
     // Initializatioon
     const { register, formState: { errors }, handleSubmit } = useForm();
     // Handler
-
+    const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(
+        auth
+    );
     const onSubmit = async (data) => {
+        await sendPasswordResetEmail(data.email);
+        toast("Reset link sent your email")
+
 
     };
+    if (error) {
+        toast.error(error.message)
+    }
+
+    if (sending) {
+        return <Loading></Loading>
+    }
     return (
         <div class="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
             <div class="hero-overlay bg-opacity-80"></div>
