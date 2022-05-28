@@ -8,6 +8,7 @@ import Loading from '../Loading/Loading';
 const Header = () => {
     const [user, loading, error] = useAuthState(auth);
     const singOutHandler = () => {
+        localStorage.removeItem('accessToken')
         signOut(auth);
     }
 

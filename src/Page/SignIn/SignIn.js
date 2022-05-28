@@ -1,7 +1,9 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading/Loading';
@@ -10,6 +12,8 @@ import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 const SignIn = () => {
     // Initialization
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const navigate = useNavigate();
+    const location = useLocation();
     const [
         signInWithEmailAndPassword,
         user,
@@ -17,27 +21,36 @@ const SignIn = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const navigate = useNavigate();
-    const location = useLocation();
+    
     const [token] = useToken(user?.user?.email);
 
-    // console.log(token)
+    console.log(user)
     let from = location.state?.from?.pathname || "/";
+
+
     useEffect(() => {
         if (user) {
             if (token) {
                 navigate(from, { replace: true });
             }
+            else {
+                localStorage.removeItem('accessToken')
+                signOut(auth);
+            }
+
         }
 
-    }, [user, token, from, navigate])
+    }, [token, from, navigate])
     console.log(token)
 
+    if(error){
+        toast.error(error.message)
+    }
     if (loading) {
         return <Loading></Loading>
 
     }
-    
+
 
 
 
