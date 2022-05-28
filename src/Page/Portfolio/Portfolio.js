@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { faEnvelope, faMobile, faLocation, faBrain } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faMobile, faLocation, faBrain, faBuildingColumns, faGraduationCap, faSchoolFlag, faCode, faCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 const Portfolio = () => {
@@ -22,7 +22,7 @@ const Portfolio = () => {
                             <div className='ml-4'>
                                 <h3 className='text-4xl font-semibold' style={{ color: "#1C3244" }}>Dipta Saha</h3>
                                 <h4 className='text-2xl font-semibold text-primary'>Jr. Front End Developer</h4>
-                                <p>Innovative, task-driven professional with 8+ years of experience in web design and development across diverse industries. Equipped with a record of success in consistently identifying and providing the technological needs of companies through ingeniors innovation. Proficient in developing databases, creating user interfaces, writing and testing codes, troubleshooting simple/complex issues, and implementing new features based on user feedback.</p>
+                                <p>Ability to create innovative, creative, & interactive web designs to boost customer engagement. Sound knowledge in HTML5, CSS3, Git, Javascript, ES6, React.js, Node, Express, Mongodb & other UI frameworks like Bootstrap, Tailwindcss. Build reusable code for future use while optimizing web performance.</p>
 
                             </div>
                         </div>
@@ -65,8 +65,95 @@ const Portfolio = () => {
                     <div className='col-span-3 flex '>
                         <div className='w-2 mr-2 h-full'></div>
                         <div className='w-full p-3'>
+                            <div className=' mt-2'>
 
-                            <p>Content goes here</p>
+                                <div className='flex items-center'>
+                                    <span className='text-xl' style={{ color: "#1C3244" }}><FontAwesomeIcon icon={faCode} /></span>
+                                    <h3 className='ml-2 font-bold text-xl' style={{ color: "#1C3244" }}>Project</h3>
+                                </div>
+
+                                <div className=' m-5'>
+                                    <div>
+                                        <div className='flex items-center'>
+                                            <span className='text-sm' style={{ color: "#1C3244" }}><FontAwesomeIcon icon={faCircle} /></span>
+                                            <h3 className='ml-2 font-bold text-sm' style={{ color: "#1C3244" }}>Manufacturer website</h3>
+                                        </div>
+
+                                        <div className='ml-5'>
+                                            <p className='italic text-sm'>This website is all about whole sell (Tools) business website like alibaba. The main concept of this website is, Customer can buy product from minimum quantity to available quantity. To buy any product, Customer have to register in this website then they can buy. In Home page Customer can see some product in tools section. every product contain name, image, short description, min order quantity, available quantity, price and a button named Buy now. when user click on the buy button then this product will show in purchase route or page ( if the customer logged in otherwise it will redirect to login page ) with all product details. In Purchase page user can change quantity (increase/decrease). The Initial value of quantity is the minimum order quantity. user can not able to reduce the quantity below the minimum order quantity and also user can not able to set quantity which is higher than the available quantity. In purchase page user also see delivery info field like phone, address. user have to filled that info to purchase the order. there have a button name Purchase now. if user click on that button, user see a successful message 'You order is successfully added, Please pay for this product from my order page. when user logged in he will see a dashboard. In Dashboard, user can see his profile section, My Order section,Add Review Section. In My Order section, User can see pay or cancel button with his every order. user can pay for his particular order from this page. user can only pay this order with Stripe payment system. In Add review page, user can see or add this review, user profile section user can see his info. One the other hand, This website have admin section, normal user can not see admin info as well as admin can not see customers info. admin can manage, add product. also can handle ann orders.</p>
+                                            <div className='flex items-center mt-4'>
+                                                <p className='text-sm font-semibold'>Github: </p>
+                                                <a className='ml-2 text-sm' href="">Manufacturar</a>
+                                            </div>
+                                            <div className='flex items-center'>
+                                                <p className='text-sm font-semibold'>Site Link: </p>
+                                                <a className='ml-2 text-sm' href="">Manufacturar</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div className=' m-5'>
+                                    <div>
+                                        <div className='flex items-center'>
+                                            <span className='text-sm' style={{ color: "#1C3244" }}><FontAwesomeIcon icon={faCircle} /></span>
+                                            <h3 className='ml-2 font-bold text-sm' style={{ color: "#1C3244" }}>Inventory website</h3>
+                                        </div>
+
+                                        <div className='ml-5'>
+                                            <p className='italic text-sm'>Short Description about the project</p>
+                                            <div className='flex items-center mt-4'>
+                                                <p className='text-sm font-semibold'>Github: </p>
+                                                <a className='ml-2 text-sm' href="">Inventory</a>
+                                            </div>
+                                            <div className='flex items-center'>
+                                                <p className='text-sm font-semibold'>Site Link: </p>
+                                                <a className='ml-2 text-sm' href="">Inventory</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                
+
+                            </div>
+                            <div className=' mt-2'>
+
+                                <div className='flex items-center'>
+                                    <span className='text-xl' style={{ color: "#1C3244" }}><FontAwesomeIcon icon={faBuildingColumns} /></span>
+                                    <h3 className='ml-2 font-bold text-xl' style={{ color: "#1C3244" }}>Education</h3>
+                                </div>
+
+                                <div className=' m-5'>
+                                    <div className='flex items-center'>
+                                        <span className='text-sm' style={{ color: "#1C3244" }}><FontAwesomeIcon icon={faGraduationCap} /></span>
+                                        <h3 className='ml-2 font-bold text-sm' style={{ color: "#1C3244" }}>Computer Science and Engineering</h3>
+                                    </div>
+                                    <div className='ml-5'>
+                                        <p className='italic text-sm'>Lovely Professional University</p>
+                                        <p className='italic text-sm'>Graduation</p>
+                                        <p className='italic text-sm'>2017 - 2022</p>
+
+                                    </div>
+
+
+                                </div>
+                                <div className=' m-5'>
+                                    <div className='flex items-center'>
+                                        <span className='text-sm' style={{ color: "#1C3244" }}><FontAwesomeIcon icon={faSchoolFlag} /></span>
+                                        <h3 className='ml-2 font-bold text-sm' style={{ color: "#1C3244" }}>Computer Engineering</h3>
+                                    </div>
+                                    <div className='ml-5'>
+
+                                        <p className='italic text-sm'>Khanjahan Ali College of Science and Technology</p>
+                                        <p className='italic text-sm'>Diploma</p>
+                                        <p className='italic text-sm'>2010 - 2014</p>
+                                    </div>
+
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -81,49 +168,23 @@ const Portfolio = () => {
 
                                 <div className='mt-3'>
                                     <div className='mb-2'>
-                                        <h3 className='font-semibold'>HTML5</h3>
-                                        <progress class="progress progress-primary w-full" value="96" max="100"></progress>
+
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>HTML5</div>
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>CSS3</div>
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Git</div>
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Bootstrap</div>
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Tailwindcss</div>
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Javascript</div>
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>React</div>
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Node</div>
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Express</div>
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Mongodb</div>
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>C</div>
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Java</div>
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Python</div>
+                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Android</div>
                                     </div>
-                                    <div className='mb-2'>
-                                        <h3 className='font-semibold'>CSS3</h3>
-                                        <progress class="progress progress-primary w-full" value="95" max="100"></progress>
-                                    </div>
-                                    <div className='mb-2'>
-                                        <h3 className='font-semibold'>Bootstrap</h3>
-                                        <progress class="progress progress-primary w-full" value="95" max="100"></progress>
-                                    </div>
-                                    <div className='mb-2'>
-                                        <h3 className='font-semibold'>Tailwindcss</h3>
-                                        <progress class="progress progress-primary w-full" value="95" max="100"></progress>
-                                    </div>
-                                    <div className='mb-2'>
-                                        <h3 className='font-semibold'>Daisy UI</h3>
-                                        <progress class="progress progress-primary w-full" value="95" max="100"></progress>
-                                    </div>
-                                    <div className='mb-2'>
-                                        <h3 className='font-semibold'>Javascript</h3>
-                                        <progress class="progress progress-primary w-full" value="95" max="100"></progress>
-                                    </div>
-                                    <div className='mb-2'>
-                                        <h3 className='font-semibold'>ES6</h3>
-                                        <progress class="progress progress-primary w-full" value="95" max="100"></progress>
-                                    </div>
-                                    <div className='mb-2'>
-                                        <h3 className='font-semibold'>React</h3>
-                                        <progress class="progress progress-primary w-full" value="95" max="100"></progress>
-                                    </div>
-                                    <div className='mb-2'>
-                                        <h3 className='font-semibold'>Node</h3>
-                                        <progress class="progress progress-primary w-full" value="95" max="100"></progress>
-                                    </div>
-                                    <div className='mb-2'>
-                                        <h3 className='font-semibold'>Express</h3>
-                                        <progress class="progress progress-primary w-full" value="95" max="100"></progress>
-                                    </div>
-                                    <div className='mb-2'>
-                                        <h3 className='font-semibold'>Mongodb</h3>
-                                        <progress class="progress progress-primary w-full" value="95" max="100"></progress>
-                                    </div>
+
                                 </div>
                             </div>
 
