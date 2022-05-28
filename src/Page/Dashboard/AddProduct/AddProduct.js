@@ -75,7 +75,7 @@ const AddProduct = () => {
 
 
     }
-    if(infoUploadLoading){
+    if (infoUploadLoading) {
         return <Loading></Loading>
     }
 
@@ -87,7 +87,7 @@ const AddProduct = () => {
             <div className='mt-5'>
                 <form onSubmit={handleSubmit(OnProductSubmitListener)}>
                     {/* Product Image */}
-                    <div className="form-control w-3/6">
+                    <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Product Image</span>
                         </label>
@@ -108,118 +108,120 @@ const AddProduct = () => {
 
                         </label>
                     </div>
-                    {/* Product Name */}
-                    <div className="form-control w-3/6">
-                        <label className="label">
-                            <span className="label-text">Product Name</span>
-                        </label>
-                        <input
-                            {...register("productName",
-                                {
-                                    required: {
-                                        value: true,
-                                        message: "Product Name is required"
+                    <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
+                        {/* Product Name */}
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Product Name</span>
+                            </label>
+                            <input
+                                {...register("productName",
+                                    {
+                                        required: {
+                                            value: true,
+                                            message: "Product Name is required"
+                                        }
+
                                     }
+                                )}
+                                type="text"
+                                placeholder="Product Name"
+                                className="input input-bordered w-full"
+                            />
+                            <label className="label">
+                                {errors.productName?.type === 'required' && <span className="label-text-alt text-red-600">{errors.productName.message}</span>}
+                            </label>
+                        </div>
+                        {/* Available Quantity */}
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Available Quantity</span>
+                            </label>
+                            <input
+                                {...register("availableQuantity",
+                                    {
+                                        required: {
+                                            value: true,
+                                            message: "Available Quantity is required"
+                                        }
 
-                                }
-                            )}
-                            type="text"
-                            placeholder="Product Name"
-                            className="input input-bordered w-full"
-                        />
-                        <label className="label">
-                            {errors.productName?.type === 'required' && <span className="label-text-alt text-red-600">{errors.productName.message}</span>}
-                        </label>
-                    </div>
-                    {/* Available Quantity */}
-                    <div className="form-control w-3/6">
-                        <label className="label">
-                            <span className="label-text">Available Quantity</span>
-                        </label>
-                        <input
-                            {...register("availableQuantity",
-                                {
-                                    required: {
-                                        value: true,
-                                        message: "Available Quantity is required"
                                     }
+                                )}
+                                type="number"
+                                placeholder="Available Quantity"
+                                className="input input-bordered w-full"
+                            />
+                            <label className="label">
+                                {errors.availableQuantity?.type === 'required' && <span className="label-text-alt text-red-600">{errors.availableQuantity.message}</span>}
+                            </label>
+                        </div>
+                        {/* Minimum Quantity */}
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Minimum Quantity </span>
+                            </label>
+                            <input
+                                {...register("minQuantity",
+                                    {
+                                        required: {
+                                            value: true,
+                                            message: "Minimum Quantity  is required"
+                                        }
 
-                                }
-                            )}
-                            type="number"
-                            placeholder="Available Quantity"
-                            className="input input-bordered w-full"
-                        />
-                        <label className="label">
-                            {errors.availableQuantity?.type === 'required' && <span className="label-text-alt text-red-600">{errors.availableQuantity.message}</span>}
-                        </label>
-                    </div>
-                    {/* Minimum Quantity */}
-                    <div className="form-control w-3/6">
-                        <label className="label">
-                            <span className="label-text">Minimum Quantity </span>
-                        </label>
-                        <input
-                            {...register("minQuantity",
-                                {
-                                    required: {
-                                        value: true,
-                                        message: "Minimum Quantity  is required"
                                     }
+                                )}
+                                type="number"
+                                placeholder="Minimum Quantity "
+                                className="input input-bordered w-full"
+                            />
+                            <label className="label">
+                                {errors.minQuantity?.type === 'required' && <span className="label-text-alt text-red-600">{errors.minQuantity.message}</span>}
+                            </label>
+                        </div>
+                        {/* Price */}
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Price</span>
+                            </label>
+                            <input
+                                {...register("price",
+                                    {
+                                        required: {
+                                            value: true,
+                                            message: "Price is required"
+                                        }
 
-                                }
-                            )}
-                            type="number"
-                            placeholder="Minimum Quantity "
-                            className="input input-bordered w-full"
-                        />
-                        <label className="label">
-                            {errors.minQuantity?.type === 'required' && <span className="label-text-alt text-red-600">{errors.minQuantity.message}</span>}
-                        </label>
-                    </div>
-                    {/* Price */}
-                    <div className="form-control w-3/6">
-                        <label className="label">
-                            <span className="label-text">Price</span>
-                        </label>
-                        <input
-                            {...register("price",
-                                {
-                                    required: {
-                                        value: true,
-                                        message: "Price is required"
                                     }
+                                )}
+                                type="number"
+                                placeholder="Price"
+                                className="input input-bordered w-full"
+                            />
+                            <label className="label">
+                                {errors.Price?.type === 'required' && <span className="label-text-alt text-red-600">{errors.Price.message}</span>}
+                            </label>
+                        </div>
+                        {/* Short Description */}
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Short Description</span>
+                            </label>
+                            <textarea {
+                                ...register("description",
+                                    {
+                                        required: {
+                                            value: true,
+                                            message: "Short Description is required"
+                                        }
 
-                                }
-                            )}
-                            type="number"
-                            placeholder="Price"
-                            className="input input-bordered w-full"
-                        />
-                        <label className="label">
-                            {errors.Price?.type === 'required' && <span className="label-text-alt text-red-600">{errors.Price.message}</span>}
-                        </label>
-                    </div>
-                    {/* Short Description */}
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Short Description</span>
-                        </label>
-                        <textarea {
-                            ...register("description",
-                                {
-                                    required: {
-                                        value: true,
-                                        message: "Short Description is required"
                                     }
+                                )
+                            } placeholder='Short Description' className='border p-4 rounded-lg focus:outline focus:outline-2 focus:outline-primary focus:outline-offset-2' rows="5"></textarea>
+                            <label className="label">
+                                {errors.description?.type === 'required' && <span className="label-text-alt text-red-600">{errors.description.message}</span>}
 
-                                }
-                            )
-                        } placeholder='Short Description' className='border p-4 rounded-lg focus:outline focus:outline-2 focus:outline-primary focus:outline-offset-2' rows="5"></textarea>
-                        <label className="label">
-                            {errors.description?.type === 'required' && <span className="label-text-alt text-red-600">{errors.description.message}</span>}
-
-                        </label>
+                            </label>
+                        </div>
                     </div>
                     <input className='btn btn-primary btn-sm' type="submit" value='Upload' />
                 </form>

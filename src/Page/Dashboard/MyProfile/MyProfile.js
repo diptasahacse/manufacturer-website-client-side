@@ -112,7 +112,7 @@ const MyProfile = () => {
         <div>
             <div className='p-3 lg:p-7  rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-3'>
-                    <div className='flex justify-center lg:justify-start items-center'>
+                    <div className='flex justify-center lg:justify-start items-center md:items-start'>
                         <div className='avatar online'>
                             <div class="w-40 ring-4 ring-primary rounded-full">
                                 <img src={userInfo.img ? userInfo.img : 'https://i.ibb.co/6tx0kNh/user.png'} alt='' />
