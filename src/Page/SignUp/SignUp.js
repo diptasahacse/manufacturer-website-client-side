@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
@@ -18,9 +18,25 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const navigate = useNavigate();
-    const location = useLocation()
-    let from = location.state?.from?.pathname || "/";
-    let signUpError;
+
+
+
+
+    useEffect(() => {
+        if (error || updateError) {
+            toast.error(error?.message || updateError?.message)
+
+        }
+        if (user) {
+            toast('Your Account created successfully.. Please Login')
+            localStorage.removeItem('accessToken')
+            signOut(auth)
+            navigate('/signin');
+
+
+        }
+
+    }, [error, updateError, navigate, user])
 
     // Handler
     const onSubmit = async (data) => {
@@ -36,20 +52,7 @@ const SignUp = () => {
 
 
     };
-    if (error || updateError) {
-        signUpError = <p className='text-red-500 mb-4'>{error?.message || updateError?.message}</p>;
 
-        toast.error(error?.message || updateError?.message)
-
-    }
-    if (user) {
-        toast('Your Account created successfully.. Please Login')
-        localStorage.removeItem('accessToken')
-        signOut(auth)
-        navigate('/signin');
-
-
-    }
     // console.log(user)
 
 
@@ -156,8 +159,7 @@ const SignUp = () => {
                                             {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-600">{errors.password.message}</span>}
                                         </label>
                                     </div>
-                                    {/* Error Message */}
-                                    {signUpError && signUpError}
+
                                     <input className='btn btn-primary w-full' type="submit" value='Register' />
                                 </form>
 
