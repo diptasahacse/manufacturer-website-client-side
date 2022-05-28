@@ -5,6 +5,8 @@ import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import { signOut } from 'firebase/auth';
 const SignUp = () => {
     // Initialization
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -35,14 +37,20 @@ const SignUp = () => {
 
     };
     if (error || updateError) {
-        signUpError = <p className='text-red-500 mb-4'>{error?.message || updateError?.message}</p>
+        signUpError = <p className='text-red-500 mb-4'>{error?.message || updateError?.message}</p>;
+
+        toast.error(error?.message || updateError?.message)
 
     }
     if (user) {
-        navigate(from, { replace: true });
+        toast('Your Account created successfully.. Please Login')
+        localStorage.removeItem('accessToken')
+        signOut(auth)
+        navigate('/signin');
+
 
     }
-    console.log(user)
+    // console.log(user)
 
 
     if (loading || updating) {
