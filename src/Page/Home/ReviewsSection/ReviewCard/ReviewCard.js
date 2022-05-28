@@ -73,10 +73,10 @@ const ReviewCard = ({ ratingInfo, customerName }) => {
 
     return (
         <div>
-            <div class="card bg-base-100 shadow-xl">
+            <div class="card bg-base-100 shadow-xl h-full">
                 <div class="card-body">
                     <span className='text-6xl text-primary'> <FontAwesomeIcon icon={faQuoteLeft} /></span>
-                    <p>{feedback}</p>
+                    <p>{feedback.length > 120 ? feedback.slice(0, 120)+'...' : feedback}</p>
 
 
                     <div>
