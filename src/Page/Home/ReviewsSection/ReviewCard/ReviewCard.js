@@ -73,8 +73,8 @@ const ReviewCard = ({ ratingInfo, customerName }) => {
 
     return (
         <div>
-            <div class="card bg-base-100 shadow-xl h-full">
-                <div class="card-body">
+            <div className="card bg-base-100 shadow-xl h-full">
+                <div className="card-body">
                     <span className='text-6xl text-primary'> <FontAwesomeIcon icon={faQuoteLeft} /></span>
                     <p>{feedback.length > 120 ? feedback.slice(0, 120)+'...' : feedback}</p>
 
@@ -87,8 +87,8 @@ const ReviewCard = ({ ratingInfo, customerName }) => {
 
                     </div>
                     <div className='flex items-center mt-5'>
-                        <div class="avatar">
-                            <div class="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <div className="avatar">
+                            <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <img src='https://i.ibb.co/6tx0kNh/user.png' alt='' />
                             </div>
                         </div>

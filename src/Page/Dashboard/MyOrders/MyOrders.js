@@ -13,7 +13,7 @@ const MyOrders = () => {
 
 
     const { isLoading, error, data, refetch } = useQuery('myOrders', () =>
-        fetch(`http://localhost:5000/orders/${user?.email}`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/orders/${user?.email}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 
@@ -22,7 +22,7 @@ const MyOrders = () => {
         )
     )
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/orders/${user?.email}`, {
+    //     fetch(`https://infinite-chamber-43931.herokuapp.com/orders/${user?.email}`, {
     //         method: "GET",
     //         headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
     //     })
@@ -47,7 +47,7 @@ const MyOrders = () => {
     }
 
 
-    // console.log(myOrders)
+    
     return (
         <div className='p-7 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
             <h3 className='text-3xl font-semibold text-primary'>My Orders</h3>
@@ -55,8 +55,8 @@ const MyOrders = () => {
             <div className='mt-5'>
                 {
                     data.length > 0 ? <>
-                        <div class="overflow-x-auto">
-                            <table class="table table-compact w-full">
+                        <div className="overflow-x-auto">
+                            <table className="table table-compact w-full">
                                 <thead>
                                     <tr>
                                         <th>#</th>

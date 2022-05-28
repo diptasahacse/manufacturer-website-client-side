@@ -7,14 +7,14 @@ const ManageAdmin = () => {
 
 
     const { isLoading, error, data, refetch } = useQuery('alluser', () =>
-        fetch('http://localhost:5000/user', {
+        fetch('https://infinite-chamber-43931.herokuapp.com/user', {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         }).then(res =>
             res.json()
         )
     )
-    // console.log(data)
+    
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -22,8 +22,8 @@ const ManageAdmin = () => {
         <div className='p-7 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
             <h3 className='text-3xl font-semibold text-primary'>All Users</h3>
             <div className='mt-5'>
-                <div class="overflow-x-auto">
-                    <table class="table w-full">
+                <div className="overflow-x-auto">
+                    <table className="table w-full">
 
                         <thead>
                             <tr>

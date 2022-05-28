@@ -9,7 +9,7 @@ const ManageProducts = () => {
     const [selectedProduct, setSelectedProduct] = useState({})
 
     const { isLoading, data, refetch } = useQuery(['allProducts'], () =>
-        fetch(`http://localhost:5000/products`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/products`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 
@@ -36,8 +36,8 @@ const ManageProducts = () => {
 
 
             <div className='mt-5'>
-                <div class="overflow-x-auto">
-                    <table class="table w-full">
+                <div className="overflow-x-auto">
+                    <table className="table w-full">
 
                         <thead>
                             <tr>

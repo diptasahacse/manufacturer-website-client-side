@@ -53,7 +53,7 @@ const SignUp = () => {
 
     };
 
-    // console.log(user)
+   
 
 
     if (loading || updating) {
@@ -61,16 +61,16 @@ const SignUp = () => {
 
     }
     return (
-        <div class="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
-            <div class="hero-overlay bg-opacity-80"></div>
-            <div class="py-10 px-3 max-w-7xl mx-auto">
+        <div className="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
+            <div className="hero-overlay bg-opacity-80"></div>
+            <div className="py-10 px-3 max-w-7xl mx-auto">
 
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-20'>
                     <div>
-                        <div class="card bg-base-100 shadow-xl">
-                            <div class="card-body">
+                        <div className="card bg-base-100 shadow-xl">
+                            <div className="card-body">
                                 <div className=' mb-4'>
-                                    <h2 class="card-title text-2xl lg:text-3xl text-primary">Sign Up & Create Your Account</h2>
+                                    <h2 className="card-title text-2xl lg:text-3xl text-primary">Sign Up & Create Your Account</h2>
                                     <p>Signup and be our Customer.</p>
                                 </div>
 

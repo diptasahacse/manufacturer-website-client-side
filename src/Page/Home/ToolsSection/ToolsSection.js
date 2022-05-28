@@ -9,7 +9,7 @@ const ToolsSection = () => {
 
 
     const { isLoading, error, data } = useQuery('allTools', () =>
-        fetch('http://localhost:5000/products').then(res =>
+        fetch('https://infinite-chamber-43931.herokuapp.com/products').then(res =>
             res.json()
         )
     )

@@ -7,7 +7,7 @@ import Loading from '../../Shared/Loading/Loading';
 const BusinessSummery = () => {
 
     const { isLoading, data, refetch } = useQuery(['businessSummery'], () =>
-        fetch(`http://localhost:5000/businesssummery`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/businesssummery`, {
             method: "GET"
         }).then(res =>
             res.json()
@@ -24,9 +24,9 @@ const BusinessSummery = () => {
 
     const orderWithReview = totalOrders.filter(order => order?.review)
     return (
-        <div class="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
-            <div class="hero-overlay bg-opacity-90"></div>
-            <div class="hero-content text-center text-neutral-content">
+        <div className="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
+            <div className="hero-overlay bg-opacity-90"></div>
+            <div className="hero-content text-center text-neutral-content">
                 <div className='pt-9 pb-20 px-3 max-w-7xl mx-auto'>
 
                     <CustomTitle iconColor='#E6E6E6' titleColor='#E6E6E6' title='Business Summery'></CustomTitle>

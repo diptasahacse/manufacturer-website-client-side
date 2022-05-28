@@ -16,7 +16,7 @@ const AddReview = () => {
     const [selectedShowOrder, setSelectedShowOrder] = useState({})
 
     const { isLoading, data, refetch } = useQuery(['myOrdersForReview'], () =>
-        fetch(`http://localhost:5000/orders/${user?.email}`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/orders/${user?.email}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 
@@ -45,7 +45,7 @@ const AddReview = () => {
 
     const allPaidOrders = data.filter(order => order?.paymentStatus)
 
-    // console.log(allPaidOrders)
+   
 
 
     return (
@@ -59,8 +59,8 @@ const AddReview = () => {
                         allPaidOrders.length > 0 ? <>
                             <div>
                                 <p className='text-xs text-right mb-1'>These are all your Pending and Shipped orders. (Please wait for add review till your order is not shipped)</p>
-                                <div class="overflow-x-auto">
-                                    <table class="table w-full">
+                                <div className="overflow-x-auto">
+                                    <table className="table w-full">
 
                                         <thead>
                                             <tr>

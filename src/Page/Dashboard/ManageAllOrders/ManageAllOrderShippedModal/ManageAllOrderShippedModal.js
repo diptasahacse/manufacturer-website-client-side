@@ -6,7 +6,7 @@ import Loading from '../../../Shared/Loading/Loading';
 const ManageAllOrderShippedModal = ({ refetch, setSelectedOrderForShipped, selectedOrderForShipped }) => {
     const { _id, quantity, productName, productId } = selectedOrderForShipped;
     const { isLoading, data } = useQuery(['singleProductForShippedModal'], () =>
-        fetch(`http://localhost:5000/products/${productId}`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/products/${productId}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 
@@ -20,7 +20,7 @@ const ManageAllOrderShippedModal = ({ refetch, setSelectedOrderForShipped, selec
     }
     const shippedHandleListener = () => {
         const updateAvailableQuantity = data?.availableQuantity - quantity;
-        fetch(`http://localhost:5000/orders/payment/${_id}`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/orders/payment/${_id}`, {
             method: "PUT",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -51,12 +51,12 @@ const ManageAllOrderShippedModal = ({ refetch, setSelectedOrderForShipped, selec
 
     return (
         <div>
-            <input type="checkbox" id="manage-all-orders-shipped-modal" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box relative">
-                    <label for="manage-all-orders-shipped-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="text-lg font-bold text-primary">Is this Order ready to ship..?</h3>
-                    <p class="py-4">If your click <span className='text-primary'>'YES'</span> then the available quantity will decrease by <span className='text-primary'>{quantity}</span> from <span className='text-primary'>{productName} </span>product. </p>
+            <input type="checkbox" id="manage-all-orders-shipped-modal" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label for="manage-all-orders-shipped-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h3 className="text-lg font-bold text-primary">Is this Order ready to ship..?</h3>
+                    <p className="py-4">If your click <span className='text-primary'>'YES'</span> then the available quantity will decrease by <span className='text-primary'>{quantity}</span> from <span className='text-primary'>{productName} </span>product. </p>
                     <div>
                         <p>Before Available Quantity: <span className='text-primary'>{data?.availableQuantity}</span> </p>
                         <p>After Available Quantity: <span className='text-primary'>{data?.availableQuantity - quantity}</span> </p>

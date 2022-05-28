@@ -9,8 +9,8 @@ const ProductTableRow = ({ product, index, productDeleteHandler, }) => {
             <td>{name}</td>
 
             <td>
-                <div class="avatar">
-                    <div class="w-24 rounded-xl">
+                <div className="avatar">
+                    <div className="w-24 rounded-xl">
                         <img src={product?.img} alt='' />
                     </div>
                 </div>
@@ -18,7 +18,7 @@ const ProductTableRow = ({ product, index, productDeleteHandler, }) => {
             </td>
            
             <td>
-                <label onClick={() => productDeleteHandler(product._id)} for="product-delete-modal" class="btn btn-sm bg-red-600 border-0 text-white">Delete</label>
+                <label onClick={() => productDeleteHandler(product._id)} htmlFor="product-delete-modal" className="btn btn-sm bg-red-600 border-0 text-white">Delete</label>
             </td>
             
         </tr>

@@ -13,8 +13,8 @@ const Portfolio = () => {
                         <div className='w-2 mr-2 rounded-md h-full' style={{ backgroundColor: "#1C3244" }}></div>
                         <div className='flex w-full rounded-2xl p-3' style={{ backgroundColor: "#EBEBEB" }}>
                             <div className='ml-3'>
-                                <div class="avatar">
-                                    <div class="w-24 rounded-full">
+                                <div className="avatar">
+                                    <div className="w-24 rounded-full">
                                         <img src="https://i.ibb.co/VJrn4Bw/aa.jpg" alt='' />
                                     </div>
                                 </div>
@@ -169,20 +169,20 @@ const Portfolio = () => {
                                 <div className='mt-3'>
                                     <div className='mb-2'>
 
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>HTML5</div>
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>CSS3</div>
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Git</div>
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Bootstrap</div>
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Tailwindcss</div>
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Javascript</div>
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>React</div>
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Node</div>
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Express</div>
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Mongodb</div>
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>C</div>
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Java</div>
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Python</div>
-                                        <div class="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Android</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>HTML5</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>CSS3</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Git</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Bootstrap</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Tailwindcss</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Javascript</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>React</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Node</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Express</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Mongodb</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>C</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Java</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Python</div>
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>Android</div>
                                     </div>
 
                                 </div>

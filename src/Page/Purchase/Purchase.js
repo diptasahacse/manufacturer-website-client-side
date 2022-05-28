@@ -18,7 +18,7 @@ const Purchase = () => {
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         setIsLoading(true)
-        fetch(`http://localhost:5000/products/${productId}`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/products/${productId}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })
@@ -52,7 +52,7 @@ const Purchase = () => {
             totalPrice: productInfo?.minOrderQuantity * productInfo?.price
 
         }
-        fetch('http://localhost:5000/orders', {
+        fetch('https://infinite-chamber-43931.herokuapp.com/orders', {
             method: "POST",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -68,7 +68,7 @@ const Purchase = () => {
 
                 }
             })
-        console.log(orders)
+        
 
     }
 
@@ -82,8 +82,8 @@ const Purchase = () => {
             <div className='px-5 lg:px-20 max-w-7xl mx-auto'>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
                     <div className='overflow-hidden purchase-product-image'>
-                        <div class="avatar flex justify-center">
-                            <div class="w-9/12 lg:w-full rounded-xl ">
+                        <div className="avatar flex justify-center">
+                            <div className="w-9/12 lg:w-full rounded-xl ">
                                 <img src={productInfo?.img} alt={productInfo?.name} />
                             </div>
                         </div>
@@ -113,18 +113,18 @@ const Purchase = () => {
 
                             </div>
                             <div className='mt-10'>
-                                <div class="form-control w-full max-w-xs">
-                                    <label class="label">
-                                        <span class="label-text text-primary">How much you want..?</span>
+                                <div className="form-control w-full max-w-xs">
+                                    <label className="label">
+                                        <span className="label-text text-primary">How much you want..?</span>
 
                                     </label>
-                                    <input onChange={onQuantityChange} type="number" value={productInfo?.minOrderQuantity} class="input input-bordered focus:outline-primary w-full max-w-xs" />
-                                    <label class="label">
+                                    <input onChange={onQuantityChange} type="number" value={productInfo?.minOrderQuantity} className="input input-bordered focus:outline-primary w-full max-w-xs" />
+                                    <label className="label">
                                         {
-                                            productInfo?.minOrderQuantity < orginalProductInfo?.minOrderQuantity && <span class="label-text-alt text-red-600">You have to purchase at least {orginalProductInfo?.minOrderQuantity} or more</span>
+                                            productInfo?.minOrderQuantity < orginalProductInfo?.minOrderQuantity && <span className="label-text-alt text-red-600">You have to purchase at least {orginalProductInfo?.minOrderQuantity} or more</span>
                                         }
                                         {
-                                            productInfo?.minOrderQuantity > orginalProductInfo?.availableQuantity && <span class="label-text-alt text-red-600">You have to purchase at most {orginalProductInfo?.availableQuantity} or less</span>
+                                            productInfo?.minOrderQuantity > orginalProductInfo?.availableQuantity && <span className="label-text-alt text-red-600">You have to purchase at most {orginalProductInfo?.availableQuantity} or less</span>
                                         }
                                     </label>
                                 </div>
@@ -142,31 +142,31 @@ const Purchase = () => {
                         </div>
                         <form onSubmit={onPurchaseHandler}>
                             <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-5'>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Name</span>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Name</span>
                                     </label>
-                                    <input type="text" value={user?.displayName} disabled class="input focus:outline-primary input-bordered" />
+                                    <input type="text" value={user?.displayName} disabled className="input focus:outline-primary input-bordered" />
                                 </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Email</span>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" value={user?.email} disabled class="input focus:outline-primary input-bordered" />
+                                    <input type="email" value={user?.email} disabled className="input focus:outline-primary input-bordered" />
                                 </div>
                             </div>
                             <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-5'>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Phone</span>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Phone</span>
                                     </label>
-                                    <input type="tel" ref={phoneRef} required placeholder="Phone" class="input focus:outline-primary input-bordered" />
+                                    <input type="tel" ref={phoneRef} required placeholder="Phone" className="input focus:outline-primary input-bordered" />
                                 </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Address</span>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Address</span>
                                     </label>
-                                    <input type="text" ref={addressRef} required placeholder="Address" class="input focus:outline-primary input-bordered" />
+                                    <input type="text" ref={addressRef} required placeholder="Address" className="input focus:outline-primary input-bordered" />
                                 </div>
                             </div>
                             <div className='mt-5 text-right'>

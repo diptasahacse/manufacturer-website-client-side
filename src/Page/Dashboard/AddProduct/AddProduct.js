@@ -10,18 +10,18 @@ const AddProduct = () => {
 
 
     const OnProductSubmitListener = (data) => {
-        // console.log(data)
+        
         setInfoUploadLoading(true)
 
         // Img Start
         const img = data.productImage[0];
         const formData = new FormData();
-        // console.log(img)
+        
 
         const { price, availableQuantity, description, minQuantity, productName } = data;
 
         formData.append('image', img)
-        // console.log(img);
+        
 
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
         fetch(url, {
@@ -36,9 +36,9 @@ const AddProduct = () => {
                     const productData = {
                         name: productName, img, minOrderQuantity: Number(minQuantity), availableQuantity: Number(availableQuantity), price: Number(price), des: description
                     }
-                    // console.log(productData)
+                    
 
-                    fetch(`http://localhost:5000/products`, {
+                    fetch(`https://infinite-chamber-43931.herokuapp.com/products`, {
                         method: "POST",
                         headers: {
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`,

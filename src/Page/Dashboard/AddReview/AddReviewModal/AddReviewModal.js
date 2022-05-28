@@ -15,7 +15,7 @@ const AddReviewModal = ({ selectedOrder, setSelectedOrder,refetch }) => {
 
     const onSubmit = (data) => {
 
-        fetch(`http://localhost:5000/review/${_id}`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/review/${_id}`, {
             method: "PATCH",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -38,11 +38,11 @@ const AddReviewModal = ({ selectedOrder, setSelectedOrder,refetch }) => {
 
     return (
         <div>
-            <input type="checkbox" id="add-review-modal" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box relative">
-                    <label for="add-review-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="text-lg font-bold">Add feedback for <span className='text-primary'>{selectedOrder.productName}</span></h3>
+            <input type="checkbox" id="add-review-modal" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label for="add-review-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h3 className="text-lg font-bold">Add feedback for <span className='text-primary'>{selectedOrder.productName}</span></h3>
 
                     <div>
                         <form onSubmit={handleSubmit(onSubmit)}>

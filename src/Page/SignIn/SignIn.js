@@ -24,7 +24,7 @@ const SignIn = () => {
 
     const [token] = useToken(user?.user?.email);
 
-    console.log(user)
+    
     let from = location.state?.from?.pathname || "/";
 
 
@@ -44,7 +44,7 @@ const SignIn = () => {
         }
 
     }, [token, from, navigate, error])
-    console.log(token)
+   
 
 
     if (loading) {
@@ -65,16 +65,16 @@ const SignIn = () => {
 
 
     return (
-        <div class="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
-            <div class="hero-overlay bg-opacity-80"></div>
-            <div class="py-10 px-3 max-w-7xl mx-auto px-3">
+        <div className="hero" style={{ backgroundImage: "url(https://i.ibb.co/KDzQ6y8/counter-bg.jpg)" }}>
+            <div className="hero-overlay bg-opacity-80"></div>
+            <div className="py-10 px-3 max-w-7xl mx-auto px-3">
 
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-20'>
                     <div>
-                        <div class="card bg-base-100 shadow-xl">
-                            <div class="card-body">
+                        <div className="card bg-base-100 shadow-xl">
+                            <div className="card-body">
                                 <div className=' mb-4'>
-                                    <h2 class="card-title text-2xl lg:text-3xl text-primary">Sign In & Enter Your Account</h2>
+                                    <h2 className="card-title text-2xl lg:text-3xl text-primary">Sign In & Enter Your Account</h2>
                                     <p>Sign in and purchase you product.</p>
                                 </div>
 

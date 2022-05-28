@@ -9,7 +9,7 @@ const ManageAllOrders = () => {
     const [selectedOrder, setSelectedOrder] = useState({})
     const [selectedOrderForShipped, setSelectedOrderForShipped] = useState({})
     const { isLoading, data, refetch } = useQuery(['allOrders'], () =>
-        fetch(`http://localhost:5000/orders`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/orders`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 
@@ -31,14 +31,14 @@ const ManageAllOrders = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    console.log(data)
+    
     return (
         <div className='p-7 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
             <h3 className='text-3xl font-semibold text-primary'>Manage All Orders</h3>
 
             <div className='mt-5'>
-                <div class="overflow-x-auto">
-                    <table class="table w-full">
+                <div className="overflow-x-auto">
+                    <table className="table w-full">
 
                         <thead>
                             <tr>

@@ -17,7 +17,7 @@ const MyProfile = () => {
     const imageStorageKey = '109d0f5e631e791da81874122264ddf5';
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user?.email}`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/user/${user?.email}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })
@@ -34,8 +34,7 @@ const MyProfile = () => {
                 }
             })
     }, [user, shouldUpdate])
-    // console.log(userInfo)
-    console.log(userInfo)
+    
 
 
     const onInfoSubmitHandler = (data) => {
@@ -44,12 +43,12 @@ const MyProfile = () => {
         // Img Start
         const img = data.profileImage[0];
         const formData = new FormData();
-        // console.log(img)
+       
 
         const { city, education, linkedin, phone } = data;
 
         formData.append('image', img)
-        // console.log(img);
+        
 
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
         fetch(url, {
@@ -63,7 +62,7 @@ const MyProfile = () => {
 
                     const userData = { img, city, education, linkedin, phone }
 
-                    fetch(`http://localhost:5000/user/info/${userInfo._id}`, {
+                    fetch(`https://infinite-chamber-43931.herokuapp.com/user/info/${userInfo._id}`, {
                         method: "PUT",
                         headers: {
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -114,7 +113,7 @@ const MyProfile = () => {
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-3'>
                     <div className='flex justify-center lg:justify-start items-center md:items-start'>
                         <div className='avatar online'>
-                            <div class="w-40 ring-4 ring-primary rounded-full">
+                            <div className="w-40 ring-4 ring-primary rounded-full">
                                 <img src={userInfo.img ? userInfo.img : 'https://i.ibb.co/6tx0kNh/user.png'} alt='' />
                             </div>
                         </div>

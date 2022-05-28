@@ -17,7 +17,7 @@ const Payment = () => {
     const [user, loading] = useAuthState(auth);
     const { id } = useParams();
     const { isLoading, error, data } = useQuery('repoData', () =>
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://infinite-chamber-43931.herokuapp.com/order/${id}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         }).then(res =>
@@ -44,8 +44,8 @@ const Payment = () => {
 
 
                     <div>
-                        <div class="overflow-x-auto">
-                            <table class="table w-full">
+                        <div className="overflow-x-auto">
+                            <table className="table w-full">
 
                                 <tbody>
                                     <tr>

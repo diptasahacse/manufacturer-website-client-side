@@ -69,18 +69,18 @@ const ShowReviewModal = ({ selectedShowOrder }) => {
     }
     return (
         <div>
-            <input type="checkbox" id="show-review-modal" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box relative">
-                    <label for="show-review-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="text-lg font-bold">Your review for <span className='text-primary'>{productName}</span> product</h3>
+            <input type="checkbox" id="show-review-modal" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label for="show-review-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h3 className="text-lg font-bold">Your review for <span className='text-primary'>{productName}</span> product</h3>
                     <div>
                         {
                             starRating
                         }
 
                     </div>
-                    <div class="py-4">
+                    <div className="py-4">
                         <h3 className='text-primary font-semibold'>Feedback</h3>
                         <p>{feedback}</p>
 

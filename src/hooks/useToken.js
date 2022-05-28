@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react'
 import { format } from 'date-fns';
 const useToken = (email) => {
     const [token, setToken] = useState('');
-    // console.log(user?.user.email)
     useEffect(() => {
         const lastLoginTime = format(new Date(), 'Pp');
         const currentUser = { email, lastLoginTime };
 
         if (email) {
-            fetch(`http://localhost:5000/user/${email}`, {
+            fetch(`https://infinite-chamber-43931.herokuapp.com/user/${email}`, {
                 method: "PUT",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(currentUser)

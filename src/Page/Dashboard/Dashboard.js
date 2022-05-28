@@ -9,7 +9,6 @@ const Dashboard = () => {
     const [user, loading, error] = useAuthState(auth);
     const [isAdmin, adminLoading] = useAdmin(user?.email);
 
-    // console.log(isAdmin)
 
     if (loading || adminLoading) {
         return <Loading></Loading>
@@ -19,16 +18,16 @@ const Dashboard = () => {
 
         <div>
             <div className='lg:px-3 max-w-7xl mx-auto'>
-                <div class="drawer drawer-mobile">
-                    <input id="my-dashboard-drawer" type="checkbox" class="drawer-toggle" />
-                    <div class="drawer-content flex flex-col p-3 lg:p-10" style={{ backgroundColor: "#F4F8FB" }}>
+                <div className="drawer drawer-mobile">
+                    <input id="my-dashboard-drawer" type="checkbox" className="drawer-toggle" />
+                    <div className="drawer-content flex flex-col p-3 lg:p-10" style={{ backgroundColor: "#F4F8FB" }}>
                         {/* <!-- Page content here --> */}
                         <Outlet></Outlet>
 
                     </div>
-                    <div class="drawer-side">
-                        <label for="my-dashboard-drawer" class="drawer-overlay"></label>
-                        <ul class="menu p-4 pr-0 overflow-y-auto w-60 bg-secondary text-base-content">
+                    <div className="drawer-side">
+                        <label htmlFor="my-dashboard-drawer" className="drawer-overlay"></label>
+                        <ul className="menu p-4 pr-0 overflow-y-auto w-60 bg-secondary text-base-content">
                             {/* <!-- Sidebar content here --> */}
                             <li className='font-bold mb-2 text-accent'> <Link to='/dashboard'>My Profile</Link> </li>
                             {

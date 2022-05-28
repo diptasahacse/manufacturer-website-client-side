@@ -16,12 +16,12 @@ const MyOrderTableRow = ({ order, index, deleteOrderHandler }) => {
             <td>
                 {
                     order?.paymentStatus ?
-                        <div class="badge badge-success text-white">{order?.paymentStatus}</div>
+                        <div className="badge badge-success text-white">{order?.paymentStatus}</div>
                         :
                         <Link className='btn btn-xs btn-info' to={`/dashboard/payment/${_id}`}>Pay</Link>
                 }
             </td>
-            <td>{order?.paymentStatus ? <></> : <label onClick={() => deleteOrderHandler(_id)} for="order-delete-modal" class="btn btn-error btn-xs">Cancel</label>}</td>
+            <td>{order?.paymentStatus ? <></> : <label onClick={() => deleteOrderHandler(_id)} htmlFor="order-delete-modal" className="btn btn-error btn-xs">Cancel</label>}</td>
         </tr>
         // 
 
