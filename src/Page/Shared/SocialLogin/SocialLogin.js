@@ -20,13 +20,14 @@ const SocialLogin = () => {
         if (token) {
             navigate(from, { replace: true });
         }
-        
-    }, [token, from, navigate])
+        if (error) {
+            toast.error(error.message)
 
-    if (error) {
-        toast.error(error.message)
+        }
 
-    }
+    }, [token, from, navigate, error])
+
+
     if (loading) {
         return <Loading></Loading>
     }

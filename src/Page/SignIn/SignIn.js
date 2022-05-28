@@ -21,7 +21,7 @@ const SignIn = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    
+
     const [token] = useToken(user?.user?.email);
 
     console.log(user)
@@ -39,13 +39,14 @@ const SignIn = () => {
             }
 
         }
+        if (error) {
+            toast.error(error.message)
+        }
 
-    }, [token, from, navigate])
+    }, [token, from, navigate, error])
     console.log(token)
 
-    if(error){
-        toast.error(error.message)
-    }
+
     if (loading) {
         return <Loading></Loading>
 
