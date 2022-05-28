@@ -110,9 +110,9 @@ const MyProfile = () => {
 
     return (
         <div>
-            <div className='p-7 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
-                <div className='grid grid-cols-3'>
-                    <div className=''>
+            <div className='p-3 lg:p-7  rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-3'>
+                    <div className='flex justify-center lg:justify-start items-center'>
                         <div className='avatar online'>
                             <div class="w-40 ring-4 ring-primary rounded-full">
                                 <img src={userInfo.img ? userInfo.img : 'https://i.ibb.co/6tx0kNh/user.png'} alt='' />
@@ -121,27 +121,32 @@ const MyProfile = () => {
 
                     </div>
                     <div className='col-span-2'>
-                        <h2 className='text-5xl font-semibold'>{user?.displayName}</h2>
-                        <div className='mt-2'>
-                            {
-                                userInfo?.role ?
-                                    <p className='text-xl'>Admin</p> :
-                                    <p className='text-xl text-primary font-semibold'>Verified Customer
-                                        <span className='ml-2'><FontAwesomeIcon icon={faCircleCheck} /></span>
-                                    </p>
-                            }
+                        <div className='text-center lg:text-left'>
+                            <h2 className='text-5xl font-semibold'>{user?.displayName}</h2>
+                            <div className='mt-2'>
+                                {
+                                    userInfo?.role ?
+                                        <p className='text-xl text-green-500 font-semibold'>Admin</p> :
+                                        <p className='text-xl text-primary font-semibold'>Verified Customer
+                                            <span className='ml-2'><FontAwesomeIcon icon={faCircleCheck} /></span>
+                                        </p>
+                                }
+
+                            </div>
+                            <p className='text-sm'>{user?.email}</p>
+                            <p className='text-xs'>Last Login: {userInfo?.lastLoginTime}</p>
+
 
                         </div>
-                        <p className='text-xl'>Email: {user?.email}</p>
-                        <p className='text-sm'>Last Login: {userInfo?.lastLoginTime}</p>
 
+                        <div className='mt-4 border-2 p-2 rounded-xl border-primary'>
+                            <p className='text-gray-700 font-semibold'>Education: {userInfo?.education ? <span className='font-normal text-orange-600'>{userInfo?.education}</span> : <span className='text-gray-400 font-normal'>Not Uploaded yet</span>}</p>
 
+                            <p className='text-gray-700 font-semibold'>From: {userInfo?.city ? <span className='font-normal text-orange-600'>{userInfo?.city}</span> : <span className='text-gray-400 font-normal'>Not Uploaded yet</span>}</p>
 
-                        <div className='mt-4'>
-                            <p>Education: {userInfo?.education ? userInfo?.education : "Not Uploaded yet"}</p>
-                            <p>From: {userInfo?.city ? userInfo?.city : "Not Uploaded yet"}</p>
-                            <p>Phone: {userInfo?.phone ? userInfo?.phone : "Not Uploaded yet"}</p>
-                            <p>LinkedIn: {userInfo?.linkedin ? userInfo?.linkedin : "Not Uploaded yet"}</p>
+                            <p className='text-gray-700 font-semibold'>Phone: {userInfo?.phone ? <span className='font-normal text-orange-600'>{userInfo?.phone}</span> : <span className='text-gray-400 font-normal'>Not Uploaded yet</span>}</p>
+
+                            <p className='text-gray-700 font-semibold'>LinkedIn: {userInfo?.linkedin ? <span className='font-normal text-orange-600'>{userInfo?.linkedin}</span> : <span className='text-gray-400 font-normal'>Not Uploaded yet</span>}</p>
 
 
                         </div>
@@ -157,14 +162,14 @@ const MyProfile = () => {
             </div>
 
 
-            <div className='p-7 mt-5 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
+            <div className='p-3 lg:p-7 mt-5 rounded-2xl' style={{ backgroundColor: "#FFFFFF" }}>
                 <h3 className='text-xl font-semibold text-primary'>Update Your Info</h3>
 
                 <div className='mt-5 p-5 rounded-2xl' style={{ backgroundColor: "#F4F8FB" }}>
                     <h3>Upload Your Profile Picture</h3>
                     <form onSubmit={handleSubmit(onInfoSubmitHandler)}>
                         {/* Profile Picture */}
-                        <div className="form-control w-3/6">
+                        <div className="form-control">
                             <input
                                 {...register("profileImage",
                                     {
@@ -182,98 +187,106 @@ const MyProfile = () => {
 
                             </label>
                         </div>
-                        {/* Education */}
-                        <div className="form-control w-3/6">
-                            <label className="label">
-                                <span className="label-text">Education</span>
-                            </label>
-                            <input
-                                {...register("education",
-                                    {
-                                        required: {
-                                            value: true,
-                                            message: "Education is required"
-                                        }
+                        <div className='grid grid-cols-1 lg:grid-cols-2 gap-3'>
 
-                                    }
-                                )}
-                                type="text"
-                                placeholder="Education"
-                                className="input input-bordered w-full"
-                            />
-                            <label className="label">
-                                {errors.education?.type === 'required' && <span className="label-text-alt text-red-600">{errors.education.message}</span>}
-                            </label>
-                        </div>
-                        {/* City */}
-                        <div className="form-control w-3/6">
-                            <label className="label">
-                                <span className="label-text">City</span>
-                            </label>
-                            <input
-                                {...register("city",
-                                    {
-                                        required: {
-                                            value: true,
-                                            message: "City is required"
-                                        }
+                            {/* Education */}
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Education</span>
+                                </label>
+                                <input
+                                    {...register("education",
+                                        {
+                                            required: {
+                                                value: true,
+                                                message: "Education is required"
+                                            }
 
-                                    }
-                                )}
-                                type="text"
-                                placeholder="City"
-                                className="input input-bordered w-full"
-                            />
-                            <label className="label">
-                                {errors.city?.type === 'required' && <span className="label-text-alt text-red-600">{errors.city.message}</span>}
-                            </label>
-                        </div>
-                        {/* Phone */}
-                        <div className="form-control w-3/6">
-                            <label className="label">
-                                <span className="label-text">Phone</span>
-                            </label>
-                            <input
-                                {...register("phone",
-                                    {
-                                        required: {
-                                            value: true,
-                                            message: "Phone is required"
                                         }
+                                    )}
+                                    type="text"
+                                    placeholder="Education"
+                                    className="input input-bordered w-full"
+                                />
+                                <label className="label">
+                                    {errors.education?.type === 'required' && <span className="label-text-alt text-red-600">{errors.education.message}</span>}
+                                </label>
+                            </div>
 
-                                    }
-                                )}
-                                type="text"
-                                placeholder="Phone"
-                                className="input input-bordered w-full"
-                            />
-                            <label className="label">
-                                {errors.phone?.type === 'required' && <span className="label-text-alt text-red-600">{errors.phone.message}</span>}
-                            </label>
-                        </div>
-                        {/* Linkedin */}
-                        <div className="form-control w-3/6">
-                            <label className="label">
-                                <span className="label-text">LinkedIn</span>
-                            </label>
-                            <input
-                                {...register("linkedin",
-                                    {
-                                        required: {
-                                            value: true,
-                                            message: "Linked id is required"
+                            {/* City */}
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">City</span>
+                                </label>
+                                <input
+                                    {...register("city",
+                                        {
+                                            required: {
+                                                value: true,
+                                                message: "City is required"
+                                            }
+
                                         }
+                                    )}
+                                    type="text"
+                                    placeholder="City"
+                                    className="input input-bordered w-full"
+                                />
+                                <label className="label">
+                                    {errors.city?.type === 'required' && <span className="label-text-alt text-red-600">{errors.city.message}</span>}
+                                </label>
+                            </div>
+                            {/* Phone */}
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Phone</span>
+                                </label>
+                                <input
+                                    {...register("phone",
+                                        {
+                                            required: {
+                                                value: true,
+                                                message: "Phone is required"
+                                            }
 
-                                    }
-                                )}
-                                type="text"
-                                placeholder="Linkedin Link"
-                                className="input input-bordered w-full"
-                            />
-                            <label className="label">
-                                {errors.linkedin?.type === 'required' && <span className="label-text-alt text-red-600">{errors.linkedin.message}</span>}
-                            </label>
+                                        }
+                                    )}
+                                    type="text"
+                                    placeholder="Phone"
+                                    className="input input-bordered w-full"
+                                />
+                                <label className="label">
+                                    {errors.phone?.type === 'required' && <span className="label-text-alt text-red-600">{errors.phone.message}</span>}
+                                </label>
+                            </div>
+                            {/* Linkedin */}
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">LinkedIn</span>
+                                </label>
+                                <input
+                                    {...register("linkedin",
+                                        {
+                                            required: {
+                                                value: true,
+                                                message: "Linked id is required"
+                                            }
+
+                                        }
+                                    )}
+                                    type="text"
+                                    placeholder="Linkedin Link"
+                                    className="input input-bordered w-full"
+                                />
+                                <label className="label">
+                                    {errors.linkedin?.type === 'required' && <span className="label-text-alt text-red-600">{errors.linkedin.message}</span>}
+                                </label>
+                            </div>
+
                         </div>
+
+
+
                         <input className='btn btn-primary btn-sm' type="submit" value='Upload' />
                     </form>
 

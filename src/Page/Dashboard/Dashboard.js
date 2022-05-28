@@ -21,7 +21,7 @@ const Dashboard = () => {
             <div className='lg:px-3 max-w-7xl mx-auto'>
                 <div class="drawer drawer-mobile">
                     <input id="my-dashboard-drawer" type="checkbox" class="drawer-toggle" />
-                    <div class="drawer-content flex flex-col p-10" style={{ backgroundColor: "#F4F8FB" }}>
+                    <div class="drawer-content flex flex-col p-3 lg:p-10" style={{ backgroundColor: "#F4F8FB" }}>
                         {/* <!-- Page content here --> */}
                         <Outlet></Outlet>
 
