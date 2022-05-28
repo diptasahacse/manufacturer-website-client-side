@@ -28,6 +28,7 @@ const ManageAdmin = () => {
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Profile Picture</th>
                                 <th>Email</th>
                                 <th>Create Admin</th>
                                 <th>Remove Admin</th>

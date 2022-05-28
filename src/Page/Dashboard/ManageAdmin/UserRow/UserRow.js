@@ -72,6 +72,13 @@ const UserRow = ({ index, singleUser, refetch }) => {
     return (
         <tr>
             <th>{index + 1}</th>
+            <td>
+                <div class="avatar">
+                    <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <img src={singleUser?.img ? singleUser?.img : 'https://i.ibb.co/6tx0kNh/user.png'} alt='' />
+                    </div>
+                </div>
+            </td>
             <td className={user.email === email && 'text-primary font-bold'}>{user.email === email ? email + " (You)" : email}  </td>
             <td><button onClick={() => { createAdminHandler(email) }} disabled={singleUser?.role} class="btn btn-xs bg-green-600 border-0 text-white">Make Admin</button></td>
             <td><button onClick={() => { removeAdminHandler(email) }} disabled={user.email === email || !singleUser?.role} className='btn btn-xs bg-red-600 border-0 text-white'>Remove Admin</button></td>
