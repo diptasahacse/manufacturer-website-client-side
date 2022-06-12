@@ -156,6 +156,11 @@ const SignIn = () => {
                     </div>
                     <div className='flex items-center'>
                         <div>
+                            <div className='mb-10 text-white border p-2'>
+                                <h3 className='font-bold text-primary'>Admin Access Info</h3>
+                                <p className='font-light text-sm'>Email: diptasaha.lpu.cse@gmail.com</p>
+                                <p className='font-light text-sm'>Password: 123456789</p>
+                            </div>
                             <h3 className='text-2xl lg:text-6xl font-bold text-white'>Purchase Authentic Products Directly From Authentic Seller.</h3>
                         </div>
 
