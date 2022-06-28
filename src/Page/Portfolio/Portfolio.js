@@ -116,7 +116,7 @@ const Portfolio = () => {
                                     </div>
 
                                 </div>
-                                
+
 
                             </div>
                             <div className=' mt-2'>
@@ -159,14 +159,16 @@ const Portfolio = () => {
                     </div>
 
                     <div>
-                        <div className='h-full rounded-2xl p-3 px-4' style={{ backgroundColor: "#EBEBEB" }}>
+                        <div className='h-full '>
                             <div>
-                                <div className='flex items-center mt-2'>
-                                    <span className='text-xl' style={{ color: "#1C3244" }}><FontAwesomeIcon icon={faBrain} /></span>
-                                    <h3 className='ml-2 font-bold text-lg' style={{ color: "#1C3244" }}>Skills</h3>
-                                </div>
+                                {/* Skills */}
+                                <div className='mt-3 rounded-2xl p-3 px-4' style={{ backgroundColor: "#EBEBEB" }}>
 
-                                <div className='mt-3'>
+                                    <div className='flex items-center mt-2'>
+                                        <span className='text-xl' style={{ color: "#1C3244" }}><FontAwesomeIcon icon={faBrain} /></span>
+                                        <h3 className='ml-2 font-bold text-lg' style={{ color: "#1C3244" }}>Skills</h3>
+                                    </div>
+
                                     <div className='mb-2'>
 
                                         <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>HTML5</div>
@@ -186,11 +188,41 @@ const Portfolio = () => {
                                     </div>
 
                                 </div>
+                                {/* Education */}
+                                <div className='mt-3 rounded-2xl p-3 px-4' style={{ backgroundColor: "#EBEBEB" }}>
+
+                                    <div className='flex items-center mt-2'>
+                                        <span className='text-xl' style={{ color: "#1C3244" }}><FontAwesomeIcon icon={faBrain} /></span>
+                                        <h3 className='ml-2 font-bold text-lg' style={{ color: "#1C3244" }}>Education</h3>
+                                    </div>
+
+                                    <div className='mb-2'>
+
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>HTML5</div>
+
+                                    </div>
+
+                                </div>
+                                {/* Certification */}
+                                <div className='mt-3 rounded-2xl p-3 px-4' style={{ backgroundColor: "#EBEBEB" }}>
+
+                                    <div className='flex items-center mt-2'>
+                                        <span className='text-xl' style={{ color: "#1C3244" }}><FontAwesomeIcon icon={faBrain} /></span>
+                                        <h3 className='ml-2 font-bold text-lg' style={{ color: "#1C3244" }}>Certification</h3>
+                                    </div>
+
+                                    <div className='mb-2'>
+
+                                        <div className="badge border-0 p-3 m-1" style={{ backgroundColor: "#1C3244" }}>HTML5</div>
+
+                                    </div>
+
+                                </div>
                             </div>
 
 
                         </div>
-                        
+
 
                     </div>
 
