@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const ProductDeleteModal = ({ selectedProduct, setSelectedProduct, refetch }) => {
     const { _id, name } = selectedProduct;
-    
+
 
     const deleteListener = () => {
 
@@ -36,7 +36,17 @@ const ProductDeleteModal = ({ selectedProduct, setSelectedProduct, refetch }) =>
                     <h3 className="text-lg font-bold text-red-600">Are you sure want to delete <span className='text-primary'>{name}</span> ..?</h3>
                     <p>After delete this product, you can not undo it.</p>
                     <div className='text-right'>
-                        <button onClick={deleteListener} className='btn btn-sm bg-red-600 border-0'>Yes</button>
+                        {/* <button onClick={deleteListener} className='btn btn-sm bg-red-600 border-0'>Yes</button> */}
+
+
+
+                        {/* Remove Start */}
+
+                        <div class="tooltip tooltip-open tooltip-left" data-tip="This option is disable right now to prevent all product remove.">
+                            <button className='btn btn-sm bg-red-600 border-0'>Yes</button>
+                        </div>
+                        {/* Remove End */}
+
                     </div>
                 </div>
             </div>
