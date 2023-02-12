@@ -6,7 +6,7 @@ import Loading from '../../../Shared/Loading/Loading';
 const ManageAllOrderShippedModal = ({ refetch, setSelectedOrderForShipped, selectedOrderForShipped }) => {
     const { _id, quantity, productName, productId } = selectedOrderForShipped;
     const { isLoading, data } = useQuery(['singleProductForShippedModal'], () =>
-        fetch(`https://infinite-chamber-43931.herokuapp.com/products/${productId}`, {
+        fetch(`http://localhost:5000/products/${productId}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 
@@ -20,7 +20,7 @@ const ManageAllOrderShippedModal = ({ refetch, setSelectedOrderForShipped, selec
     }
     const shippedHandleListener = () => {
         const updateAvailableQuantity = data?.availableQuantity - quantity;
-        fetch(`https://infinite-chamber-43931.herokuapp.com/orders/payment/${_id}`, {
+        fetch(`http://localhost:5000/orders/payment/${_id}`, {
             method: "PUT",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,

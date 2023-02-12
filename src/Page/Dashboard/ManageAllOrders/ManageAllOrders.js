@@ -9,7 +9,7 @@ const ManageAllOrders = () => {
     const [selectedOrder, setSelectedOrder] = useState({})
     const [selectedOrderForShipped, setSelectedOrderForShipped] = useState({})
     const { isLoading, data, refetch } = useQuery(['allOrders'], () =>
-        fetch(`https://infinite-chamber-43931.herokuapp.com/orders`, {
+        fetch(`http://localhost:5000/orders`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 

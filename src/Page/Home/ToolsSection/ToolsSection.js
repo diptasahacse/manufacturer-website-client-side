@@ -8,20 +8,41 @@ const ToolsSection = () => {
 
 
 
-    const { isLoading, error, data } = useQuery('allTools', () =>
-        fetch('https://infinite-chamber-43931.herokuapp.com/products').then(res =>
-            res.json()
-        )
-    )
+    // const { error, data } = useQuery('allTools', () =>
+
+    //     fetch('http://localhost:5000/products').then(res =>
+    //         res.json()
+    //     console.log(data)
+
+    //     )
+    // )
+    const [data, setData] = useState(null)
+    fetch('http://localhost:5000/products')
+    .then((response) => response.json())
+    .then((d) => setData(d));
 
 
+    // console.log(data)
+    // const { isLoading, error, data } = useQuery('repoData', () =>
+    //  fetch('http://localhost:5000/products').then(res =>
+    //    res.json()
+    //  ))
+
+    // console.log(data)
+    
+    // async function funcName(url){
+    //     const response = await fetch(url);
+    //     var data = await response.json();
+    //     console.log(data)
+    //     }
+
+    //     funcName('http://localhost:5000/products')
+
+if(data == null){
+return <Loading></Loading>
+}
 
 
-
-    if (isLoading) {
-        return <Loading></Loading>
-
-    }
 
 
     return (

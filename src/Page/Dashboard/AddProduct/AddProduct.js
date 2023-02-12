@@ -38,7 +38,7 @@ const AddProduct = () => {
                     }
                     
 
-                    fetch(`https://infinite-chamber-43931.herokuapp.com/products`, {
+                    fetch(`http://localhost:5000/products`, {
                         method: "POST",
                         headers: {
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`,

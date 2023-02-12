@@ -7,7 +7,7 @@ const useToken = (email) => {
         const currentUser = { email, lastLoginTime };
 
         if (email) {
-            fetch(`https://infinite-chamber-43931.herokuapp.com/user/${email}`, {
+            fetch(`http://localhost:5000/user/${email}`, {
                 method: "PUT",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(currentUser)

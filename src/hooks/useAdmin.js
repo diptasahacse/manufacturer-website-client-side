@@ -3,7 +3,7 @@ const useAdmin = (email) => {
     const [isAdmin, setIsAdmin] = useState(false);
     const [adminLoading, setAdminLoading] = useState(true);
     useEffect(() => {
-        fetch(`https://infinite-chamber-43931.herokuapp.com/admin/${email}`, {
+        fetch(`http://localhost:5000/admin/${email}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })

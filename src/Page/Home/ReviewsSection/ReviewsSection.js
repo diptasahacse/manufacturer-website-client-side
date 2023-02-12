@@ -8,14 +8,14 @@ const ReviewsSection = () => {
     const [allOrder, setAllOrder] = useState([])
 
     // useEffect(() => {
-    //     fetch('https://infinite-chamber-43931.herokuapp.com/orders')
+    //     fetch('http://localhost:5000/orders')
     //         .then(res => res.json())
     //         .then(data => setAllOrder(data))
     // }, [])
 
 
     const { isLoading, data, refetch } = useQuery(['allOrdersForReview'], () =>
-        fetch(`https://infinite-chamber-43931.herokuapp.com/orders`, {
+        fetch(`http://localhost:5000/orders`, {
             method: "GET"
         }).then(res =>
             res.json()

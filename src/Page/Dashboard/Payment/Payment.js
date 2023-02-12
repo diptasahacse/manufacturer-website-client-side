@@ -17,7 +17,7 @@ const Payment = () => {
     const [user, loading] = useAuthState(auth);
     const { id } = useParams();
     const { isLoading, error, data } = useQuery('repoData', () =>
-        fetch(`https://infinite-chamber-43931.herokuapp.com/order/${id}`, {
+        fetch(`http://localhost:5000/order/${id}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         }).then(res =>

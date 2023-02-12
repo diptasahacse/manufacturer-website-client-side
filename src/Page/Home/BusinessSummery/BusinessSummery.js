@@ -7,7 +7,7 @@ import Loading from '../../Shared/Loading/Loading';
 const BusinessSummery = () => {
 
     const { isLoading, data, refetch } = useQuery(['businessSummery'], () =>
-        fetch(`https://infinite-chamber-43931.herokuapp.com/businesssummery`, {
+        fetch(`http://localhost:5000/businesssummery`, {
             method: "GET"
         }).then(res =>
             res.json()
