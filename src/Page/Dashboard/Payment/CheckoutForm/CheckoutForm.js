@@ -16,7 +16,7 @@ const CheckoutForm = ({ orderInfo }) => {
    
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://manufacturer-website-server-side-7dah.onrender.com/create-payment-intent', {
             method: "POST",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -93,7 +93,7 @@ const CheckoutForm = ({ orderInfo }) => {
                 totalPrice
             }
             // Store status in database
-            fetch(`http://localhost:5000/orders/${_id}`, {
+            fetch(`https://manufacturer-website-server-side-7dah.onrender.com/orders/${_id}`, {
                 method: "PATCH",
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`,

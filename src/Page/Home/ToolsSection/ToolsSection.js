@@ -10,21 +10,21 @@ const ToolsSection = () => {
 
     // const { error, data } = useQuery('allTools', () =>
 
-    //     fetch('http://localhost:5000/products').then(res =>
+    //     fetch('https://manufacturer-website-server-side-7dah.onrender.com/products').then(res =>
     //         res.json()
     //     console.log(data)
 
     //     )
     // )
     const [data, setData] = useState(null)
-    fetch('http://localhost:5000/products')
+    fetch('https://manufacturer-website-server-side-7dah.onrender.com/products')
     .then((response) => response.json())
     .then((d) => setData(d));
 
 
     // console.log(data)
     // const { isLoading, error, data } = useQuery('repoData', () =>
-    //  fetch('http://localhost:5000/products').then(res =>
+    //  fetch('https://manufacturer-website-server-side-7dah.onrender.com/products').then(res =>
     //    res.json()
     //  ))
 
@@ -36,7 +36,7 @@ const ToolsSection = () => {
     //     console.log(data)
     //     }
 
-    //     funcName('http://localhost:5000/products')
+    //     funcName('https://manufacturer-website-server-side-7dah.onrender.com/products')
 
 if(data == null){
 return <Loading></Loading>

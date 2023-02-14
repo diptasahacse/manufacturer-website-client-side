@@ -9,7 +9,7 @@ const ManageAllOrders = () => {
     const [selectedOrder, setSelectedOrder] = useState({})
     const [selectedOrderForShipped, setSelectedOrderForShipped] = useState({})
     const { isLoading, data, refetch } = useQuery(['allOrders'], () =>
-        fetch(`http://localhost:5000/orders`, {
+        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/orders`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 

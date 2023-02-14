@@ -17,7 +17,7 @@ const MyProfile = () => {
     const imageStorageKey = '109d0f5e631e791da81874122264ddf5';
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user?.email}`, {
+        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/user/${user?.email}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })
@@ -62,7 +62,7 @@ const MyProfile = () => {
 
                     const userData = { img, city, education, linkedin, phone }
 
-                    fetch(`http://localhost:5000/user/info/${userInfo._id}`, {
+                    fetch(`https://manufacturer-website-server-side-7dah.onrender.com/user/info/${userInfo._id}`, {
                         method: "PUT",
                         headers: {
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`,

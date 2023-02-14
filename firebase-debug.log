@@ -1,0 +1,143 @@
+[debug] [2023-02-14T12:47:02.550Z] ----------------------------------------------------------------------
+[debug] [2023-02-14T12:47:02.554Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Dipta Saha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-02-14T12:47:02.555Z] CLI Version:   11.0.1
+[debug] [2023-02-14T12:47:02.555Z] Platform:      win32
+[debug] [2023-02-14T12:47:02.555Z] Node Version:  v19.1.0
+[debug] [2023-02-14T12:47:02.555Z] Time:          Tue Feb 14 2023 18:47:02 GMT+0600 (Bangladesh Standard Time)
+[debug] [2023-02-14T12:47:02.555Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-02-14T12:47:02.615Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-02-14T12:47:02.616Z] > authorizing via signed-in user (diptasaha.lpu.cse@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Project\Manufacturar Website\programming-hero-assignment-12\client\manufacturer-website
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-02-14T12:47:09.961Z] Using project from CLI flag: manufacturer-website-11d73
+[debug] [2023-02-14T12:47:09.963Z] > refreshing access token with scopes: []
+[debug] [2023-02-14T12:47:09.963Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2023-02-14T12:47:10.363Z] <<< HTTP RESPONSE 400 {"date":"Tue, 14 Feb 2023 12:47:12 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2023-02-14T12:47:10.367Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/manufacturer-website-11d73 [none]
+[debug] [2023-02-14T12:47:10.796Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/manufacturer-website-11d73 401
+[debug] [2023-02-14T12:47:10.796Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/manufacturer-website-11d73 {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2023-02-14T12:47:10.797Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2023-02-14T12:47:11.176Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at module.exports (C:\Users\Dipta Saha\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:47:12)
+    at RetryOperation._fn (C:\Users\Dipta Saha\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:286:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project manufacturer-website-11d73. Please make sure the project exists and your account has permission to access it.
+[debug] [2023-02-14T12:48:19.223Z] ----------------------------------------------------------------------
+[debug] [2023-02-14T12:48:19.227Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Dipta Saha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-02-14T12:48:19.228Z] CLI Version:   11.23.0
+[debug] [2023-02-14T12:48:19.228Z] Platform:      win32
+[debug] [2023-02-14T12:48:19.228Z] Node Version:  v19.1.0
+[debug] [2023-02-14T12:48:19.229Z] Time:          Tue Feb 14 2023 18:48:19 GMT+0600 (Bangladesh Standard Time)
+[debug] [2023-02-14T12:48:19.229Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-02-14T12:48:19.337Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-02-14T12:48:19.338Z] > authorizing via signed-in user (diptasaha.lpu.cse@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Project\Manufacturar Website\programming-hero-assignment-12\client\manufacturer-website
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-02-14T12:48:28.807Z] Using project from CLI flag: manufacturer-website-11d73
+[debug] [2023-02-14T12:48:28.809Z] > refreshing access token with scopes: []
+[debug] [2023-02-14T12:48:28.811Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-02-14T12:48:28.811Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-02-14T12:48:29.327Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2023-02-14T12:48:29.327Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-02-14T12:48:29.327Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/manufacturer-website-11d73 [none]
+[debug] [2023-02-14T12:48:29.727Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/manufacturer-website-11d73 401
+[debug] [2023-02-14T12:48:29.727Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/manufacturer-website-11d73 {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2023-02-14T12:48:29.728Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2023-02-14T12:48:30.029Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (C:\Users\Dipta Saha\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\Dipta Saha\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project manufacturer-website-11d73. Please make sure the project exists and your account has permission to access it.
+[debug] [2023-02-14T12:48:43.574Z] ----------------------------------------------------------------------
+[debug] [2023-02-14T12:48:43.577Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Dipta Saha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-02-14T12:48:43.577Z] CLI Version:   11.23.0
+[debug] [2023-02-14T12:48:43.577Z] Platform:      win32
+[debug] [2023-02-14T12:48:43.578Z] Node Version:  v19.1.0
+[debug] [2023-02-14T12:48:43.578Z] Time:          Tue Feb 14 2023 18:48:43 GMT+0600 (Bangladesh Standard Time)
+[debug] [2023-02-14T12:48:43.578Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-02-14T12:48:43.639Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-02-14T12:48:43.640Z] > authorizing via signed-in user (diptasaha.lpu.cse@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Project\Manufacturar Website\programming-hero-assignment-12\client\manufacturer-website
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-02-14T12:48:54.379Z] Using project from CLI flag: manufacturer-website-11d73
+[debug] [2023-02-14T12:48:54.382Z] > refreshing access token with scopes: []
+[debug] [2023-02-14T12:48:54.385Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-02-14T12:48:54.385Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-02-14T12:48:54.823Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2023-02-14T12:48:54.824Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-02-14T12:48:54.824Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/manufacturer-website-11d73 [none]
+[debug] [2023-02-14T12:48:55.226Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/manufacturer-website-11d73 401
+[debug] [2023-02-14T12:48:55.226Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/manufacturer-website-11d73 {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2023-02-14T12:48:55.227Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2023-02-14T12:48:55.524Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (C:\Users\Dipta Saha\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\Dipta Saha\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project manufacturer-website-11d73. Please make sure the project exists and your account has permission to access it.

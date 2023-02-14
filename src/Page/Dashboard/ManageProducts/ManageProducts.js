@@ -9,7 +9,7 @@ const ManageProducts = () => {
     const [selectedProduct, setSelectedProduct] = useState({})
 
     const { isLoading, data, refetch } = useQuery(['allProducts'], () =>
-        fetch(`http://localhost:5000/products`, {
+        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/products`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 

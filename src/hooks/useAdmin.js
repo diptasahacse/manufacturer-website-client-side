@@ -3,7 +3,7 @@ const useAdmin = (email) => {
     const [isAdmin, setIsAdmin] = useState(false);
     const [adminLoading, setAdminLoading] = useState(true);
     useEffect(() => {
-        fetch(`http://localhost:5000/admin/${email}`, {
+        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/admin/${email}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })

@@ -7,7 +7,7 @@ import Loading from '../../Shared/Loading/Loading';
 const BusinessSummery = () => {
 
     const { isLoading, data, refetch } = useQuery(['businessSummery'], () =>
-        fetch(`http://localhost:5000/businesssummery`, {
+        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/businesssummery`, {
             method: "GET"
         }).then(res =>
             res.json()

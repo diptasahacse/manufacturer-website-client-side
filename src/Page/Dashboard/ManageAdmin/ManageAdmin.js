@@ -7,7 +7,7 @@ const ManageAdmin = () => {
 
 
     const { isLoading, error, data, refetch } = useQuery('alluser', () =>
-        fetch('http://localhost:5000/user', {
+        fetch('https://manufacturer-website-server-side-7dah.onrender.com/user', {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         }).then(res =>

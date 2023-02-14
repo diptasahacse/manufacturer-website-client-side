@@ -38,7 +38,7 @@ const AddProduct = () => {
                     }
                     
 
-                    fetch(`http://localhost:5000/products`, {
+                    fetch(`https://manufacturer-website-server-side-7dah.onrender.com/products`, {
                         method: "POST",
                         headers: {
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`,

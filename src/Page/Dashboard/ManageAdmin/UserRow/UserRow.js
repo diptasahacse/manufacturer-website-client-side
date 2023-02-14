@@ -12,7 +12,7 @@ const UserRow = ({ index, singleUser, refetch }) => {
     const createAdminHandler = (email) => {
         
 
-        fetch(`http://localhost:5000/admin/createadmin/${email}`, {
+        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/admin/createadmin/${email}`, {
             method: "PUT",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 
@@ -36,7 +36,7 @@ const UserRow = ({ index, singleUser, refetch }) => {
 
     }
     const removeAdminHandler = (email) => {
-        fetch(`http://localhost:5000/admin/removeadmin/${email}`, {
+        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/admin/removeadmin/${email}`, {
             method: "PUT",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 

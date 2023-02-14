@@ -18,7 +18,7 @@ const Purchase = () => {
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         setIsLoading(true)
-        fetch(`http://localhost:5000/products/${productId}`, {
+        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/products/${productId}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })
@@ -52,7 +52,7 @@ const Purchase = () => {
             totalPrice: productInfo?.minOrderQuantity * productInfo?.price
 
         }
-        fetch('http://localhost:5000/orders', {
+        fetch('https://manufacturer-website-server-side-7dah.onrender.com/orders', {
             method: "POST",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
