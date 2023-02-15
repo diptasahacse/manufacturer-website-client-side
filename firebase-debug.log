@@ -141,3 +141,76 @@ Before we get started, keep in mind:
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
 [error] 
 [error] Error: Failed to get Firebase project manufacturer-website-11d73. Please make sure the project exists and your account has permission to access it.
+[debug] [2023-02-14T12:50:02.962Z] ----------------------------------------------------------------------
+[debug] [2023-02-14T12:50:02.967Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Dipta Saha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-02-14T12:50:02.968Z] CLI Version:   11.23.0
+[debug] [2023-02-14T12:50:02.968Z] Platform:      win32
+[debug] [2023-02-14T12:50:02.968Z] Node Version:  v19.1.0
+[debug] [2023-02-14T12:50:02.969Z] Time:          Tue Feb 14 2023 18:50:02 GMT+0600 (Bangladesh Standard Time)
+[debug] [2023-02-14T12:50:02.969Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-02-14T12:50:03.097Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-02-14T12:50:03.098Z] > authorizing via signed-in user (diptasaha.lpu.cse@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Project\Manufacturar Website\programming-hero-assignment-12\client\manufacturer-website
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-02-14T12:50:11.013Z] Using project from CLI flag: manufacturer-website-11d73
+[debug] [2023-02-14T12:50:11.014Z] > refreshing access token with scopes: []
+[debug] [2023-02-14T12:50:11.016Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-02-14T12:50:11.016Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-02-14T12:50:11.426Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2023-02-14T12:50:11.426Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-02-14T12:50:11.427Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/manufacturer-website-11d73 [none]
+[debug] [2023-02-14T12:50:11.830Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/manufacturer-website-11d73 401
+[debug] [2023-02-14T12:50:11.830Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/manufacturer-website-11d73 {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2023-02-14T12:50:11.831Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2023-02-14T12:50:12.228Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (C:\Users\Dipta Saha\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\Dipta Saha\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project manufacturer-website-11d73. Please make sure the project exists and your account has permission to access it.
+[debug] [2023-02-14T12:50:37.273Z] ----------------------------------------------------------------------
+[debug] [2023-02-14T12:50:37.276Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Dipta Saha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-02-14T12:50:37.276Z] CLI Version:   11.23.0
+[debug] [2023-02-14T12:50:37.277Z] Platform:      win32
+[debug] [2023-02-14T12:50:37.277Z] Node Version:  v19.1.0
+[debug] [2023-02-14T12:50:37.277Z] Time:          Tue Feb 14 2023 18:50:37 GMT+0600 (Bangladesh Standard Time)
+[debug] [2023-02-14T12:50:37.277Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-02-14T12:50:37.365Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-02-14T12:50:37.366Z] > authorizing via signed-in user (diptasaha.lpu.cse@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Project\Manufacturar Website\programming-hero-assignment-12\client\manufacturer-website
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
