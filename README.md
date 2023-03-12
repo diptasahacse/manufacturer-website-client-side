@@ -9,7 +9,7 @@ Live Site Link [useTools](https://manufacturer-website-client-side-smoky.vercel.
 * Purchase: This page is a dynamic route for purchase any order. user can confirm order from there.
 * Login Page : User can Login
 * Register Page : user can register.
-* Forget Password Page : user can forget his password.
+* Forget Password Page : user can reset his password.
 * Dashboard>Profile : user can see his/her info and update his profile picture, city, phone etc.
 * Dashboard>My Orders : Customer can see his/her all order which ha paid or non paid. customer can cancel or pay any order according to to status.
 * Dashboard>Manage All Orders : admin can manage all orders.
