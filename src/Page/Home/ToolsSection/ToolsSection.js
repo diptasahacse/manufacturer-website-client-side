@@ -10,21 +10,21 @@ const ToolsSection = () => {
 
     // const { error, data } = useQuery('allTools', () =>
 
-    //     fetch('https://manufacturer-website-server-side-7dah.onrender.com/products').then(res =>
+    //     fetch(`${process.env.REACT_APP_SERVER_API_KEY}/products`).then(res =>
     //         res.json()
     //     console.log(data)
 
     //     )
     // )
     const [data, setData] = useState(null)
-    fetch('https://manufacturer-website-server-side-7dah.onrender.com/products')
+    fetch(`${process.env.REACT_APP_SERVER_API_KEY}/products`)
     .then((response) => response.json())
     .then((d) => setData(d));
 
 
     // console.log(data)
     // const { isLoading, error, data } = useQuery('repoData', () =>
-    //  fetch('https://manufacturer-website-server-side-7dah.onrender.com/products').then(res =>
+    //  fetch(`${process.env.REACT_APP_SERVER_API_KEY}/products`).then(res =>
     //    res.json()
     //  ))
 
@@ -36,7 +36,7 @@ const ToolsSection = () => {
     //     console.log(data)
     //     }
 
-    //     funcName('https://manufacturer-website-server-side-7dah.onrender.com/products')
+    //     funcName(`${process.env.REACT_APP_SERVER_API_KEY}/products`)
 
 if(data == null){
 return <Loading></Loading>

@@ -38,7 +38,7 @@ const AddProduct = () => {
                     }
                     
 
-                    fetch(`https://manufacturer-website-server-side-7dah.onrender.com/products`, {
+                    fetch(`${process.env.REACT_APP_SERVER_API_KEY}/products`, {
                         method: "POST",
                         headers: {
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`,

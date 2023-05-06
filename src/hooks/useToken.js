@@ -7,7 +7,7 @@ const useToken = (email) => {
         const currentUser = { email, lastLoginTime };
 
         if (email) {
-            fetch(`https://manufacturer-website-server-side-7dah.onrender.com/user/${email}`, {
+            fetch(`${process.env.REACT_APP_SERVER_API_KEY}/user/${email}`, {
                 method: "PUT",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(currentUser)

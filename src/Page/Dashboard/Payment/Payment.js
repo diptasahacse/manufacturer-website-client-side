@@ -17,7 +17,7 @@ const Payment = () => {
     const [user, loading] = useAuthState(auth);
     const { id } = useParams();
     const { isLoading, error, data } = useQuery('repoData', () =>
-        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/order/${id}`, {
+        fetch(`${process.env.REACT_APP_SERVER_API_KEY}/order/${id}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         }).then(res =>

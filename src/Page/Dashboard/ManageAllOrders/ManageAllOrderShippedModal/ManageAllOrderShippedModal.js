@@ -6,7 +6,7 @@ import Loading from '../../../Shared/Loading/Loading';
 const ManageAllOrderShippedModal = ({ refetch, setSelectedOrderForShipped, selectedOrderForShipped }) => {
     const { _id, quantity, productName, productId } = selectedOrderForShipped;
     const { isLoading, data } = useQuery(['singleProductForShippedModal'], () =>
-        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/products/${productId}`, {
+        fetch(`${process.env.REACT_APP_SERVER_API_KEY}/products/${productId}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 
@@ -20,7 +20,7 @@ const ManageAllOrderShippedModal = ({ refetch, setSelectedOrderForShipped, selec
     }
     const shippedHandleListener = () => {
         const updateAvailableQuantity = data?.availableQuantity - quantity;
-        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/orders/payment/${_id}`, {
+        fetch(`${process.env.REACT_APP_SERVER_API_KEY}/orders/payment/${_id}`, {
             method: "PUT",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,

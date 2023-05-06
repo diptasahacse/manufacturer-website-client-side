@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const OrderDeleteModal = ({ selectedOrders, setSelectedOrders, refetch }) => {
     const { _id, productName } = selectedOrders;
     const cancleOrderHandler = () => {
-        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/orders/${_id}`, {
+        fetch(`${process.env.REACT_APP_SERVER_API_KEY}/orders/${_id}`, {
             method: "DELETE",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })

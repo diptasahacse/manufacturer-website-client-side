@@ -8,14 +8,14 @@ const ReviewsSection = () => {
     const [allOrder, setAllOrder] = useState([])
 
     // useEffect(() => {
-    //     fetch('https://manufacturer-website-server-side-7dah.onrender.com/orders')
+    //     fetch(`${process.env.REACT_APP_SERVER_API_KEY}/orders`)
     //         .then(res => res.json())
     //         .then(data => setAllOrder(data))
     // }, [])
 
 
     const { isLoading, data, refetch } = useQuery(['allOrdersForReview'], () =>
-        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/orders`, {
+        fetch(`${process.env.REACT_APP_SERVER_API_KEY}/orders`, {
             method: "GET"
         }).then(res =>
             res.json()

@@ -15,7 +15,7 @@ const AddReviewModal = ({ selectedOrder, setSelectedOrder,refetch }) => {
 
     const onSubmit = (data) => {
 
-        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/review/${_id}`, {
+        fetch(`${process.env.REACT_APP_SERVER_API_KEY}/review/${_id}`, {
             method: "PATCH",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,

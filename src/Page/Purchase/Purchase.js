@@ -18,7 +18,7 @@ const Purchase = () => {
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         setIsLoading(true)
-        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/products/${productId}`, {
+        fetch(`${process.env.REACT_APP_SERVER_API_KEY}/products/${productId}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })

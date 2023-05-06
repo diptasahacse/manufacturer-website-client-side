@@ -9,7 +9,7 @@ const ProductDeleteModal = ({ selectedProduct, setSelectedProduct, refetch }) =>
 
 
 
-        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/products/${_id}`, {
+        fetch(`${process.env.REACT_APP_SERVER_API_KEY}/products/${_id}`, {
             method: "DELETE",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
         })

@@ -16,7 +16,7 @@ const AddReview = () => {
     const [selectedShowOrder, setSelectedShowOrder] = useState({})
 
     const { isLoading, data, refetch } = useQuery(['myOrdersForReview'], () =>
-        fetch(`https://manufacturer-website-server-side-7dah.onrender.com/orders/${user?.email}`, {
+        fetch(`${process.env.REACT_APP_SERVER_API_KEY}/orders/${user?.email}`, {
             method: "GET",
             headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` }
 
